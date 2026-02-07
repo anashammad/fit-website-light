@@ -1,20 +1,63 @@
-name: Deploy CMS to Staging
+name: Deploy to Staging
 
 on:
   push:
     branches: [develop]
-    paths:
-      - "apps/cms/**"
-      - "packages/shared/**"
+
+concurrency:
+  group: deploy-staging
+  cancel-in-progress: true
 
 env:
+  NODE_VERSION: "20"
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}/fit-cms
 
 jobs:
-  deploy-cms:
-    name: Build & Deploy CMS
+  # Build and deploy Next.js frontend to Vercel (preview)
+  deploy-web:
+    name: Deploy Web (Vercel Preview)
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - run: npm ci
+      - run: npm i -g vercel
+
+      - name: Pull Vercel environment
+        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build for Vercel
+        run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy to Vercel (preview)
+        id: deploy
+        run: |
+          URL=$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})
+          echo "preview_url=$URL" >> "$GITHUB_OUTPUT"
+
+      - name: Comment preview URL
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `Preview deployed: ${{ steps.deploy.outputs.preview_url }}`
+            })
+
+  # Build and deploy CMS Docker image to staging VPS
+  deploy-cms:
+    name: Deploy CMS (Staging VPS)
+    runs-on: ubuntu-latest
+    if: contains(join(github.event.commits.*.modified, ','), 'apps/cms') || contains(join(github.event.commits.*.added, ','), 'apps/cms')
     permissions:
       contents: read
       packages: write
