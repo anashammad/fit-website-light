@@ -3,7 +3,7 @@
   "framework": "nextjs",
   "buildCommand": "npx turbo build --filter=@fit/web",
   "outputDirectory": "apps/web/.next",
-  "installCommand": "npm ci",
+  "installCommand": "npm ci --workspace=apps/web",
   "git": {
     "deploymentEnabled": {
       "main": true,
