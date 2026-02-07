@@ -20,6 +20,9 @@ const staticPages: PageEntry[] = [
   { path: '/products/fit-surveillance', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/products/digital-onboarding', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/products/api-middleware', changeFrequency: 'monthly', priority: 0.9 },
+  { path: '/products/fund-management', changeFrequency: 'monthly', priority: 0.9 },
+  { path: '/products/ipo-manager', changeFrequency: 'monthly', priority: 0.9 },
+  { path: '/products/banking-gateway', changeFrequency: 'monthly', priority: 0.9 },
   // Solutions — 0.9
   { path: '/solutions/brokerage', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/solutions/exchanges', changeFrequency: 'monthly', priority: 0.9 },
