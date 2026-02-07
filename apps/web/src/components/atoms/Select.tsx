@@ -27,7 +27,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
       <div className="flex flex-col gap-1.5">
         <label
           htmlFor={selectId}
-          className="text-body-sm font-medium text-gray-700"
+          className="text-body-sm font-medium text-gray-300"
         >
           {label}
           {required && <span className="ml-0.5 text-error">*</span>}
@@ -41,13 +41,13 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             aria-invalid={error ? true : undefined}
             aria-describedby={errorId ?? hintId}
             className={cn(
-              'h-11 w-full appearance-none rounded border bg-white px-4 py-3 pr-10 text-body text-gray-800',
+              'h-11 w-full appearance-none rounded border bg-primary px-4 py-3 pr-10 text-body text-gray-200',
               'transition-colors duration-150',
-              'focus:border-secondary focus:outline-none focus:ring-[3px] focus:ring-secondary/20',
-              'disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-400',
+              'focus:border-accent focus:outline-none focus:ring-[3px] focus:ring-accent/20',
+              'disabled:cursor-not-allowed disabled:bg-surface disabled:text-gray-600',
               error
                 ? 'border-error focus:border-error focus:ring-error/20'
-                : 'border-gray-300',
+                : 'border-terminal-border',
               className
             )}
             {...props}
@@ -79,7 +79,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
           </p>
         )}
         {hint && !error && (
-          <p id={hintId} className="text-caption text-gray-400">
+          <p id={hintId} className="text-caption text-gray-500">
             {hint}
           </p>
         )}

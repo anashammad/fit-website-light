@@ -531,9 +531,9 @@ export default async function SolutionPage({
       />
 
       {/* Pain Points */}
-      <section className="section-padding">
+      <section className="section-padding bg-primary">
         <div className="container-content">
-          <Text variant="overline" className="text-secondary">
+          <Text variant="overline" className="text-accent">
             Challenges
           </Text>
           <Heading level={2} className="mt-2">
@@ -543,16 +543,16 @@ export default async function SolutionPage({
             {data.painPoints.map((point) => (
               <div
                 key={point.title}
-                className="flex gap-4 rounded-lg border border-gray-200 bg-white p-6 shadow-card"
+                className="flex gap-4 rounded-lg border border-terminal-border bg-surface p-6"
               >
                 <Icon
                   name={point.icon}
                   size={40}
-                  className="shrink-0 text-secondary"
+                  className="shrink-0 text-accent"
                 />
                 <div>
                   <Heading level={4}>{point.title}</Heading>
-                  <Text variant="body-sm" className="mt-2">
+                  <Text variant="body-sm" className="mt-2 text-gray-400">
                     {point.description}
                   </Text>
                 </div>
@@ -563,29 +563,29 @@ export default async function SolutionPage({
       </section>
 
       {/* Our Solution */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-surface">
         <div className="container-content">
-          <Text variant="overline" className="text-secondary">
+          <Text variant="overline" className="text-accent">
             Our approach
           </Text>
           <Heading level={2} className="mt-2">
             How FIT addresses each challenge
           </Heading>
-          <Text variant="body-lg" className="mt-4 max-w-3xl">
+          <Text variant="body-lg" className="mt-4 max-w-3xl text-gray-400">
             {data.solutionIntro}
           </Text>
           <div className="mt-12 space-y-6">
             {data.solutionMappings.map((mapping, index) => (
               <div
                 key={mapping.painPoint}
-                className="flex flex-col gap-4 rounded-lg border border-gray-200 bg-white p-6 shadow-card md:flex-row md:items-start"
+                className="flex flex-col gap-4 rounded-lg border border-terminal-border bg-primary p-6 md:flex-row md:items-start"
               >
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-secondary text-body font-semibold text-white">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent/10 border border-accent/30 text-body font-semibold text-accent">
                   {index + 1}
                 </div>
                 <div>
                   <Heading level={4}>{mapping.painPoint}</Heading>
-                  <Text variant="body-sm" className="mt-1">
+                  <Text variant="body-sm" className="mt-1 text-gray-400">
                     {mapping.capability}
                   </Text>
                 </div>
@@ -596,9 +596,9 @@ export default async function SolutionPage({
       </section>
 
       {/* Product Mapping */}
-      <section className="section-padding">
+      <section className="section-padding bg-primary">
         <div className="container-content">
-          <Text variant="overline" className="text-secondary">
+          <Text variant="overline" className="text-accent">
             Products
           </Text>
           <Heading level={2} className="mt-2">
@@ -609,20 +609,20 @@ export default async function SolutionPage({
               <Link
                 key={product.name}
                 href={product.href}
-                className="group flex flex-col rounded-lg border border-gray-200 bg-white p-6 shadow-card transition-all duration-200 hover:-translate-y-0.5 hover:border-gray-300 hover:shadow-card-hover"
+                className="group flex flex-col rounded-lg border border-terminal-border bg-surface p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/20 hover:shadow-[0_4px_20px_rgba(212,168,67,0.1)]"
               >
                 <Icon
                   name={product.icon}
                   size={40}
-                  className="text-secondary"
+                  className="text-accent"
                 />
                 <Heading level={4} className="mt-4">
                   {product.name}
                 </Heading>
-                <Text variant="body-sm" className="mt-2">
+                <Text variant="body-sm" className="mt-2 text-gray-400">
                   {product.description}
                 </Text>
-                <span className="mt-auto pt-4 text-body-sm font-semibold text-secondary transition-colors group-hover:text-secondary-hover">
+                <span className="mt-auto pt-4 text-body-sm font-semibold text-accent transition-colors group-hover:text-accent-light">
                   Learn More &rarr;
                 </span>
               </Link>
@@ -632,9 +632,9 @@ export default async function SolutionPage({
       </section>
 
       {/* Results / Outcomes */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-surface">
         <div className="container-content">
-          <Text variant="overline" className="text-secondary">
+          <Text variant="overline" className="text-accent">
             Outcomes
           </Text>
           <Heading level={2} className="mt-2">
@@ -643,10 +643,10 @@ export default async function SolutionPage({
           <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {data.results.map((result) => (
               <div key={result.metric} className="text-center">
-                <Heading level={3} className="text-secondary">
+                <Heading level={3} className="text-accent">
                   {result.metric}
                 </Heading>
-                <Text variant="body-sm" className="mt-2">
+                <Text variant="body-sm" className="mt-2 text-gray-400">
                   {result.description}
                 </Text>
               </div>

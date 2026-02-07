@@ -37,7 +37,7 @@ export function Breadcrumb({ items, className }: BreadcrumbProps) {
               )}
               {isLast || !item.href ? (
                 <span
-                  className="text-caption text-gray-800"
+                  className="text-caption text-gray-300"
                   aria-current="page"
                   itemProp="name"
                 >
@@ -46,7 +46,7 @@ export function Breadcrumb({ items, className }: BreadcrumbProps) {
               ) : (
                 <Link
                   href={item.href}
-                  className="text-caption text-gray-500 transition-colors hover:text-secondary"
+                  className="text-caption text-gray-500 transition-colors hover:text-accent"
                   itemProp="item"
                 >
                   <span itemProp="name">{item.label}</span>

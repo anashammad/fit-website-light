@@ -37,12 +37,12 @@ export function Header({
   return (
     <header
       className={cn(
-        'sticky top-0 z-40 h-16 border-b border-gray-200 bg-white transition-shadow duration-150',
-        scrolled && 'shadow-nav'
+        'sticky top-0 z-40 h-16 border-b border-terminal-border bg-primary/95 backdrop-blur-md transition-all duration-150',
+        scrolled && 'shadow-[0_1px_8px_rgba(0,0,0,0.4)]'
       )}
     >
       <div className="container-content flex h-full items-center justify-between">
-        <Logo variant="dark" />
+        <Logo variant="light" />
 
         {/* Desktop nav */}
         <nav
@@ -68,7 +68,7 @@ export function Header({
         {/* Mobile hamburger */}
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded text-gray-700 lg:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded text-gray-400 hover:text-white lg:hidden"
           aria-label="Open navigation menu"
           onClick={() => setMobileOpen(true)}
         >

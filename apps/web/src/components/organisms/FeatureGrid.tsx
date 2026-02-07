@@ -17,14 +17,14 @@ export interface FeatureGridProps {
 
 export function FeatureGrid({ overline, heading, features, className }: FeatureGridProps) {
   return (
-    <section className={cn('section-padding', className)}>
+    <section className={cn('section-padding bg-primary', className)}>
       <div className="container-content">
         {overline && (
-          <Text variant="overline" className="text-secondary">
+          <Text variant="overline" className="text-accent">
             {overline}
           </Text>
         )}
-        <Heading level={2} className="mt-2">
+        <Heading level={2} className="mt-2 text-white">
           {heading}
         </Heading>
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">

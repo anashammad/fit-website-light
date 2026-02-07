@@ -169,8 +169,8 @@ const teamSections: TeamSection[] = [
 
 function TeamMemberCard({ member }: { member: TeamMember }) {
   return (
-    <div className="rounded-lg border border-gray-200 bg-white p-6 transition-shadow hover:shadow-md">
-      <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full" style={{ backgroundColor: member.image ? undefined : '#0A1628' }}>
+    <div className="rounded-lg border border-terminal-border bg-surface p-6 transition-all duration-300 hover:border-accent/15">
+      <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-primary">
         {member.image ? (
           <Image
             src={member.image}
@@ -180,7 +180,7 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
             className="h-20 w-20 rounded-full object-cover"
           />
         ) : (
-          <span className="text-xl font-bold select-none" style={{ color: '#E8A838' }} aria-hidden="true">
+          <span className="text-xl font-bold select-none text-accent" aria-hidden="true">
             {member.name.split(' ').filter(Boolean).map((n) => n[0]).join('').slice(0, 2).toUpperCase()}
           </span>
         )}
@@ -188,10 +188,10 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
       <Heading level={3} className="text-lg">
         {member.name}
       </Heading>
-      <Text variant="body-sm" className="mt-1 font-medium text-secondary">
+      <Text variant="body-sm" className="mt-1 font-medium text-accent">
         {member.title}
       </Text>
-      <Text variant="body-sm" className="mt-3 text-gray-600">
+      <Text variant="body-sm" className="mt-3 text-gray-400">
         {member.bio}
       </Text>
       {member.linkedin && (
@@ -199,7 +199,7 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
           href={member.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-3 inline-flex items-center gap-1.5 text-sm text-gray-500 transition-colors hover:text-[#0A66C2]"
+          className="mt-3 inline-flex items-center gap-1.5 text-sm text-gray-500 transition-colors hover:text-accent"
           aria-label={`${member.name} on LinkedIn`}
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -233,11 +233,11 @@ export default function LeadershipPage() {
         ]}
       />
 
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-primary">
         <div className="container-content space-y-16">
           {teamSections.map((section) => (
             <div key={section.label}>
-              <Heading level={2} className="mb-8 border-b border-gray-200 pb-4">
+              <Heading level={2} className="mb-8 border-b border-terminal-border pb-4">
                 {section.label}
               </Heading>
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">

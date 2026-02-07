@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { buildMetadata, buildBreadcrumbSchema, SITE_URL } from '@/lib/metadata';
 import { Heading, Text } from '@/components/atoms';
 import { ProductCard } from '@/components/molecules';
-import { HeroSection, FeatureGrid, CTABanner } from '@/components/organisms';
+import { HeroSection, FeatureGrid, CTABanner, PlatformPreview } from '@/components/organisms';
 import type { Feature } from '@/components/organisms';
 import type { BreadcrumbItem } from '@/components/molecules/Breadcrumb';
 
@@ -27,6 +27,7 @@ interface ProductData {
   modules?: Module[];
   howItWorks: { step: string; title: string; description: string }[];
   integrations: string[];
+  screenshots?: { src: string; alt: string }[];
   primaryCta: { label: string; href: string };
   secondaryCta: { label: string; href: string };
   relatedSlugs: string[];
@@ -111,6 +112,10 @@ const products: Record<string, ProductData> = {
       { name: 'AMS', description: 'Centralized Account Management System for digital onboarding, KYC documentation, account hierarchy, trading permissions, and regulatory integration.' },
       { name: 'PMS', description: 'Lightweight portfolio management for brokers offering discretionary accounts — model portfolios, drift monitoring, batch rebalancing, and performance tracking.' },
       { name: 'US Market Integration', description: 'NYSE and NASDAQ access via FIX connectivity to US executing brokers, with unified portfolio view, multi-currency support, and extended hours trading.' },
+    ],
+    screenshots: [
+      { src: '/images/products/fit-premium-screenshot.png', alt: 'FIT Premium — Multi-market OMS trading terminal' },
+      { src: '/images/products/market-making-screenshot.png', alt: 'Market Making module — QGTS automated quoting' },
     ],
     integrations: ['FIX 4.2/4.4', 'Nasdaq X-Stream', 'Horizon', 'REST API', 'WebSocket'],
     primaryCta: { label: 'Schedule a Demo', href: '/contact?product=fit-premium' },
@@ -256,6 +261,9 @@ const products: Record<string, ProductData> = {
           'Generate regulatory reports, client statements, and audit trails automatically. Arabic and English language support throughout.',
       },
     ],
+    screenshots: [
+      { src: '/images/products/wasata-screenshot.png', alt: 'Wasata Backoffice — Transactions summary & portfolio management' },
+    ],
     integrations: ['FIT Premium OMS', 'CSD Systems', 'Core Banking', 'Exchange Settlement', 'Regulatory Portals'],
     primaryCta: { label: 'Book a Walkthrough', href: '/contact?product=wasata-backoffice' },
     secondaryCta: { label: 'Request Datasheet', href: '/contact?type=datasheet&product=wasata-backoffice' },
@@ -399,6 +407,10 @@ const products: Record<string, ProductData> = {
         description:
           'Deploy to app stores under your developer account and launch the web platform. Start onboarding clients immediately.',
       },
+    ],
+    screenshots: [
+      { src: '/images/products/mobile-trading-home.webp', alt: 'Mobile Trading — Market overview with live charts' },
+      { src: '/images/products/mobile-trading-depth.webp', alt: 'Mobile Trading — Stock details & market depth' },
     ],
     integrations: ['FIT Premium OMS', 'API Middleware', 'GCC Exchange Feeds', 'Push Notifications', 'Biometric Auth'],
     primaryCta: { label: 'See the Trading App Demo', href: '/contact?product=mobile-web-trading' },
@@ -549,6 +561,222 @@ const products: Record<string, ProductData> = {
     secondaryCta: { label: 'Request Datasheet', href: '/contact?type=datasheet&product=digital-onboarding' },
     relatedSlugs: ['fit-premium', 'wasata-backoffice', 'mobile-web-trading'],
   },
+  'fund-management': {
+    slug: 'fund-management',
+    name: 'Fund Management',
+    headline: 'Complete Fund Administration for MENA Asset Managers',
+    subtitle:
+      'Multi-portfolio, multi-currency, multi-fund administration system covering the full lifecycle from subscription and redemption to NAV calculation, performance reporting, and regulatory compliance.',
+    description:
+      'Fund administration system for mutual funds, Islamic funds, and investment portfolios. NAV calculation, shareholder registry, and performance analytics.',
+    icon: 'fund',
+    features: [
+      {
+        icon: 'layers',
+        title: 'Multi-Portfolio & Multi-Fund',
+        description:
+          'Manage multiple funds, sub-funds, and portfolios simultaneously with independent NAV calculations, fee structures, and compliance rules per fund.',
+      },
+      {
+        icon: 'activity',
+        title: 'Trading & Back Office Integration',
+        description:
+          'Integrated buy/sell order management with real-time price, index, and FX rate updates. Direct link to back-office systems for seamless settlement.',
+      },
+      {
+        icon: 'users',
+        title: 'Shareholder Management',
+        description:
+          'Complete subscription and redemption processing, unit allocation, block/pledge management, and investor registry with full audit trail.',
+      },
+      {
+        icon: 'file-text',
+        title: 'Finance & Accounting Module',
+        description:
+          'Chart of accounts, general ledger, balance sheet, trial balance, income statement, and FX gain/loss calculations — all integrated with fund operations.',
+      },
+      {
+        icon: 'trending-up',
+        title: 'NAV & Performance Analytics',
+        description:
+          'Daily NAV calculation with performance metrics including Beta, Sharpe ratio, and Treynor ratio. Automated fact sheet generation and SMS notifications.',
+      },
+      {
+        icon: 'globe',
+        title: 'Multi-Currency Support',
+        description:
+          'Full multi-currency fund management with automated FX rate feeds, currency hedging tracking, and consolidated reporting across base currencies.',
+      },
+    ],
+    howItWorks: [
+      {
+        step: '1',
+        title: 'Set Up Fund Structure',
+        description:
+          'Configure brokers, securities, clients, portfolios, exchanges, indices, asset classes, and currencies for each fund.',
+      },
+      {
+        step: '2',
+        title: 'Manage Daily Operations',
+        description:
+          'Process subscriptions/redemptions, execute trades, handle corporate actions, and calculate daily NAV automatically.',
+      },
+      {
+        step: '3',
+        title: 'Report & Distribute',
+        description:
+          'Generate performance reports, fact sheets, financial statements, and investor communications in Arabic and English.',
+      },
+    ],
+    integrations: ['FIT Premium OMS', 'Wasata Backoffice', 'Market Data Feeds', 'Custodian Systems', 'SMS Gateway'],
+    primaryCta: { label: 'Schedule a Demo', href: '/contact?product=fund-management' },
+    secondaryCta: { label: 'Request Datasheet', href: '/contact?type=datasheet&product=fund-management' },
+    relatedSlugs: ['investor-vision', 'wasata-backoffice', 'fit-premium'],
+  },
+  'ipo-manager': {
+    slug: 'ipo-manager',
+    name: 'IPO Manager',
+    headline: 'Streamline IPO Subscriptions from Start to Allotment',
+    subtitle:
+      'Centralized IPO subscription management system handling manual and automated entry, real-time progress monitoring, allotment scenario generation, and full validation and approval workflows for capital market offerings.',
+    description:
+      'IPO subscription management for exchanges and brokerage houses. Centralized entry, real-time monitoring, allotment scenarios, and regulatory reporting.',
+    icon: 'ipo',
+    features: [
+      {
+        icon: 'clipboard',
+        title: 'Centralized Subscription Management',
+        description:
+          'Single platform for collecting, validating, and managing all IPO subscriptions from multiple channels — branch, online, and institutional.',
+      },
+      {
+        icon: 'zap',
+        title: 'Manual & Automated Entry',
+        description:
+          'Support for both manual subscription entry by branch staff and automated bulk uploads from banking partners and online channels.',
+      },
+      {
+        icon: 'activity',
+        title: 'Real-Time Progress Reports',
+        description:
+          'Live dashboards showing subscription progress, coverage ratios, investor demographics, and channel breakdowns throughout the offering period.',
+      },
+      {
+        icon: 'sliders',
+        title: 'Allotment Scenario Generation',
+        description:
+          'Generate and compare multiple allotment scenarios (pro-rata, tiered, lottery) with what-if analysis before final approval and announcement.',
+      },
+      {
+        icon: 'shield',
+        title: 'Validation & Approval Workflow',
+        description:
+          'Multi-level validation of subscription applications with duplicate detection, document verification, and maker-checker approval workflows.',
+      },
+      {
+        icon: 'file-text',
+        title: 'Regulatory Reporting',
+        description:
+          'Pre-built reports for exchange and regulator submission including subscription summaries, allotment results, and refund processing records.',
+      },
+    ],
+    howItWorks: [
+      {
+        step: '1',
+        title: 'Configure the Offering',
+        description:
+          'Set up IPO parameters — share count, price range, subscription period, investor categories, and allotment rules.',
+      },
+      {
+        step: '2',
+        title: 'Collect Subscriptions',
+        description:
+          'Receive applications through all channels with real-time validation, duplicate detection, and progress monitoring.',
+      },
+      {
+        step: '3',
+        title: 'Allot and Settle',
+        description:
+          'Generate allotment scenarios, obtain approval, process share allocations, and manage refunds — all from a single interface.',
+      },
+    ],
+    integrations: ['FIT Premium OMS', 'Wasata Backoffice', 'Banking Systems', 'Exchange Platforms', 'CSD Systems'],
+    primaryCta: { label: 'Schedule a Demo', href: '/contact?product=ipo-manager' },
+    secondaryCta: { label: 'Request Datasheet', href: '/contact?type=datasheet&product=ipo-manager' },
+    relatedSlugs: ['fit-premium', 'wasata-backoffice', 'digital-onboarding'],
+  },
+  'banking-gateway': {
+    slug: 'banking-gateway',
+    name: 'Banking Gateway',
+    headline: 'Seamless Fund Transfers Between Banks and Brokerages',
+    subtitle:
+      'Secure online gateway enabling real-time fund deposits from bank accounts to brokerage accounts and transfers from brokerage back to bank — eliminating manual processes and reducing settlement risk.',
+    description:
+      'Online banking integration for brokerages. Real-time deposits, withdrawals, and fund transfers between client bank accounts and brokerage accounts.',
+    icon: 'bank',
+    features: [
+      {
+        icon: 'zap',
+        title: 'Online Deposit',
+        description:
+          'Clients deposit funds from their bank account directly into their brokerage account in real time, with instant balance updates and trading power availability.',
+      },
+      {
+        icon: 'shuffle',
+        title: 'Online Transfer to Bank',
+        description:
+          'Process withdrawal requests from brokerage accounts back to client bank accounts with automated approval workflows and same-day settlement.',
+      },
+      {
+        icon: 'shield',
+        title: 'Secure Authentication',
+        description:
+          'Bank-grade security with multi-factor authentication, transaction signing, and encrypted communication channels between brokerage and banking systems.',
+      },
+      {
+        icon: 'activity',
+        title: 'Real-Time Reconciliation',
+        description:
+          'Automated matching and reconciliation of fund movements between banking and brokerage ledgers with exception handling and audit trails.',
+      },
+      {
+        icon: 'link',
+        title: 'Multi-Bank Integration',
+        description:
+          'Pre-built connectors for major MENA banks including NBO, Bank Dhofar, Ahli Bank, QNB, ADCB, and CBD with standardized API integration.',
+      },
+      {
+        icon: 'file-text',
+        title: 'Transaction Reporting',
+        description:
+          'Complete transaction history with regulatory reporting, AML monitoring integration, and automated client notifications for all fund movements.',
+      },
+    ],
+    howItWorks: [
+      {
+        step: '1',
+        title: 'Connect Your Banks',
+        description:
+          'Integrate with client banking partners through secure API connections. Pre-built connectors reduce integration time to days.',
+      },
+      {
+        step: '2',
+        title: 'Enable Fund Transfers',
+        description:
+          'Clients initiate deposits and withdrawals through your trading platform or mobile app. Transactions are validated and processed in real time.',
+      },
+      {
+        step: '3',
+        title: 'Reconcile Automatically',
+        description:
+          'Fund movements are matched across systems automatically. Exception reports flag discrepancies for manual review.',
+      },
+    ],
+    integrations: ['FIT Premium OMS', 'Wasata Backoffice', 'Core Banking APIs', 'Payment Gateways', 'AML Systems'],
+    primaryCta: { label: 'Schedule a Demo', href: '/contact?product=banking-gateway' },
+    secondaryCta: { label: 'Request Datasheet', href: '/contact?type=datasheet&product=banking-gateway' },
+    relatedSlugs: ['fit-premium', 'wasata-backoffice', 'api-middleware'],
+  },
 };
 
 const allSlugs = Object.keys(products);
@@ -636,6 +864,13 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         ]}
       />
 
+      {/* Platform Preview */}
+      <PlatformPreview
+        productName={product.name}
+        screenshots={product.screenshots}
+        demoHref={product.primaryCta.href}
+      />
+
       {/* Features */}
       <FeatureGrid
         overline={product.name}
@@ -645,27 +880,27 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
       {/* Add-On Modules (FIT Premium only) */}
       {product.modules && product.modules.length > 0 && (
-        <section className="section-padding bg-white">
+        <section className="section-padding bg-surface">
           <div className="container-content">
-            <Text variant="overline" className="text-secondary">
+            <Text variant="overline" className="text-accent">
               Add-On Modules
             </Text>
-            <Heading level={2} className="mt-2">
+            <Heading level={2} className="mt-2 text-white">
               Extend {product.name} With Specialized Modules
             </Heading>
-            <Text variant="body-lg" className="mx-auto mt-4 max-w-2xl text-gray-500">
+            <Text variant="body-lg" className="mx-auto mt-4 max-w-2xl text-gray-400">
               Each module plugs directly into {product.name} and can be deployed independently based on your needs.
             </Text>
             <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
               {product.modules.map((mod) => (
                 <div
                   key={mod.name}
-                  className="rounded-lg border border-gray-200 bg-gray-50 p-5 transition-shadow hover:shadow-md"
+                  className="rounded-lg border border-terminal-border bg-primary p-5 transition-all duration-300 hover:border-accent/15"
                 >
-                  <Heading level={4} className="text-base">
+                  <Heading level={4} className="text-base text-white">
                     {mod.name}
                   </Heading>
-                  <Text variant="body-sm" className="mt-2 text-gray-600">
+                  <Text variant="body-sm" className="mt-2 text-gray-400">
                     {mod.description}
                   </Text>
                 </div>
@@ -676,24 +911,24 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       )}
 
       {/* How It Works */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-primary">
         <div className="container-content">
-          <Text variant="overline" className="text-secondary">
+          <Text variant="overline" className="text-accent">
             How It Works
           </Text>
-          <Heading level={2} className="mt-2">
+          <Heading level={2} className="mt-2 text-white">
             Three Steps to Get Started
           </Heading>
           <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
             {product.howItWorks.map((step) => (
               <div key={step.step} className="text-center">
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-secondary text-white text-h4 font-bold">
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-accent/30 bg-accent/10 text-accent text-h4 font-bold">
                   {step.step}
                 </div>
-                <Heading level={4} className="mt-4">
+                <Heading level={4} className="mt-4 text-white">
                   {step.title}
                 </Heading>
-                <Text variant="body-sm" className="mt-2">
+                <Text variant="body-sm" className="mt-2 text-gray-400">
                   {step.description}
                 </Text>
               </div>
@@ -703,22 +938,22 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       </section>
 
       {/* Integrations */}
-      <section className="section-padding">
+      <section className="section-padding bg-surface">
         <div className="container-content text-center">
-          <Text variant="overline" className="text-secondary">
+          <Text variant="overline" className="text-accent">
             Integrations
           </Text>
-          <Heading level={2} className="mt-2">
+          <Heading level={2} className="mt-2 text-white">
             Built to Connect
           </Heading>
-          <Text variant="body-lg" className="mx-auto mt-4 max-w-2xl text-gray-500">
+          <Text variant="body-lg" className="mx-auto mt-4 max-w-2xl text-gray-400">
             {product.name} works with your existing infrastructure through standard protocols and APIs.
           </Text>
           <div className="mx-auto mt-10 flex max-w-2xl flex-wrap justify-center gap-4">
             {product.integrations.map((integration) => (
               <span
                 key={integration}
-                className="rounded-full border border-gray-200 bg-white px-5 py-2 text-body-sm font-medium text-gray-700 shadow-sm"
+                className="rounded-full border border-terminal-border bg-primary px-5 py-2 text-body-sm font-medium font-mono text-accent"
               >
                 {integration}
               </span>
@@ -728,12 +963,12 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       </section>
 
       {/* Related Products */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-primary">
         <div className="container-content">
-          <Text variant="overline" className="text-secondary">
+          <Text variant="overline" className="text-accent">
             Related Products
           </Text>
-          <Heading level={2} className="mt-2">
+          <Heading level={2} className="mt-2 text-white">
             Explore the FIT Suite
           </Heading>
           <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">

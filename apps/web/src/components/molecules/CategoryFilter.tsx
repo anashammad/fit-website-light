@@ -24,8 +24,8 @@ export function CategoryFilter({ categories, active, onChange, className }: Cate
             className={cn(
               'rounded-full px-4 py-2 text-body-sm font-medium transition-colors',
               isActive
-                ? 'bg-secondary text-white'
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                ? 'bg-accent text-primary'
+                : 'bg-white/10 text-gray-300 hover:bg-white/15'
             )}
           >
             {category}

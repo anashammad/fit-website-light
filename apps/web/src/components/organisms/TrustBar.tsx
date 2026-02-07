@@ -20,10 +20,13 @@ export interface TrustBarProps {
 }
 
 export function TrustBar({ stats, logos, className }: TrustBarProps) {
+  // Duplicate logos for seamless infinite scroll
+  const duplicatedLogos = [...logos, ...logos];
+
   return (
     <section
       className={cn(
-        'border-y border-gray-200 bg-white py-12',
+        'border-y border-terminal-border bg-surface py-12',
         className
       )}
     >
@@ -34,40 +37,56 @@ export function TrustBar({ stats, logos, className }: TrustBarProps) {
             <StatItem key={stat.label} value={stat.value} label={stat.label} />
           ))}
         </div>
-
-        {/* Client logos */}
-        {logos.length > 0 && (
-          <div className="mt-10 flex items-center justify-center gap-12 overflow-x-auto pb-2">
-            {logos.map((logo) => {
-              const img = (
-                <Image
-                  src={logo.src}
-                  alt={logo.name}
-                  width={120}
-                  height={40}
-                  className="h-10 w-auto shrink-0 object-contain grayscale opacity-50 transition-all hover:grayscale-0 hover:opacity-100"
-                />
-              );
-
-              if (logo.href) {
-                return (
-                  <a
-                    key={logo.name}
-                    href={logo.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={logo.name}
-                  >
-                    {img}
-                  </a>
-                );
-              }
-
-              return <div key={logo.name}>{img}</div>;
-            })}
-          </div>
-        )}
       </div>
+
+      {/* Client logos — infinite scrolling ticker */}
+      {logos.length > 0 && (
+        <>
+          <div className="mt-10 mb-4 text-center">
+            <span className="text-overline tracking-wider text-gray-500">TRUSTED BY</span>
+          </div>
+          <div className="relative overflow-hidden">
+            {/* Fade edges */}
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-surface to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-surface to-transparent" />
+
+            <div className="flex animate-scroll-left">
+              {duplicatedLogos.map((logo, i) => {
+                const img = (
+                  <Image
+                    src={logo.src}
+                    alt={logo.name}
+                    width={120}
+                    height={40}
+                    className="h-10 w-auto shrink-0 object-contain opacity-60 transition-all hover:opacity-100"
+                  />
+                );
+
+                if (logo.href) {
+                  return (
+                    <a
+                      key={`${logo.name}-${i}`}
+                      href={logo.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={logo.name}
+                      className="mx-10 flex shrink-0 items-center"
+                    >
+                      {img}
+                    </a>
+                  );
+                }
+
+                return (
+                  <div key={`${logo.name}-${i}`} className="mx-10 flex shrink-0 items-center">
+                    {img}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </>
+      )}
     </section>
   );
 }

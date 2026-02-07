@@ -24,11 +24,11 @@ export interface ButtonLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement>
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    'bg-secondary text-white hover:bg-secondary-hover active:bg-secondary-hover',
+    'bg-accent text-primary font-semibold hover:bg-accent-hover active:bg-accent-hover shadow-[0_1px_2px_rgba(0,0,0,0.3)]',
   secondary:
-    'bg-transparent text-secondary border border-secondary hover:bg-secondary hover:text-white active:bg-secondary-hover active:text-white',
+    'bg-transparent text-accent border border-accent/40 hover:bg-accent/10 hover:border-accent/60 active:bg-accent/15',
   ghost:
-    'bg-transparent text-gray-700 hover:bg-gray-100 active:bg-gray-200',
+    'bg-transparent text-gray-300 hover:bg-white/5 active:bg-white/10',
   danger:
     'bg-error text-white hover:bg-red-600 active:bg-red-700',
 };
@@ -62,9 +62,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={isDisabled}
         className={cn(
           'inline-flex items-center justify-center gap-2 font-semibold transition-all duration-150 ease-out',
-          'focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-secondary/40 focus-visible:ring-offset-2',
-          'hover:-translate-y-px hover:shadow-[0_4px_12px_rgba(0,0,0,0.15)]',
-          'active:translate-y-0 active:shadow-none',
+          'focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-primary',
+          'hover:-translate-y-px',
+          'active:translate-y-0',
           variantStyles[variant],
           sizeStyles[size],
           isDisabled && 'pointer-events-none opacity-50',
@@ -111,9 +111,9 @@ export function ButtonLink({
       href={href}
       className={cn(
         'inline-flex items-center justify-center gap-2 font-semibold transition-all duration-150 ease-out',
-        'focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-secondary/40 focus-visible:ring-offset-2',
-        'hover:-translate-y-px hover:shadow-[0_4px_12px_rgba(0,0,0,0.15)]',
-        'active:translate-y-0 active:shadow-none',
+        'focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-primary',
+        'hover:-translate-y-px',
+        'active:translate-y-0',
         variantStyles[variant],
         sizeStyles[size],
         className

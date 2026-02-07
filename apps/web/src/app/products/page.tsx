@@ -62,6 +62,27 @@ const products = [
     icon: 'api',
     href: '/products/api-middleware',
   },
+  {
+    name: 'Fund Management',
+    description:
+      'Multi-portfolio, multi-currency fund administration with NAV calculation, shareholder registry, and performance analytics.',
+    icon: 'fund',
+    href: '/products/fund-management',
+  },
+  {
+    name: 'IPO Manager',
+    description:
+      'Centralized IPO subscription management with real-time progress monitoring and allotment scenario generation.',
+    icon: 'ipo',
+    href: '/products/ipo-manager',
+  },
+  {
+    name: 'Banking Gateway',
+    description:
+      'Online fund transfers between bank and brokerage accounts with real-time reconciliation.',
+    icon: 'bank',
+    href: '/products/banking-gateway',
+  },
 ];
 
 export default function ProductsPage() {
@@ -80,14 +101,14 @@ export default function ProductsPage() {
       <HeroSection
         variant="page"
         title="Full-Stack Trading Technology Suite"
-        subtitle="Seven integrated products covering order management, backoffice, surveillance, portfolio management, trading platforms, onboarding, and connectivity."
+        subtitle="Ten integrated products covering order management, backoffice, surveillance, portfolio management, trading platforms, onboarding, connectivity, fund administration, IPO management, and banking integration."
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Products' },
         ]}
       />
 
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-primary">
         <div className="container-content">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {products.map((product) => (

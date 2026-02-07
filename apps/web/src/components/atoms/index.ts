@@ -8,3 +8,4 @@ export { Select, type SelectProps, type SelectOption } from './Select';
 export { Badge, type BadgeProps, type BadgeVariant } from './Badge';
 export { Icon, type IconProps, type IconSize } from './Icon';
 export { Logo, type LogoProps } from './Logo';
+export { AnimateIn, type AnimateInProps } from './AnimateIn';

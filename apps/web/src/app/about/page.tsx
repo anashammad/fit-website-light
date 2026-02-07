@@ -75,7 +75,7 @@ export default function AboutPage() {
       />
 
       {/* Stats */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-surface">
         <div className="container-content">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
             {stats.map((stat) => (
@@ -86,9 +86,9 @@ export default function AboutPage() {
       </section>
 
       {/* Mission */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-primary">
         <div className="container-content max-w-3xl">
-          <Text variant="overline" className="text-secondary">
+          <Text variant="overline" className="text-accent">
             Our mission
           </Text>
           <Heading level={2} className="mt-2">
@@ -109,9 +109,9 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-surface">
         <div className="container-content">
-          <Text variant="overline" className="text-secondary">
+          <Text variant="overline" className="text-accent">
             What drives us
           </Text>
           <Heading level={2} className="mt-2">
@@ -119,9 +119,9 @@ export default function AboutPage() {
           </Heading>
           <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2">
             {values.map((value) => (
-              <div key={value.title} className="rounded-lg border border-gray-200 p-6">
+              <div key={value.title} className="rounded-lg border border-terminal-border bg-primary p-6">
                 <Heading level={3}>{value.title}</Heading>
-                <Text className="mt-3 text-gray-600">{value.description}</Text>
+                <Text className="mt-3 text-gray-400">{value.description}</Text>
               </div>
             ))}
           </div>
@@ -129,9 +129,9 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-primary">
         <div className="container-content max-w-3xl">
-          <Text variant="overline" className="text-secondary">
+          <Text variant="overline" className="text-accent">
             Our journey
           </Text>
           <Heading level={2} className="mt-2">
@@ -141,15 +141,15 @@ export default function AboutPage() {
             {milestones.map((milestone, index) => (
               <div key={milestone.year} className="flex gap-6">
                 <div className="flex flex-col items-center">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-secondary text-sm font-semibold text-white">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent/10 border border-accent/30 text-sm font-semibold text-accent">
                     {index + 1}
                   </div>
                   {index < milestones.length - 1 && (
-                    <div className="mt-2 h-full w-px bg-gray-300" />
+                    <div className="mt-2 h-full w-px bg-terminal-border" />
                   )}
                 </div>
                 <div className="pb-2">
-                  <Text variant="overline" className="text-secondary">
+                  <Text variant="overline" className="text-accent">
                     {milestone.year}
                   </Text>
                   <Text className="mt-1">{milestone.description}</Text>
@@ -161,9 +161,9 @@ export default function AboutPage() {
       </section>
 
       {/* Regional Presence */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-surface">
         <div className="container-content max-w-3xl">
-          <Text variant="overline" className="text-secondary">
+          <Text variant="overline" className="text-accent">
             Where we operate
           </Text>
           <Heading level={2} className="mt-2">
@@ -174,9 +174,9 @@ export default function AboutPage() {
             region. Our team combines deep local market knowledge with technology built to
             international standards.
           </Text>
-          <div className="mt-8 rounded-lg border border-gray-200 bg-gray-50 p-8">
+          <div className="mt-8 rounded-lg border border-terminal-border bg-primary p-8">
             <Heading level={3}>Muscat, Oman</Heading>
-            <Text className="mt-2 text-gray-600">
+            <Text className="mt-2 text-gray-400">
               FIT Headquarters
             </Text>
             <Text variant="body-sm" className="mt-1 text-gray-500">

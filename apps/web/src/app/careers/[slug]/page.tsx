@@ -149,7 +149,7 @@ export default async function JobDetailPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <section className="bg-neutral-light">
+      <section className="bg-primary">
         <div className="container-content section-padding">
           <Breadcrumb
             items={[
@@ -179,7 +179,7 @@ export default async function JobDetailPage({ params }: PageProps) {
                 <Heading level={2} className="mb-4">
                   About the Role
                 </Heading>
-                <div className="prose prose-lg">
+                <div className="prose prose-lg prose-invert">
                   {renderRichText(job.description)}
                 </div>
               </section>
@@ -190,7 +190,7 @@ export default async function JobDetailPage({ params }: PageProps) {
                 <Heading level={2} className="mb-4">
                   Requirements
                 </Heading>
-                <div className="prose prose-lg">
+                <div className="prose prose-lg prose-invert">
                   {renderRichText(job.requirements)}
                 </div>
               </section>
@@ -201,7 +201,7 @@ export default async function JobDetailPage({ params }: PageProps) {
                 <Heading level={2} className="mb-4">
                   Benefits
                 </Heading>
-                <div className="prose prose-lg">
+                <div className="prose prose-lg prose-invert">
                   {renderRichText(job.benefits)}
                 </div>
               </section>
@@ -210,7 +210,7 @@ export default async function JobDetailPage({ params }: PageProps) {
 
           {/* Sidebar: Application form */}
           <aside>
-            <div className="sticky top-24 rounded-lg border border-gray-200 bg-white p-6 shadow-card">
+            <div className="sticky top-24 rounded-lg border border-terminal-border bg-surface p-6">
               <Heading level={3} className="mb-2">
                 Apply for this position
               </Heading>

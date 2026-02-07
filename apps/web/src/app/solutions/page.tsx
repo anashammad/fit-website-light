@@ -67,33 +67,33 @@ export default function SolutionsPage() {
         ]}
       />
 
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-primary">
         <div className="container-content">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             {solutions.map((solution) => (
               <Link
                 key={solution.slug}
                 href={`/solutions/${solution.slug}`}
-                className="group flex flex-col rounded-lg border border-gray-200 bg-white p-8 shadow-card transition-all duration-200 hover:-translate-y-0.5 hover:border-gray-300 hover:shadow-card-hover"
+                className="group flex flex-col rounded-lg border border-terminal-border bg-surface p-8 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/20 hover:shadow-[0_0_24px_rgba(212,168,67,0.06)]"
               >
-                <Icon name={solution.icon} size={40} className="text-secondary" />
+                <Icon name={solution.icon} size={40} className="text-accent" />
                 <Heading level={3} className="mt-4">
                   {solution.name}
                 </Heading>
-                <Text variant="body" className="mt-3 text-gray-600">
+                <Text variant="body" className="mt-3 text-gray-400">
                   {solution.description}
                 </Text>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {solution.products.map((product) => (
                     <span
                       key={product}
-                      className="rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-medium text-gray-600"
+                      className="rounded-full border border-terminal-border bg-primary px-3 py-1 text-xs font-medium text-gray-400"
                     >
                       {product}
                     </span>
                   ))}
                 </div>
-                <span className="mt-auto pt-6 text-body-sm font-semibold text-secondary transition-colors group-hover:text-secondary-hover">
+                <span className="mt-auto pt-6 text-body-sm font-semibold text-accent transition-colors group-hover:text-accent-light">
                   Learn More &rarr;
                 </span>
               </Link>

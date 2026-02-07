@@ -28,10 +28,10 @@ export function BlogCard({
     <Link
       href={href}
       className={cn(
-        'group flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-card',
+        'group flex flex-col overflow-hidden rounded-lg border border-terminal-border bg-surface shadow-card',
         'transition-all duration-200 ease-out',
-        'hover:-translate-y-0.5 hover:border-gray-300 hover:shadow-card-hover',
-        'focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-secondary/40 focus-visible:ring-offset-2',
+        'hover:-translate-y-0.5 hover:border-accent/20 hover:shadow-card-hover',
+        'focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-primary',
         className
       )}
     >
@@ -45,7 +45,7 @@ export function BlogCard({
         />
       </div>
       <div className="flex flex-1 flex-col p-6">
-        <Text variant="overline" className="text-secondary">
+        <Text variant="overline" className="text-accent">
           {category}
         </Text>
         <Heading level={4} className="mt-2 line-clamp-2">

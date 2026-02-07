@@ -42,6 +42,9 @@ const navItems: NavItem[] = [
       { label: 'FIT Surveillance', href: '/products/fit-surveillance', description: 'Market control & order surveillance' },
       { label: 'Digital Onboarding', href: '/products/digital-onboarding', description: 'Digital KYC & account opening' },
       { label: 'API Middleware', href: '/products/api-middleware', description: 'Trading APIs & integration layer' },
+      { label: 'Fund Management', href: '/products/fund-management', description: 'Multi-fund administration & NAV' },
+      { label: 'IPO Manager', href: '/products/ipo-manager', description: 'IPO subscription & allotment' },
+      { label: 'Banking Gateway', href: '/products/banking-gateway', description: 'Bank-brokerage fund transfers' },
     ],
   },
   {
@@ -85,6 +88,9 @@ const footerColumns: FooterColumn[] = [
       { label: 'FIT Surveillance', href: '/products/fit-surveillance' },
       { label: 'Digital Onboarding', href: '/products/digital-onboarding' },
       { label: 'API Middleware', href: '/products/api-middleware' },
+      { label: 'Fund Management', href: '/products/fund-management' },
+      { label: 'IPO Manager', href: '/products/ipo-manager' },
+      { label: 'Banking Gateway', href: '/products/banking-gateway' },
     ],
   },
   {

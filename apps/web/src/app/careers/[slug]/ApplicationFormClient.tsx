@@ -90,7 +90,7 @@ export function ApplicationFormClient({ jobSlug }: ApplicationFormClientProps) {
         <Text variant="body" className="font-semibold text-accent">
           Application submitted!
         </Text>
-        <Text variant="body-sm" className="mt-2 text-gray-600">
+        <Text variant="body-sm" className="mt-2 text-gray-400">
           Thank you for your interest. We will review your application and get back to you.
         </Text>
       </div>
@@ -123,8 +123,8 @@ export function ApplicationFormClient({ jobSlug }: ApplicationFormClientProps) {
       />
 
       <div>
-        <label htmlFor="resume" className="mb-1.5 block text-body-sm font-medium text-gray-700">
-          Resume <span className="text-red-500">*</span>
+        <label htmlFor="resume" className="mb-1.5 block text-body-sm font-medium text-gray-300">
+          Resume <span className="text-red-400">*</span>
         </label>
         <input
           id="resume"
@@ -132,10 +132,10 @@ export function ApplicationFormClient({ jobSlug }: ApplicationFormClientProps) {
           type="file"
           accept=".pdf,.doc,.docx"
           aria-required="true"
-          className="block w-full text-body-sm text-gray-700 file:mr-3 file:rounded file:border-0 file:bg-gray-100 file:px-3 file:py-2 file:text-body-sm file:font-medium file:text-gray-700 hover:file:bg-gray-200"
+          className="block w-full text-body-sm text-gray-300 file:mr-3 file:rounded file:border-0 file:bg-white/10 file:px-3 file:py-2 file:text-body-sm file:font-medium file:text-gray-300 hover:file:bg-white/15"
         />
         {errors.resume && (
-          <p className="mt-1 text-caption text-red-600">{errors.resume}</p>
+          <p className="mt-1 text-caption text-red-400">{errors.resume}</p>
         )}
       </div>
 
@@ -147,7 +147,7 @@ export function ApplicationFormClient({ jobSlug }: ApplicationFormClientProps) {
       />
 
       <div>
-        <label htmlFor="coverLetter" className="mb-1.5 block text-body-sm font-medium text-gray-700">
+        <label htmlFor="coverLetter" className="mb-1.5 block text-body-sm font-medium text-gray-300">
           Cover Letter
         </label>
         <textarea
@@ -155,16 +155,16 @@ export function ApplicationFormClient({ jobSlug }: ApplicationFormClientProps) {
           name="coverLetter"
           rows={4}
           maxLength={5000}
-          className="w-full rounded-md border border-gray-300 px-3 py-2 text-body-sm placeholder:text-gray-400 focus:border-secondary focus:outline-none focus:ring-1 focus:ring-secondary"
+          className="w-full rounded-md border border-terminal-border bg-primary px-3 py-2 text-body-sm text-white placeholder:text-gray-500 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent/20"
           placeholder="Tell us why you're interested in this role..."
         />
         {errors.coverLetter && (
-          <p className="mt-1 text-caption text-red-600">{errors.coverLetter}</p>
+          <p className="mt-1 text-caption text-red-400">{errors.coverLetter}</p>
         )}
       </div>
 
       {serverError && (
-        <p role="alert" className="text-body-sm text-red-600">{serverError}</p>
+        <p role="alert" className="text-body-sm text-red-400">{serverError}</p>
       )}
 
       <Button

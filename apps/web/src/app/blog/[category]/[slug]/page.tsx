@@ -183,7 +183,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
 
       <article>
         {/* Header */}
-        <section className="bg-neutral-light">
+        <section className="bg-primary">
           <div className="container-content section-padding">
             <Breadcrumb
               items={[
@@ -198,7 +198,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
               <Heading level={1} className="mt-4">
                 {post.title}
               </Heading>
-              <Text variant="body-lg" className="mt-4 text-gray-600">
+              <Text variant="body-lg" className="mt-4 text-gray-400">
                 {post.excerpt}
               </Text>
               <div className="mt-6 flex items-center gap-4">
@@ -232,13 +232,13 @@ export default async function BlogArticlePage({ params }: PageProps) {
 
         {/* Body */}
         <section className="container-content section-padding">
-          <div className="prose prose-lg mx-auto max-w-3xl">
+          <div className="prose prose-lg prose-invert mx-auto max-w-3xl">
             {renderRichText(post.body)}
           </div>
 
           {/* Share */}
-          <div className="mx-auto mt-12 max-w-3xl border-t border-gray-200 pt-6">
-            <Text variant="body-sm" className="mb-3 font-medium text-gray-700">
+          <div className="mx-auto mt-12 max-w-3xl border-t border-terminal-border pt-6">
+            <Text variant="body-sm" className="mb-3 font-medium text-gray-300">
               Share this article
             </Text>
             <ShareButtons url={articleUrl} title={post.title} />
@@ -248,7 +248,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
 
       {/* Related articles */}
       {relatedPosts.length > 0 && (
-        <section className="bg-neutral-light">
+        <section className="bg-surface">
           <div className="container-content section-padding">
             <Heading level={2} className="mb-8">
               Related Articles

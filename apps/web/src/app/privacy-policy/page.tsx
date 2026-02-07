@@ -29,9 +29,9 @@ export default function PrivacyPolicyPage() {
         ]}
       />
 
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-surface">
         <div className="container-content max-w-3xl">
-          <div className="prose prose-gray max-w-none space-y-8">
+          <div className="prose prose-invert max-w-none space-y-8">
             <div>
               <Heading level={2}>1. Introduction</Heading>
               <Text className="mt-4">
@@ -139,10 +139,10 @@ export default function PrivacyPolicyPage() {
               <Text className="mt-4">
                 If you have any questions about this Privacy Policy, please contact us at:
               </Text>
-              <div className="mt-4 rounded-lg border border-gray-200 bg-gray-50 p-6">
-                <Text className="font-medium">FIT</Text>
-                <Text className="mt-1 text-gray-600">Muscat, Oman</Text>
-                <Text className="mt-1 text-gray-600">Email: info@fitoman.com</Text>
+              <div className="mt-4 rounded-lg border border-terminal-border bg-primary p-6">
+                <Text className="font-medium text-white">FIT</Text>
+                <Text className="mt-1 text-gray-400">Muscat, Oman</Text>
+                <Text className="mt-1 text-gray-400">Email: info@fitoman.com</Text>
               </div>
             </div>
           </div>

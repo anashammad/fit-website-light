@@ -21,21 +21,35 @@ export function CTABanner({
   className,
 }: CTABannerProps) {
   return (
-    <section className={cn('bg-secondary py-16', className)}>
-      <div className="container-content text-center">
+    <section className={cn('relative overflow-hidden bg-surface py-20', className)}>
+      {/* Subtle grid background */}
+      <div className="pointer-events-none absolute inset-0 bg-terminal-grid opacity-100" aria-hidden="true" />
+
+      {/* Accent glow */}
+      <div
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[300px] w-[600px] -translate-x-1/2 -translate-y-1/2"
+        style={{
+          background: 'radial-gradient(ellipse at center, rgba(212, 168, 67, 0.05) 0%, transparent 70%)',
+        }}
+        aria-hidden="true"
+      />
+
+      <div className="container-content relative z-10 text-center">
+        {/* Decorative line */}
+        <div className="mx-auto mb-8 h-px w-24 bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
+
         <Heading level={2} className="text-white">
           {heading}
         </Heading>
         {subtext && (
-          <Text variant="body-lg" className="mx-auto mt-4 max-w-xl text-white/80">
+          <Text variant="body-lg" className="mx-auto mt-4 max-w-xl text-gray-400">
             {subtext}
           </Text>
         )}
-        <div className="mt-8 flex flex-wrap justify-center gap-4">
+        <div className="mt-10 flex flex-wrap justify-center gap-4">
           <ButtonLink
-            variant="secondary"
+            variant="primary"
             size="lg"
-            className="border-white bg-white text-secondary hover:bg-gray-50 hover:text-secondary-hover"
             href={buttonHref}
           >
             {buttonLabel}
@@ -44,7 +58,6 @@ export function CTABanner({
             <ButtonLink
               variant="secondary"
               size="lg"
-              className="border-white text-white hover:bg-white/10"
               href={secondaryHref}
             >
               {secondaryLabel}

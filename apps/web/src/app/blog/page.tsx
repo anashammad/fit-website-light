@@ -64,7 +64,7 @@ export default async function BlogIndex() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <section className="bg-neutral-light">
+      <section className="bg-primary">
         <div className="container-content section-padding">
           <Breadcrumb
             items={[
@@ -75,7 +75,7 @@ export default async function BlogIndex() {
           <Heading level={1} className="mt-4">
             Blog
           </Heading>
-          <Text variant="body-lg" className="mt-4 max-w-2xl text-gray-600">
+          <Text variant="body-lg" className="mt-4 max-w-2xl text-gray-400">
             Insights on trading technology, market infrastructure, compliance,
             and capital markets innovation.
           </Text>

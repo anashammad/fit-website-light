@@ -7,7 +7,7 @@ import { FeatureGrid } from '@/components/organisms/FeatureGrid';
 import { CTABanner } from '@/components/organisms/CTABanner';
 import { ProductCard } from '@/components/molecules/ProductCard';
 import { SolutionCard } from '@/components/molecules/SolutionCard';
-import { Heading, Text, ButtonLink } from '@/components/atoms';
+import { Heading, Text, ButtonLink, AnimateIn } from '@/components/atoms';
 
 // -- SEO metadata --
 const baseMeta = buildMetadata({
@@ -74,6 +74,27 @@ const products = [
     icon: 'api',
     href: '/products/api-middleware',
   },
+  {
+    name: 'Fund Management',
+    description:
+      'Multi-portfolio, multi-currency fund administration with NAV calculation and performance analytics.',
+    icon: 'fund',
+    href: '/products/fund-management',
+  },
+  {
+    name: 'IPO Manager',
+    description:
+      'Centralized IPO subscription management with real-time monitoring and allotment scenarios.',
+    icon: 'ipo',
+    href: '/products/ipo-manager',
+  },
+  {
+    name: 'Banking Gateway',
+    description:
+      'Online fund transfers between bank and brokerage accounts with real-time reconciliation.',
+    icon: 'bank',
+    href: '/products/banking-gateway',
+  },
 ];
 
 const solutions = [
@@ -106,18 +127,18 @@ const solutions = [
 // TODO: Replace with CMS data from SiteSettings global
 const trustStats = [
   { value: '25+', label: 'Years in Market' },
-  { value: '30+', label: 'Institutions Served' },
+  { value: '29+', label: 'Institutions Served' },
   { value: '1M+', label: 'Daily Transactions' },
   { value: '99.9%', label: 'Uptime' },
 ];
 
 const trustLogos = [
-  { name: 'MSM', src: '/images/logos/msm.svg' },
+  { name: 'QNB', src: '/images/logos/qnb.svg' },
+  { name: 'ADCB', src: '/images/logos/adcb.svg' },
+  { name: 'NBO', src: '/images/logos/nbo.svg' },
   { name: 'Ubhar Capital', src: '/images/logos/ubhar.svg' },
-  { name: 'Gulf Baader', src: '/images/logos/gulfbaader.svg' },
-  { name: 'Vision Investment', src: '/images/logos/vision.svg' },
-  { name: 'OMANTEL', src: '/images/logos/omantel.svg' },
-  { name: 'BankDhofar', src: '/images/logos/bankdhofar.svg' },
+  { name: 'Bank Dhofar', src: '/images/logos/bankdhofar.svg' },
+  { name: 'SICO', src: '/images/logos/sico.svg' },
 ];
 
 // -- Page component --
@@ -138,7 +159,8 @@ const organizationSchema = {
   },
   contactPoint: {
     '@type': 'ContactPoint',
-    email: 'info@fitoman.com',
+    telephone: '+968-24-700-454',
+    email: 'info@fitmena.com',
     contactType: 'sales',
   },
   areaServed: {
@@ -167,22 +189,24 @@ export default function HomePage() {
           { label: 'Request a Demo', href: '/contact', variant: 'primary' },
           { label: 'Explore Products', href: '#products', variant: 'secondary' },
         ]}
-        image="/images/hero-dashboard.svg"
-        imageAlt="FIT trading platform dashboard"
+        image="/images/products/fit-premium-dark.png"
+        imageAlt="FIT Premium trading platform — dark theme multi-market OMS"
       />
 
       {/* Trust Bar */}
       <TrustBar stats={trustStats} logos={trustLogos} />
 
       {/* Why FIT */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-primary">
         <div className="container-content">
-          <Text variant="overline" className="text-secondary">
+          <AnimateIn>
+          <Text variant="overline" className="text-accent">
             WHY FIT
           </Text>
-          <Heading level={2} className="mt-2">
+          <Heading level={2} className="mt-2 text-white">
             The Competitive Advantage
           </Heading>
+          </AnimateIn>
           <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
@@ -208,12 +232,12 @@ export default function HomePage() {
             ].map((item) => (
               <div
                 key={item.title}
-                className="rounded-lg border border-gray-200 bg-gray-50 p-6 transition-shadow hover:shadow-md"
+                className="rounded-lg border border-terminal-border bg-surface p-6 transition-all duration-300 hover:border-accent/15"
               >
-                <Heading level={4} className="text-base">
+                <Heading level={4} className="text-base text-white">
                   {item.title}
                 </Heading>
-                <Text variant="body-sm" className="mt-3 text-gray-600">
+                <Text variant="body-sm" className="mt-3 text-gray-400">
                   {item.description}
                 </Text>
               </div>
@@ -223,14 +247,16 @@ export default function HomePage() {
       </section>
 
       {/* Products */}
-      <section id="products" className="section-padding bg-gray-50">
+      <section id="products" className="section-padding bg-surface">
         <div className="container-content">
-          <Text variant="overline" className="text-secondary">
+          <AnimateIn>
+          <Text variant="overline" className="text-accent">
             OUR PRODUCTS
           </Text>
-          <Heading level={2} className="mt-2">
+          <Heading level={2} className="mt-2 text-white">
             Full-Stack Trading Technology Suite
           </Heading>
+          </AnimateIn>
           <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {products.map((product) => (
               <ProductCard key={product.href} {...product} />
@@ -240,14 +266,16 @@ export default function HomePage() {
       </section>
 
       {/* Solutions */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-primary">
         <div className="container-content">
-          <Text variant="overline" className="text-secondary">
+          <AnimateIn>
+          <Text variant="overline" className="text-accent">
             SOLUTIONS
           </Text>
-          <Heading level={2} className="mt-2">
+          <Heading level={2} className="mt-2 text-white">
             Tailored for Your Industry
           </Heading>
+          </AnimateIn>
           <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {solutions.map((solution) => (
               <SolutionCard key={solution.href} {...solution} />
@@ -257,18 +285,18 @@ export default function HomePage() {
       </section>
 
       {/* Technology Highlight */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-surface">
         <div className="container-content">
           <div className="flex flex-col items-center gap-12 lg:flex-row">
             {/* Text */}
-            <div className="lg:w-1/2">
-              <Text variant="overline" className="text-secondary">
+            <AnimateIn className="lg:w-1/2">
+              <Text variant="overline" className="text-accent">
                 TECHNOLOGY
               </Text>
-              <Heading level={2} className="mt-2">
+              <Heading level={2} className="mt-2 text-white">
                 Built for Scale, Speed, and Security
               </Heading>
-              <Text variant="body-lg" className="mt-4 text-gray-600">
+              <Text variant="body-lg" className="mt-4 text-gray-400">
                 FIT&apos;s modular architecture supports on-premise, cloud, and
                 hybrid deployments. Every component is designed for
                 high-availability and low-latency execution.
@@ -285,7 +313,7 @@ export default function HomePage() {
                       height="20"
                       viewBox="0 0 20 20"
                       fill="none"
-                      className="mt-0.5 shrink-0 text-accent"
+                      className="mt-0.5 shrink-0 text-terminal-green"
                       aria-hidden="true"
                     >
                       <path
@@ -296,7 +324,7 @@ export default function HomePage() {
                         strokeLinejoin="round"
                       />
                     </svg>
-                    <Text variant="body" as="span" className="text-gray-700">
+                    <Text variant="body" as="span" className="text-gray-300">
                       {item}
                     </Text>
                   </li>
@@ -307,18 +335,18 @@ export default function HomePage() {
                   Our Technology &rarr;
                 </ButtonLink>
               </div>
-            </div>
+            </AnimateIn>
 
             {/* Diagram */}
-            <div className="lg:w-1/2">
+            <AnimateIn variant="fade-right" delay={200} className="lg:w-1/2">
               <Image
                 src="/images/architecture-diagram.svg"
                 alt="FIT platform architecture overview"
                 width={560}
                 height={400}
-                className="h-auto w-full rounded-lg"
+                className="h-auto w-full rounded-lg border border-terminal-border"
               />
-            </div>
+            </AnimateIn>
           </div>
         </div>
       </section>

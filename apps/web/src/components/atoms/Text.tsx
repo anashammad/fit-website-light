@@ -10,10 +10,10 @@ export interface TextProps {
 }
 
 const variantStyles: Record<TextVariant, string> = {
-  'body-lg': 'text-body-lg text-gray-800',
-  body: 'text-body text-gray-800',
-  'body-sm': 'text-body-sm text-gray-600',
-  caption: 'text-caption text-gray-400',
+  'body-lg': 'text-body-lg text-gray-300',
+  body: 'text-body text-gray-300',
+  'body-sm': 'text-body-sm text-gray-400',
+  caption: 'text-caption text-gray-500',
   overline: 'text-overline uppercase text-gray-500',
 };
 

@@ -5,3 +5,4 @@ export { HeroSection, type HeroSectionProps, type HeroVariant, type HeroCTA } fr
 export { FeatureGrid, type FeatureGridProps, type Feature } from './FeatureGrid';
 export { CTABanner, type CTABannerProps } from './CTABanner';
 export { TrustBar, type TrustBarProps, type TrustStat, type TrustLogo } from './TrustBar';
+export { PlatformPreview, type PlatformPreviewProps } from './PlatformPreview';

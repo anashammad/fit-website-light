@@ -426,14 +426,14 @@ function ContentSection({ section }: { section: ContentSection }) {
   return (
     <div>
       <Heading level={3}>{section.heading}</Heading>
-      <Text variant="body-lg" className="mt-3 max-w-3xl text-gray-600">
+      <Text variant="body-lg" className="mt-3 max-w-3xl text-gray-400">
         {section.description}
       </Text>
       {section.items && section.items.length > 0 && (
         <div className="mt-6 grid gap-4 sm:grid-cols-3">
           {section.items.map((item) => (
-            <div key={item.label} className="rounded-lg border border-gray-200 bg-white p-5">
-              <Text variant="body" className="font-semibold text-gray-900">
+            <div key={item.label} className="rounded-lg border border-terminal-border bg-primary p-5">
+              <Text variant="body" className="font-semibold text-white">
                 {item.label}
               </Text>
               <Text variant="body-sm" className="mt-1">
@@ -481,7 +481,7 @@ export default async function TechnologyPage({ params }: PageProps) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       {/* Hero */}
       <HeroSection
-        variant="light"
+        variant="page"
         overline={data.overline}
         title={data.title}
         subtitle={data.subtitle}
@@ -489,7 +489,7 @@ export default async function TechnologyPage({ params }: PageProps) {
       />
 
       {/* Content sections */}
-      <section className="section-padding">
+      <section className="section-padding bg-surface">
         <div className="container-content space-y-16">
           {data.sections.map((section) => (
             <ContentSection key={section.heading} section={section} />
@@ -502,7 +502,7 @@ export default async function TechnologyPage({ params }: PageProps) {
         overline={data.featureGridOverline}
         heading={data.featureGridHeading}
         features={data.features}
-        className="bg-gray-50"
+        className="bg-primary"
       />
 
       {/* CTA Banner */}

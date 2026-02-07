@@ -4,20 +4,27 @@
 @layer base {
   :root {
     --color-primary: #0A1628;
-    --color-primary-light: #132038;
-    --color-secondary: #2563EB;
-    --color-secondary-hover: #1D4ED8;
-    --color-secondary-light: #DBEAFE;
-    --color-accent: #0D9488;
-    --color-accent-hover: #0F766E;
+    --color-primary-light: #0F1D32;
+    --color-primary-dark: #060E1A;
+    --color-secondary: #1E40AF;
+    --color-secondary-hover: #1E3A8A;
+    --color-accent: #D4A843;
+    --color-accent-hover: #C4982E;
+    --color-accent-light: #E8C96A;
+    --color-terminal-green: #00C853;
+    --color-terminal-red: #FF1744;
+    --color-terminal-border: #1E2D3D;
+    --color-surface: #0F1923;
+    --color-surface-light: #131F2E;
   }
 
   html {
     scroll-behavior: smooth;
+    color-scheme: dark;
   }
 
   body {
-    @apply text-body text-gray-800 antialiased;
+    @apply bg-primary text-body text-gray-300 antialiased;
   }
 
   /* Maximum line width for readability */
@@ -25,15 +32,66 @@
   li {
     max-width: 72ch;
   }
+
+  /* Selection color */
+  ::selection {
+    background-color: rgba(212, 168, 67, 0.3);
+    color: #fff;
+  }
 }
 
 @layer components {
   .section-padding {
-    @apply px-6 py-12 md:px-8 md:py-16 lg:py-20;
+    @apply px-6 py-16 md:px-8 md:py-20 lg:py-24;
   }
 
   .container-content {
-    @apply mx-auto w-full max-w-content px-6 md:px-8 lg:px-0;
+    @apply mx-auto w-full max-w-content px-6 md:px-8 lg:px-12;
+  }
+
+  /* Terminal-style decorative grid background */
+  .bg-terminal-grid {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Glowing border effect for cards */
+  .border-glow {
+    border: 1px solid rgba(212, 168, 67, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .border-glow:hover {
+    border-color: rgba(212, 168, 67, 0.25);
+    box-shadow: 0 0 20px rgba(212, 168, 67, 0.08);
+  }
+
+  /* Scanline effect for hero sections */
+  .scanline-overlay {
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.03) 2px,
+      rgba(0, 0, 0, 0.03) 4px
+    );
+  }
+
+  /* Data grid line effect */
+  .data-line {
+    position: relative;
+  }
+
+  .data-line::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212, 168, 67, 0.2), transparent);
   }
 }
 

@@ -16,9 +16,9 @@ export function JobCard({ title, department, location, type, href, className }: 
     <Link
       href={href}
       className={cn(
-        'group flex flex-col gap-3 rounded-lg border border-gray-200 bg-white p-6 shadow-card',
+        'group flex flex-col gap-3 rounded-lg border border-terminal-border bg-surface p-6 shadow-card',
         'transition-all duration-200 ease-out',
-        'hover:-translate-y-0.5 hover:border-gray-300 hover:shadow-card-hover',
+        'hover:-translate-y-0.5 hover:border-accent/20 hover:shadow-card-hover',
         className
       )}
     >
@@ -28,7 +28,7 @@ export function JobCard({ title, department, location, type, href, className }: 
         <Badge>{location}</Badge>
         <Badge>{type}</Badge>
       </div>
-      <span className="mt-auto text-body-sm font-semibold text-secondary transition-colors group-hover:text-secondary-hover">
+      <span className="mt-auto text-body-sm font-semibold text-accent transition-colors group-hover:text-accent-light">
         Apply Now &rarr;
       </span>
     </Link>

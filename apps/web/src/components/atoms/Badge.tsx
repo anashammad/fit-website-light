@@ -9,12 +9,12 @@ export interface BadgeProps {
 }
 
 const variantStyles: Record<BadgeVariant, string> = {
-  default: 'bg-gray-100 text-gray-700',
-  secondary: 'bg-secondary-light text-secondary',
-  accent: 'bg-teal-50 text-accent',
-  success: 'bg-success-light text-green-700',
-  warning: 'bg-warning-light text-amber-700',
-  error: 'bg-error-light text-red-700',
+  default: 'bg-white/10 text-gray-300',
+  secondary: 'bg-secondary-light text-blue-300',
+  accent: 'bg-accent-muted text-accent',
+  success: 'bg-success-light text-terminal-green',
+  warning: 'bg-warning-light text-terminal-amber',
+  error: 'bg-error-light text-terminal-red',
 };
 
 export function Badge({ variant = 'default', children, className }: BadgeProps) {

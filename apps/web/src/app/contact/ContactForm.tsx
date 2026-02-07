@@ -14,6 +14,9 @@ const productOptions = [
   { label: 'FIT Surveillance', value: 'fit-surveillance' },
   { label: 'Digital Onboarding', value: 'digital-onboarding' },
   { label: 'API Middleware', value: 'api-middleware' },
+  { label: 'Fund Management', value: 'fund-management' },
+  { label: 'IPO Manager', value: 'ipo-manager' },
+  { label: 'Banking Gateway', value: 'banking-gateway' },
   { label: 'Full Platform Suite', value: 'full-suite' },
   { label: 'Other / Not Sure', value: 'other' },
 ];
@@ -39,6 +42,24 @@ interface FormData {
 interface FormErrors {
   [key: string]: string | undefined;
 }
+
+const offices = [
+  {
+    country: 'Oman (HQ)',
+    phone: '+968 24 700 454',
+    address: 'P.O. Box 629, PC 112 Ruwi, Muscat',
+  },
+  {
+    country: 'UAE',
+    phone: '+971 43 055 390',
+    address: 'P.O. Box 120804, Dubai',
+  },
+  {
+    country: 'Jordan',
+    phone: '+962 62 005 544',
+    address: 'P.O. Box 930333, PC 11193 Amman',
+  },
+];
 
 export default function ContactForm() {
   const searchParams = useSearchParams();
@@ -138,33 +159,33 @@ export default function ContactForm() {
                 { label: 'Home', href: '/' },
                 { label: isDemo ? 'Request Demo' : 'Contact' },
               ]}
-              className="[&_span]:text-gray-400 [&_a]:text-gray-400 [&_a:hover]:text-white"
+              className="[&_span]:text-gray-500 [&_a]:text-gray-500 [&_a:hover]:text-accent"
             />
             <Heading level={1} className="mt-2 text-white">
               Thank you for reaching out
             </Heading>
-            <Text variant="body-lg" className="mt-4 text-gray-300">
+            <Text variant="body-lg" className="mt-4 text-gray-400">
               We have received your {isDemo ? 'demo request' : 'message'} and will respond within
               one business day.
             </Text>
           </div>
         </section>
-        <section className="section-padding bg-white">
+        <section className="section-padding bg-surface">
           <div className="container-content max-w-2xl text-center">
-            <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-green-600" aria-hidden="true">
+            <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-terminal-green/20 bg-terminal-green/10">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-terminal-green" aria-hidden="true">
                 <polyline points="20 6 9 17 4 12" />
               </svg>
             </div>
-            <Heading level={2}>Submission received</Heading>
-            <Text className="mt-4 text-gray-600">
+            <Heading level={2} className="text-white">Submission received</Heading>
+            <Text className="mt-4 text-gray-400">
               Our team will review your {isDemo ? 'request' : 'message'} and get back to you
               shortly. In the meantime, feel free to explore our products.
             </Text>
             <div className="mt-8">
               <a
                 href="/products/fit-premium"
-                className="text-secondary underline hover:text-secondary-hover"
+                className="text-accent underline hover:text-accent-light"
               >
                 Explore FIT Premium
               </a>
@@ -184,21 +205,21 @@ export default function ContactForm() {
               { label: 'Home', href: '/' },
               { label: isDemo ? 'Request Demo' : 'Contact' },
             ]}
-            className="[&_span]:text-gray-400 [&_a]:text-gray-400 [&_a:hover]:text-white"
+            className="[&_span]:text-gray-500 [&_a]:text-gray-500 [&_a:hover]:text-accent"
           />
           <Heading level={1} className="mt-2 text-white">
             {isDemo
               ? 'See FIT in action. Request a demo.'
               : "Let's talk about your trading infrastructure"}
           </Heading>
-          <Text variant="body-lg" className="mt-4 max-w-2xl text-gray-300">
+          <Text variant="body-lg" className="mt-4 max-w-2xl text-gray-400">
             Tell us about your organization and what you need. Our team will respond within one
             business day.
           </Text>
         </div>
       </section>
 
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-surface">
         <div className="container-content">
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-3">
             {/* Form */}
@@ -297,8 +318,8 @@ export default function ContactForm() {
                 />
 
                 {submitError && (
-                  <div role="alert" className="rounded border border-red-200 bg-red-50 p-4">
-                    <Text variant="body-sm" className="text-red-700">
+                  <div role="alert" className="rounded border border-error/30 bg-error/10 p-4">
+                    <Text variant="body-sm" className="text-error">
                       {submitError}
                     </Text>
                   </div>
@@ -314,72 +335,43 @@ export default function ContactForm() {
             <aside className="space-y-8">
               {/* Direct Contact */}
               <div>
-                <Heading level={3}>Contact us directly</Heading>
+                <Heading level={3} className="text-white">Contact us directly</Heading>
                 <div className="mt-4 space-y-3">
                   <div className="flex items-start gap-3">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="mt-0.5 shrink-0 text-secondary" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="mt-0.5 shrink-0 text-accent" aria-hidden="true">
                       <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                     <div>
-                      <Text variant="body-sm" className="font-medium text-gray-700">Email</Text>
-                      <Text variant="body-sm" className="text-gray-600">info@fitoman.com</Text>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="mt-0.5 shrink-0 text-secondary" aria-hidden="true">
-                      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
-                    </svg>
-                    <div>
-                      {/* TODO: Replace with real phone from CMS SiteSettings */}
-                      <Text variant="body-sm" className="font-medium text-gray-700">Phone</Text>
-                      <Text variant="body-sm" className="text-gray-600">+968 2412 3456</Text>
+                      <Text variant="body-sm" className="font-medium text-gray-300">Email</Text>
+                      <a href="mailto:info@fitmena.com" className="text-body-sm text-accent hover:text-accent-light transition-colors">info@fitmena.com</a>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Office Location */}
+              {/* Office Locations */}
               <div>
-                <Heading level={3}>Our office</Heading>
-                <div className="mt-4">
-                  <div className="flex items-start gap-3">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="mt-0.5 shrink-0 text-secondary" aria-hidden="true">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-                      <circle cx="12" cy="10" r="3" />
-                    </svg>
-                    <div>
-                      <Text variant="body-sm" className="font-medium text-gray-700">
-                        Muscat, Oman
-                      </Text>
-                      <Text variant="body-sm" className="text-gray-600">
-                        FIT Headquarters
-                      </Text>
-                      {/* TODO: Replace with real address from CMS SiteSettings */}
-                      <Text variant="body-sm" className="mt-1 text-gray-500">
-                        Al Khuwair, Muscat, Sultanate of Oman
-                      </Text>
+                <Heading level={3} className="text-white">Our offices</Heading>
+                <div className="mt-4 space-y-4">
+                  {offices.map((office) => (
+                    <div key={office.country} className="rounded-lg border border-terminal-border bg-primary p-4">
+                      <Text variant="body-sm" className="font-semibold text-white">{office.country}</Text>
+                      <Text variant="body-sm" className="mt-1 text-gray-500">{office.address}</Text>
+                      <a
+                        href={`tel:${office.phone.replace(/\s/g, '')}`}
+                        className="mt-1 inline-block font-mono text-ticker text-accent hover:text-accent-light transition-colors"
+                      >
+                        {office.phone}
+                      </a>
                     </div>
-                  </div>
-                  {/* TODO: Replace with real Google Maps embed */}
-                  <div className="mt-4 overflow-hidden rounded-lg border border-gray-200">
-                    <iframe
-                      title="FIT Office Location"
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.2!2d58.4!3d23.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDM2JzAwLjAiTiA1OMKwMjQnMDAuMCJF!5e0!3m2!1sen!2som!4v1700000000000"
-                      width="100%"
-                      height="192"
-                      style={{ border: 0 }}
-                      allowFullScreen
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                    />
-                  </div>
+                  ))}
                 </div>
               </div>
 
               {/* Calendly Embed Section */}
               <div>
-                <Heading level={3}>Book a time directly</Heading>
-                <Text variant="body-sm" className="mt-2 text-gray-600">
+                <Heading level={3} className="text-white">Book a time directly</Heading>
+                <Text variant="body-sm" className="mt-2 text-gray-400">
                   Prefer to schedule a specific time? Book a 30-minute call with our team.
                 </Text>
                 {/* TODO: Replace with real Calendly URL from CMS SiteSettings */}
@@ -388,7 +380,7 @@ export default function ContactForm() {
                     href="https://calendly.com/fit-demo/30min"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex w-full items-center justify-center rounded-lg border border-secondary bg-white px-6 py-3 text-body-sm font-semibold text-secondary transition-colors hover:bg-secondary hover:text-white"
+                    className="inline-flex w-full items-center justify-center rounded-lg border border-accent/40 bg-transparent px-6 py-3 text-body-sm font-semibold text-accent transition-all hover:bg-accent/10 hover:border-accent/60"
                   >
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="mr-2" aria-hidden="true">
                       <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
