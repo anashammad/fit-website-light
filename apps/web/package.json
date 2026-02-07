@@ -10,11 +10,13 @@
     "analyze": "ANALYZE=true next build"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.1.18",
     "clsx": "^2.1",
-    "next": "^14.2",
+    "next": "14.2.35",
     "react": "^18.3",
     "react-dom": "^18.3",
     "tailwind-merge": "^2.3",
+    "tailwindcss": "^4.0",
     "zod": "^3.23"
   },
   "overrides": {
@@ -23,7 +25,6 @@
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^14.2",
-    "@tailwindcss/postcss": "^4.1.18",
     "@types/node": "^20",
     "@types/react": "^18.3",
     "@types/react-dom": "^18.3",
@@ -31,7 +32,6 @@
     "eslint-config-next": "^14.2",
     "prettier": "^3.2",
     "prettier-plugin-tailwindcss": "^0.6",
-    "tailwindcss": "^4.0",
     "typescript": "^5.4"
   }
 }
