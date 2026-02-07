@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="40" viewBox="0 0 120 40">
+  <rect x="0" y="4" width="32" height="32" rx="4" fill="#e8a838"/>
+  <text x="7" y="28" font-family="system-ui, sans-serif" font-weight="800" font-size="22" fill="#ffffff">FIT</text>
+  <text x="40" y="22" font-family="system-ui, sans-serif" font-weight="700" font-size="14" fill="#ffffff">FIT</text>
+  <text x="40" y="34" font-family="system-ui, sans-serif" font-weight="400" font-size="8" fill="rgba(255,255,255,0.7)">Trading Technology</text>
+</svg>

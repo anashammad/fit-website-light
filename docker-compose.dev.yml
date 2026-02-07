@@ -1,0 +1,84 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./apps/web/src:/app/apps/web/src
+      - ./packages/shared/src:/app/packages/shared/src
+    env_file: .env.development
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_SITE_URL=http://localhost:3000
+      - PAYLOAD_CMS_URL=http://payload:3000
+    depends_on:
+      payload:
+        condition: service_healthy
+    command: pnpm --filter @fit/web dev
+
+  payload:
+    build:
+      context: .
+      dockerfile: apps/cms/Dockerfile
+      target: builder
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./apps/cms/src:/app/apps/cms/src
+      - ./packages/shared/src:/app/packages/shared/src
+    env_file: .env.development
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URI=postgresql://fit:localdev@postgres:5432/fit_cms
+      - PAYLOAD_SECRET=dev-secret-change-in-production
+      - S3_ENDPOINT=http://minio:9000
+      - S3_BUCKET=fit-dev-uploads
+      - S3_ACCESS_KEY=minioadmin
+      - S3_SECRET_KEY=minioadmin
+      - S3_REGION=us-east-1
+    depends_on:
+      postgres:
+        condition: service_healthy
+      minio:
+        condition: service_started
+    command: pnpm --filter @fit/cms dev
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/api/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+
+  postgres:
+    image: postgres:16-alpine
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: fit_cms
+      POSTGRES_USER: fit
+      POSTGRES_PASSWORD: localdev
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fit -d fit_cms"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  minio:
+    image: minio/minio:latest
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio_data:/data
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    command: server /data --console-address ":9001"
+
+volumes:
+  pgdata:
+  minio_data:

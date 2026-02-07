@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 400">
+  <defs>
+    <linearGradient id="abg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0A1628"/>
+      <stop offset="100%" stop-color="#132240"/>
+    </linearGradient>
+  </defs>
+  <rect width="560" height="400" fill="url(#abg)" rx="12"/>
+
+  <!-- Title -->
+  <text x="280" y="32" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#E8A838">FIT Platform Architecture</text>
+
+  <!-- Client Layer -->
+  <rect x="30" y="50" width="500" height="50" rx="8" fill="#1A2D4A" stroke="#2A4060" stroke-width="1"/>
+  <text x="280" y="68" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#8899AA">CLIENT LAYER</text>
+  <rect x="50" y="76" width="90" height="18" rx="4" fill="#2A4060"/>
+  <text x="95" y="89" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#CCDDEE">Web Trading</text>
+  <rect x="160" y="76" width="90" height="18" rx="4" fill="#2A4060"/>
+  <text x="205" y="89" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#CCDDEE">Mobile Apps</text>
+  <rect x="270" y="76" width="90" height="18" rx="4" fill="#2A4060"/>
+  <text x="315" y="89" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#CCDDEE">FIX Clients</text>
+  <rect x="380" y="76" width="130" height="18" rx="4" fill="#2A4060"/>
+  <text x="445" y="89" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#CCDDEE">REST / WebSocket</text>
+
+  <!-- Arrow -->
+  <line x1="280" y1="100" x2="280" y2="120" stroke="#E8A838" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <defs><marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#E8A838"/></marker></defs>
+
+  <!-- API Gateway -->
+  <rect x="160" y="120" width="240" height="30" rx="6" fill="#E8A838" opacity="0.15" stroke="#E8A838" stroke-width="1"/>
+  <text x="280" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#E8A838">API Middleware</text>
+
+  <!-- Arrow -->
+  <line x1="280" y1="150" x2="280" y2="170" stroke="#E8A838" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Core Services -->
+  <rect x="30" y="170" width="500" height="100" rx="8" fill="#1A2D4A" stroke="#2A4060" stroke-width="1"/>
+  <text x="280" y="188" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#8899AA">CORE SERVICES</text>
+
+  <rect x="45" y="196" width="105" height="36" rx="6" fill="#111E35" stroke="#2A7B4B" stroke-width="1"/>
+  <text x="97" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="600" fill="#2A7B4B">FIT Premium</text>
+  <text x="97" y="222" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#6B7B8B">OMS</text>
+
+  <rect x="165" y="196" width="105" height="36" rx="6" fill="#111E35" stroke="#3498DB" stroke-width="1"/>
+  <text x="217" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="600" fill="#3498DB">Wasata</text>
+  <text x="217" y="222" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#6B7B8B">Backoffice</text>
+
+  <rect x="285" y="196" width="105" height="36" rx="6" fill="#111E35" stroke="#9B59B6" stroke-width="1"/>
+  <text x="337" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="600" fill="#9B59B6">Surveillance</text>
+  <text x="337" y="222" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#6B7B8B">Market Control</text>
+
+  <rect x="405" y="196" width="110" height="36" rx="6" fill="#111E35" stroke="#E67E22" stroke-width="1"/>
+  <text x="460" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="600" fill="#E67E22">Investor Vision</text>
+  <text x="460" y="222" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#6B7B8B">Portfolio Mgmt</text>
+
+  <rect x="100" y="240" width="130" height="24" rx="5" fill="#111E35" stroke="#1ABC9C" stroke-width="1"/>
+  <text x="165" y="256" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#1ABC9C">Digital Onboarding</text>
+
+  <rect x="250" y="240" width="200" height="24" rx="5" fill="#111E35" stroke="#F39C12" stroke-width="1"/>
+  <text x="350" y="256" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#F39C12">Mobile &amp; Web Trading Platform</text>
+
+  <!-- Arrow -->
+  <line x1="280" y1="270" x2="280" y2="290" stroke="#E8A838" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Infrastructure -->
+  <rect x="30" y="290" width="500" height="50" rx="8" fill="#1A2D4A" stroke="#2A4060" stroke-width="1"/>
+  <text x="280" y="308" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#8899AA">INFRASTRUCTURE</text>
+  <rect x="50" y="316" width="80" height="18" rx="4" fill="#2A4060"/>
+  <text x="90" y="329" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#CCDDEE">PostgreSQL</text>
+  <rect x="145" y="316" width="80" height="18" rx="4" fill="#2A4060"/>
+  <text x="185" y="329" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#CCDDEE">Redis Cache</text>
+  <rect x="240" y="316" width="80" height="18" rx="4" fill="#2A4060"/>
+  <text x="280" y="329" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#CCDDEE">Message Bus</text>
+  <rect x="335" y="316" width="80" height="18" rx="4" fill="#2A4060"/>
+  <text x="375" y="329" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#CCDDEE">Monitoring</text>
+  <rect x="430" y="316" width="80" height="18" rx="4" fill="#2A4060"/>
+  <text x="470" y="329" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#CCDDEE">Exchange FIX</text>
+
+  <!-- Exchanges box -->
+  <rect x="30" y="355" width="500" height="30" rx="6" fill="#111E35" stroke="#E8A838" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="280" y="374" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#E8A838">MSM  |  ADX  |  DFM  |  Bahrain  |  Kuwait  |  Regional Exchanges</text>
+</svg>

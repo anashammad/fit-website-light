@@ -1,0 +1,26 @@
+{
+  "name": "@fit/cms",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon --watch src -e ts --exec ts-node src/server.ts",
+    "build": "payload build",
+    "start": "node dist/server.js",
+    "generate:types": "payload generate:types"
+  },
+  "dependencies": {
+    "payload": "^3.0",
+    "@payloadcms/db-postgres": "^3.0",
+    "@payloadcms/storage-s3": "^3.0",
+    "@payloadcms/richtext-lexical": "^3.0",
+    "express": "^4.19",
+    "resend": "^3.2",
+    "dotenv": "^16.4"
+  },
+  "devDependencies": {
+    "typescript": "^5.4",
+    "@types/express": "^4.17",
+    "nodemon": "^3.1",
+    "ts-node": "^10.9"
+  }
+}
