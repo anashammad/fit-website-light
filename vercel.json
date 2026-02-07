@@ -1,9 +1,9 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
-  "buildCommand": "pnpm turbo build --filter=@fit/web",
+  "buildCommand": "npx turbo build --filter=web",
   "outputDirectory": "apps/web/.next",
-  "installCommand": "pnpm install --frozen-lockfile",
+  "installCommand": "npm ci",
   "git": {
     "deploymentEnabled": {
       "main": true,
