@@ -12,7 +12,7 @@ export const metadata: Metadata = buildMetadata({
   path: '/about',
 });
 
-// TODO: Replace with CMS data from SiteSettings global
+// Data source: hardcoded (CMS integration pending)
 const stats = [
   { value: '27+', label: 'Years in financial markets' },
   { value: '28+', label: 'Institutions served' },
@@ -43,12 +43,15 @@ const values = [
   },
 ];
 
-// TODO: Replace with CMS data from SiteSettings global
+// Data source: hardcoded (CMS integration pending)
 const milestones = [
   { year: '1999', description: 'FIT established in Muscat, Oman, with a mission to modernize MENA capital markets technology.' },
-  { year: '2012', description: 'FIT Premium launched, providing brokerage houses with a modern order management system.' },
-  { year: '2017', description: 'Expanded to five core products covering front office, backoffice, surveillance, and client-facing apps.' },
-  { year: '2022', description: 'Deployed across multiple MENA markets, serving brokerages, banks, and exchanges.' },
+  { year: '2003', description: 'Deployed FIT Premium at the Muscat Securities Market, becoming the first fully electronic brokerage system in Oman.' },
+  { year: '2007', description: 'Expanded operations to the UAE and Qatar, establishing offices in Dubai and partnerships with Gulf financial institutions.' },
+  { year: '2010', description: 'Launched multi-market trading capabilities, enabling clients to trade across MSM, ADX, DFM, and QSE from a single platform.' },
+  { year: '2012', description: 'FIT Premium OMS reengineered with modern architecture, providing brokerage houses with a next-generation order management system.' },
+  { year: '2017', description: 'Expanded to a full product suite covering front office, backoffice, surveillance, and client-facing apps across five core platforms.' },
+  { year: '2022', description: 'Reached 28+ institutional clients across six MENA countries, powering over 90% of Oman\'s brokerage market.' },
 ];
 
 export default function AboutPage() {

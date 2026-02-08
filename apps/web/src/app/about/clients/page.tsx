@@ -68,7 +68,7 @@ function makeAbbr(name: string): string {
     .toUpperCase();
 }
 
-// TODO: Replace with CMS data — client logos and names managed via admin panel
+// Data source: hardcoded (CMS integration pending)
 const clientCategories: ClientCategory[] = [
   {
     title: 'Qatar',

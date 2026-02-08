@@ -124,7 +124,7 @@ const solutions = [
   },
 ];
 
-// TODO: Replace with CMS data from SiteSettings global
+// Data source: hardcoded (CMS integration pending)
 const trustStats = [
   { value: '27+', label: 'Years in Market' },
   { value: '28+', label: 'Institutions Served' },
@@ -314,77 +314,6 @@ export default function HomePage() {
                 className="h-auto w-full rounded-lg border border-terminal-border"
               />
             </AnimateIn>
-          </div>
-        </div>
-      </section>
-
-      {/* TODO: Testimonials below are placeholder quotes pending real client approval */}
-      {/* Testimonials */}
-      <section className="section-padding bg-gray-50">
-        <div className="container-content">
-          <AnimateIn>
-            <Text variant="overline" className="text-accent">
-              CLIENT TESTIMONIALS
-            </Text>
-            <Heading level={2} className="mt-2 text-gray-900">
-              Trusted by Leading Institutions
-            </Heading>
-          </AnimateIn>
-          <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
-            {[
-              {
-                quote:
-                  'FIT Premium has been the backbone of our trading operations for over a decade. The system handles our multi-market order routing with the reliability we need.',
-                role: 'Head of Technology',
-                org: 'Qatar-based brokerage',
-              },
-              {
-                quote:
-                  'The Wasata back-office system simplified our settlement and compliance workflows significantly. FIT\u2019s understanding of MENA regulations is unmatched.',
-                role: 'COO',
-                org: 'Omani brokerage house',
-              },
-              {
-                quote:
-                  'Switching to FIT\u2019s integrated platform eliminated our multi-vendor complexity. One team, one platform, full coverage.',
-                role: 'CTO',
-                org: 'UAE-based financial institution',
-              },
-            ].map((testimonial) => (
-              <div
-                key={testimonial.role}
-                className="flex flex-col rounded-lg border border-terminal-border bg-white p-6 shadow-card"
-              >
-                <svg
-                  width="32"
-                  height="32"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  className="mb-4 shrink-0 text-accent/30"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"
-                    fill="currentColor"
-                  />
-                  <path
-                    d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"
-                    fill="currentColor"
-                  />
-                </svg>
-                <Text className="flex-1 text-slate-700 italic">
-                  &ldquo;{testimonial.quote}&rdquo;
-                </Text>
-                <div className="mt-6 border-t border-terminal-border pt-4">
-                  <Text variant="body-sm" className="font-semibold text-gray-900">
-                    {testimonial.role}
-                  </Text>
-                  <Text variant="body-sm" className="text-slate-500">
-                    {testimonial.org}
-                  </Text>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>

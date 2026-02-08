@@ -39,7 +39,7 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  // TODO: Integrate with Mailchimp or other email marketing provider
+  // Email service integration pending — currently logs for future provider hookup
   console.log('Newsletter signup:', result.data.email);
 
   return NextResponse.json(

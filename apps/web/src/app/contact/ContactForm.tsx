@@ -100,15 +100,22 @@ export default function ContactForm() {
   function validate(): FormErrors {
     const newErrors: FormErrors = {};
     if (!formData.name.trim()) newErrors.name = 'Name is required.';
+    if (formData.name.length > 100) newErrors.name = 'Name must be 100 characters or less.';
     if (!formData.company.trim()) newErrors.company = 'Company name is required.';
+    if (formData.company.length > 100) newErrors.company = 'Company must be 100 characters or less.';
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required.';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = 'Please enter a valid email address.';
     }
-    if (!formData.message.trim() && !isDemo) {
-      newErrors.message = 'Message is required.';
+    if (!isDemo) {
+      if (!formData.message.trim()) {
+        newErrors.message = 'Message is required.';
+      } else if (formData.message.trim().length < 10) {
+        newErrors.message = 'Message must be at least 10 characters.';
+      }
     }
+    if (formData.message.length > 2000) newErrors.message = 'Message must be 2000 characters or less.';
     if (isDemo && !formData.useCase.trim()) {
       newErrors.useCase = 'Please describe your use case.';
     }
@@ -368,30 +375,6 @@ export default function ContactForm() {
                 </div>
               </div>
 
-              {/* Calendly Embed Section */}
-              <div>
-                <Heading level={3} className="text-gray-900">Book a time directly</Heading>
-                <Text variant="body-sm" className="mt-2 text-slate-600">
-                  Prefer to schedule a specific time? Book a 30-minute call with our team.
-                </Text>
-                {/* TODO: Replace with real Calendly URL from CMS SiteSettings */}
-                <div className="mt-4">
-                  <a
-                    href="https://calendly.com/fit-demo/30min"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex w-full items-center justify-center rounded-lg border border-accent/40 bg-transparent px-6 py-3 text-body-sm font-semibold text-accent transition-all hover:bg-accent/10 hover:border-accent/60"
-                  >
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="mr-2" aria-hidden="true">
-                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                      <line x1="16" y1="2" x2="16" y2="6" />
-                      <line x1="8" y1="2" x2="8" y2="6" />
-                      <line x1="3" y1="10" x2="21" y2="10" />
-                    </svg>
-                    Book a 30-Minute Call
-                  </a>
-                </div>
-              </div>
             </aside>
           </div>
         </div>

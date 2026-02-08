@@ -28,6 +28,7 @@ export const contactFormSchema = z.object({
 });
 
 export const demoRequestSchema = contactFormSchema.extend({
+  message: z.string().max(2000).optional(),
   companySize: z
     .enum(['1-50', '51-200', '201-500', '500+'])
     .optional(),

@@ -45,7 +45,7 @@ export function NewsletterSignup({ className }: NewsletterSignupProps) {
     return (
       <div className={className}>
         <p className="text-body-sm font-medium text-terminal-green">
-          Thank you! You&apos;re subscribed.
+          Thank you! We&apos;ll notify you when the newsletter launches.
         </p>
       </div>
     );
@@ -53,6 +53,9 @@ export function NewsletterSignup({ className }: NewsletterSignupProps) {
 
   return (
     <form onSubmit={handleSubmit} className={className}>
+      <p className="mb-2 text-body-sm text-slate-400">
+        Newsletter coming soon. Leave your email to be notified.
+      </p>
       <div className="flex gap-3">
         <input
           type="email"
@@ -64,7 +67,7 @@ export function NewsletterSignup({ className }: NewsletterSignupProps) {
           className="h-11 flex-1 rounded border border-slate-200 bg-white px-4 text-body-sm text-slate-800 placeholder:text-slate-400 transition-colors focus:border-accent focus:outline-none focus:ring-[3px] focus:ring-accent/20"
         />
         <Button type="submit" variant="primary" size="sm" loading={submitting}>
-          Subscribe
+          Notify Me
         </Button>
       </div>
       {error && (

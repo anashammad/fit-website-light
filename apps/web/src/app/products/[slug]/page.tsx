@@ -118,7 +118,7 @@ const products: Record<string, ProductData> = {
       { src: '/images/products/fit-premium-screenshot.png', alt: 'FIT Premium — Multi-market OMS trading terminal' },
       { src: '/images/products/market-making-screenshot.png', alt: 'Market Making module — QGTS automated quoting' },
     ],
-    integrations: ['FIX 4.2/4.4', '(DMA) Direct Market Access', 'Care Orders', 'REST API', 'WebSocket','Bloombarger', 'Reuters', 'GCC Exchange Feeds','Fadeesa'],
+    integrations: ['FIX 4.2/4.4', '(DMA) Direct Market Access', 'Care Orders', 'REST API', 'WebSocket', 'Bloomberg', 'Reuters', 'GCC Exchange Feeds', 'Tadawul'],
     primaryCta: { label: 'Schedule a Demo', href: '/contact?product=fit-premium' },
     secondaryCta: { label: 'Request Datasheet', href: '/contact?type=datasheet&product=fit-premium' },
     relatedSlugs: ['wasata-backoffice', 'fit-surveillance', 'mobile-web-trading'],

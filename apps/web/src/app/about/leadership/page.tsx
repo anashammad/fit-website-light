@@ -25,7 +25,7 @@ interface TeamSection {
   members: TeamMember[];
 }
 
-// TODO: Replace with CMS data from TeamMembers collection
+// Data source: hardcoded (CMS integration pending)
 const teamSections: TeamSection[] = [
   {
     label: 'Leadership',

@@ -29,7 +29,7 @@ export function CookieConsent() {
   if (!visible) return null;
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-slate-50/95 backdrop-blur-sm">
+    <div role="dialog" aria-label="Cookie consent" className="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-slate-50/95 backdrop-blur-sm">
       <div className="mx-auto flex max-w-content flex-col items-center gap-4 px-6 py-4 sm:flex-row sm:justify-between md:px-8 lg:px-12">
         <p className="text-body-sm text-slate-600">
           We use cookies to improve your experience and analyze site traffic. See our{' '}
