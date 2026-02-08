@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getCollection } from '@/lib/payload';
-import { buildMetadata, SITE_URL } from '@/lib/metadata';
+import { buildMetadata, buildBreadcrumbSchema, SITE_URL } from '@/lib/metadata';
 import { Heading, Text, Badge } from '@/components/atoms';
 import { Breadcrumb } from '@/components/molecules';
 import { CTABanner } from '@/components/organisms';
@@ -23,6 +23,7 @@ interface JobListing {
   requirements: Record<string, unknown> | null;
   benefits: Record<string, unknown> | null;
   isActive: boolean;
+  createdAt: string;
   seo?: SeoFields;
 }
 
@@ -66,7 +67,7 @@ export async function generateMetadata({
 
   return buildMetadata({
     title:
-      job.seo?.metaTitle || `${job.title} | Careers | FIT — Trading Technology`,
+      job.seo?.metaTitle || job.title,
     description:
       job.seo?.metaDescription ||
       `${job.title} — ${job.department} — ${job.location}. Apply now at FIT.`,
@@ -118,12 +119,19 @@ export default async function JobDetailPage({ params }: PageProps) {
 
   if (!job) notFound();
 
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Home', url: SITE_URL },
+    { name: 'Careers', url: `${SITE_URL}/careers` },
+    { name: job.title },
+  ]);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'JobPosting',
     title: job.title,
     description: `${job.title} — ${job.department} — ${job.location}. Join FIT.`,
-    datePosted: new Date().toISOString().split('T')[0],
+    datePosted: new Date(job.createdAt).toISOString().split('T')[0],
+    validThrough: new Date(new Date(job.createdAt).getTime() + 90 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
     employmentType: job.type.toUpperCase().replace('-', '_'),
     jobLocation: {
       '@type': 'Place',
@@ -148,8 +156,12 @@ export default async function JobDetailPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
 
-      <section className="bg-primary">
+      <section className="bg-primary text-white">
         <div className="container-content section-padding">
           <Breadcrumb
             items={[
@@ -179,7 +191,7 @@ export default async function JobDetailPage({ params }: PageProps) {
                 <Heading level={2} className="mb-4">
                   About the Role
                 </Heading>
-                <div className="prose prose-lg prose-invert">
+                <div className="prose prose-lg prose-slate">
                   {renderRichText(job.description)}
                 </div>
               </section>
@@ -190,7 +202,7 @@ export default async function JobDetailPage({ params }: PageProps) {
                 <Heading level={2} className="mb-4">
                   Requirements
                 </Heading>
-                <div className="prose prose-lg prose-invert">
+                <div className="prose prose-lg prose-slate">
                   {renderRichText(job.requirements)}
                 </div>
               </section>
@@ -201,7 +213,7 @@ export default async function JobDetailPage({ params }: PageProps) {
                 <Heading level={2} className="mb-4">
                   Benefits
                 </Heading>
-                <div className="prose prose-lg prose-invert">
+                <div className="prose prose-lg prose-slate">
                   {renderRichText(job.benefits)}
                 </div>
               </section>
@@ -210,7 +222,7 @@ export default async function JobDetailPage({ params }: PageProps) {
 
           {/* Sidebar: Application form */}
           <aside>
-            <div className="sticky top-24 rounded-lg border border-terminal-border bg-surface p-6">
+            <div className="sticky top-24 rounded-lg border border-terminal-border bg-gray-50 p-6">
               <Heading level={3} className="mb-2">
                 Apply for this position
               </Heading>

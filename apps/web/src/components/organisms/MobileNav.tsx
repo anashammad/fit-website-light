@@ -78,7 +78,7 @@ export function MobileNav({ items, ctaLabel, ctaHref, open, onClose }: MobileNav
       {/* Backdrop */}
       <div
         className={cn(
-          'absolute inset-0 bg-black/70 transition-opacity duration-300',
+          'absolute inset-0 bg-black/30 transition-opacity duration-300',
           open ? 'opacity-100' : 'opacity-0'
         )}
         onClick={onClose}
@@ -89,7 +89,7 @@ export function MobileNav({ items, ctaLabel, ctaHref, open, onClose }: MobileNav
       <div
         ref={panelRef}
         className={cn(
-          'absolute right-0 top-0 flex h-full w-full max-w-sm flex-col bg-primary border-l border-terminal-border transition-transform duration-300 ease-in-out',
+          'absolute right-0 top-0 flex h-full w-full max-w-sm flex-col bg-white border-l border-slate-200 shadow-modal transition-transform duration-300 ease-in-out',
           open ? 'translate-x-0' : 'translate-x-full'
         )}
       >
@@ -98,7 +98,7 @@ export function MobileNav({ items, ctaLabel, ctaHref, open, onClose }: MobileNav
           <button
             ref={closeButtonRef}
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded text-gray-400 hover:text-white focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
+            className="inline-flex h-10 w-10 items-center justify-center rounded text-slate-500 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
             aria-label="Close navigation menu"
             onClick={onClose}
           >
@@ -119,7 +119,7 @@ export function MobileNav({ items, ctaLabel, ctaHref, open, onClose }: MobileNav
                 <Link
                   key={item.label}
                   href={item.href ?? '#'}
-                  className="flex h-14 items-center text-h4 text-gray-300 hover:text-white focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-accent/40"
+                  className="flex h-14 items-center text-h4 text-slate-700 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-accent/40"
                   onClick={onClose}
                 >
                   {item.label}
@@ -131,7 +131,7 @@ export function MobileNav({ items, ctaLabel, ctaHref, open, onClose }: MobileNav
               <div key={item.label}>
                 <button
                   type="button"
-                  className="flex h-14 w-full items-center justify-between text-h4 text-gray-300 hover:text-white focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-accent/40"
+                  className="flex h-14 w-full items-center justify-between text-h4 text-slate-700 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-accent/40"
                   onClick={() => setExpandedIndex(isExpanded ? null : index)}
                   aria-expanded={isExpanded}
                 >
@@ -153,7 +153,7 @@ export function MobileNav({ items, ctaLabel, ctaHref, open, onClose }: MobileNav
                       <Link
                         key={child.href}
                         href={child.href}
-                        className="flex h-11 items-center text-body-sm text-gray-500 hover:text-accent focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-accent/40"
+                        className="flex h-11 items-center text-body-sm text-slate-500 hover:text-primary focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-accent/40"
                         onClick={onClose}
                       >
                         {child.label}

@@ -10,11 +10,11 @@ export interface TextProps {
 }
 
 const variantStyles: Record<TextVariant, string> = {
-  'body-lg': 'text-body-lg text-gray-300',
-  body: 'text-body text-gray-300',
-  'body-sm': 'text-body-sm text-gray-400',
-  caption: 'text-caption text-gray-500',
-  overline: 'text-overline uppercase text-gray-500',
+  'body-lg': 'text-body-lg text-slate-600',
+  body: 'text-body text-slate-600',
+  'body-sm': 'text-body-sm text-slate-500',
+  caption: 'text-caption text-slate-400',
+  overline: 'text-label uppercase text-slate-400',
 };
 
 export function Text({ variant = 'body', as: Tag = 'p', children, className }: TextProps) {

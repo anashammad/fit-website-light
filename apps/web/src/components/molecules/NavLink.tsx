@@ -81,7 +81,7 @@ export function NavLink({ label, href, dropdownItems, active }: NavLinkProps) {
       <Link
         href={href ?? '#'}
         className={cn(
-          'text-body-sm font-medium text-gray-400 transition-colors hover:text-white',
+          'text-body-sm font-medium text-slate-600 transition-colors hover:text-slate-900',
           active && 'text-accent'
         )}
       >
@@ -99,7 +99,7 @@ export function NavLink({ label, href, dropdownItems, active }: NavLinkProps) {
       <button
         type="button"
         className={cn(
-          'inline-flex items-center gap-1 text-body-sm font-medium text-gray-400 transition-colors hover:text-white',
+          'inline-flex items-center gap-1 text-body-sm font-medium text-slate-600 transition-colors hover:text-slate-900',
           active && 'text-accent'
         )}
         aria-haspopup="true"
@@ -123,7 +123,7 @@ export function NavLink({ label, href, dropdownItems, active }: NavLinkProps) {
       {open && (
         <div
           ref={menuRef}
-          className="absolute left-1/2 top-full z-50 mt-2 -translate-x-1/2 rounded-lg border border-terminal-border bg-primary-light p-2 shadow-dropdown"
+          className="absolute left-1/2 top-full z-50 mt-2 -translate-x-1/2 rounded-lg border border-slate-200 bg-white p-2 shadow-dropdown"
           style={{ minWidth: dropdownItems.length > 3 ? 480 : 240 }}
           role="menu"
           onKeyDown={handleMenuKeyDown}
@@ -135,14 +135,14 @@ export function NavLink({ label, href, dropdownItems, active }: NavLinkProps) {
                 href={child.href}
                 role="menuitem"
                 tabIndex={-1}
-                className="flex flex-col gap-0.5 rounded-lg px-3 py-2 transition-colors hover:bg-white/5"
+                className="flex flex-col gap-0.5 rounded-lg px-3 py-2 transition-colors hover:bg-slate-50"
                 onClick={() => setOpen(false)}
               >
-                <span className="text-body-sm font-semibold text-gray-200">
+                <span className="text-body-sm font-semibold text-slate-800">
                   {child.label}
                 </span>
                 {child.description && (
-                  <span className="text-caption text-gray-500">
+                  <span className="text-caption text-slate-400">
                     {child.description}
                   </span>
                 )}

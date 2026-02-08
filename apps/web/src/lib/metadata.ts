@@ -19,7 +19,7 @@ export function buildMetadata({
   absoluteTitle,
 }: PageSeoInput): Metadata {
   const url = `${SITE_URL}${path}`;
-  const image = ogImage || `${SITE_URL}/images/og-default.svg`;
+  const image = ogImage || `${SITE_URL}/opengraph-image`;
   const ogTitle = absoluteTitle ? title : `${title} | FIT — Trading Technology`;
 
   return {

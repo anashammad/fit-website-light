@@ -167,11 +167,58 @@ const teamSections: TeamSection[] = [
   },
 ];
 
+function AvatarPlaceholder({ name }: { name: string }) {
+  const initials = name
+    .split(' ')
+    .filter(Boolean)
+    .map((n) => n[0])
+    .join('')
+    .slice(0, 2)
+    .toUpperCase();
+
+  return (
+    <div className="relative mb-4">
+      <svg
+        width="80"
+        height="80"
+        viewBox="0 0 80 80"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="rounded-full"
+        aria-hidden="true"
+      >
+        {/* Navy blue background */}
+        <circle cx="40" cy="40" r="40" fill="#0F172A" />
+        {/* Person silhouette */}
+        <circle cx="40" cy="30" r="12" fill="#1E293B" />
+        <ellipse cx="40" cy="62" rx="20" ry="14" fill="#1E293B" />
+        {/* White initials overlaid */}
+        <text
+          x="40"
+          y="42"
+          textAnchor="middle"
+          dominantBaseline="central"
+          fill="white"
+          fontFamily="var(--font-inter), system-ui, sans-serif"
+          fontWeight="700"
+          fontSize="20"
+          letterSpacing="0.02em"
+        >
+          {initials}
+        </text>
+      </svg>
+      <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-slate-100 px-2 py-0.5 text-[10px] text-slate-400">
+        Photo coming soon
+      </span>
+    </div>
+  );
+}
+
 function TeamMemberCard({ member }: { member: TeamMember }) {
   return (
-    <div className="rounded-lg border border-terminal-border bg-surface p-6 transition-all duration-300 hover:border-accent/15">
-      <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-primary">
-        {member.image ? (
+    <div className="rounded-lg border border-terminal-border bg-white p-6 transition-all duration-300 hover:border-accent/15 shadow-card hover:shadow-card-hover">
+      {member.image ? (
+        <div className="mb-4">
           <Image
             src={member.image}
             alt={member.name}
@@ -179,19 +226,17 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
             height={80}
             className="h-20 w-20 rounded-full object-cover"
           />
-        ) : (
-          <span className="text-xl font-bold select-none text-accent" aria-hidden="true">
-            {member.name.split(' ').filter(Boolean).map((n) => n[0]).join('').slice(0, 2).toUpperCase()}
-          </span>
-        )}
-      </div>
+        </div>
+      ) : (
+        <AvatarPlaceholder name={member.name} />
+      )}
       <Heading level={3} className="text-lg">
         {member.name}
       </Heading>
       <Text variant="body-sm" className="mt-1 font-medium text-accent">
         {member.title}
       </Text>
-      <Text variant="body-sm" className="mt-3 text-gray-400">
+      <Text variant="body-sm" className="mt-3 text-slate-600">
         {member.bio}
       </Text>
       {member.linkedin && (
@@ -233,7 +278,7 @@ export default function LeadershipPage() {
         ]}
       />
 
-      <section className="section-padding bg-primary">
+      <section className="section-padding bg-gray-50">
         <div className="container-content space-y-16">
           {teamSections.map((section) => (
             <div key={section.label}>

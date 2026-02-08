@@ -9,8 +9,8 @@ export interface BadgeProps {
 }
 
 const variantStyles: Record<BadgeVariant, string> = {
-  default: 'bg-white/10 text-gray-300',
-  secondary: 'bg-secondary-light text-blue-300',
+  default: 'bg-slate-100 text-slate-600',
+  secondary: 'bg-blue-50 text-blue-700',
   accent: 'bg-accent-muted text-accent',
   success: 'bg-success-light text-terminal-green',
   warning: 'bg-warning-light text-terminal-amber',

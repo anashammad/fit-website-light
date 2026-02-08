@@ -2,19 +2,18 @@ import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: ['./src/**/*.{ts,tsx}'],
-  darkMode: 'class',
   theme: {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#0A1628',
-          light: '#0F1D32',
-          dark: '#060E1A',
+          DEFAULT: '#002B7F',
+          light: '#0041A8',
+          dark: '#001F5C',
         },
         secondary: {
           DEFAULT: '#1E40AF',
           hover: '#1E3A8A',
-          light: '#1E3A5F',
+          light: '#3B82F6',
         },
         accent: {
           DEFAULT: '#D4A843',
@@ -23,35 +22,35 @@ const config: Config = {
           muted: 'rgba(212, 168, 67, 0.15)',
         },
         terminal: {
-          green: '#00C853',
-          red: '#FF1744',
-          amber: '#FFB300',
-          blue: '#42A5F5',
-          cyan: '#00E5FF',
-          muted: '#1A2332',
-          border: '#1E2D3D',
-          surface: '#0D1B2A',
+          green: '#16A34A',
+          red: '#DC2626',
+          amber: '#D97706',
+          blue: '#2563EB',
+          cyan: '#0891B2',
+          muted: '#F1F5F9',
+          border: '#E2E8F0',
+          surface: '#F8FAFC',
         },
         surface: {
-          DEFAULT: '#0F1923',
-          light: '#131F2E',
-          lighter: '#1A2738',
+          DEFAULT: '#FFFFFF',
+          light: '#F8FAFC',
+          lighter: '#F1F5F9',
         },
         success: {
-          DEFAULT: '#00C853',
-          light: 'rgba(0, 200, 83, 0.1)',
+          DEFAULT: '#16A34A',
+          light: 'rgba(22, 163, 74, 0.1)',
         },
         warning: {
-          DEFAULT: '#FFB300',
-          light: 'rgba(255, 179, 0, 0.1)',
+          DEFAULT: '#D97706',
+          light: 'rgba(217, 119, 6, 0.1)',
         },
         error: {
-          DEFAULT: '#FF1744',
-          light: 'rgba(255, 23, 68, 0.1)',
+          DEFAULT: '#DC2626',
+          light: 'rgba(220, 38, 38, 0.1)',
         },
         info: {
-          DEFAULT: '#42A5F5',
-          light: 'rgba(66, 165, 245, 0.1)',
+          DEFAULT: '#2563EB',
+          light: 'rgba(37, 99, 235, 0.1)',
         },
       },
       fontFamily: {
@@ -118,7 +117,7 @@ const config: Config = {
             fontWeight: '400',
           },
         ],
-        overline: [
+        label: [
           '0.75rem',
           {
             lineHeight: '1.5',
@@ -147,15 +146,15 @@ const config: Config = {
         full: '9999px',
       },
       boxShadow: {
-        card: '0 1px 3px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.03)',
-        'card-hover': '0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(212,168,67,0.15)',
-        dropdown: '0 8px 32px rgba(0,0,0,0.5)',
-        nav: '0 1px 0 rgba(255,255,255,0.03)',
-        modal: '0 16px 48px rgba(0,0,0,0.6)',
-        glow: '0 0 20px rgba(212, 168, 67, 0.15)',
-        'glow-green': '0 0 12px rgba(0, 200, 83, 0.2)',
-        'glow-red': '0 0 12px rgba(255, 23, 68, 0.2)',
-        'inner-light': 'inset 0 1px 0 rgba(255,255,255,0.05)',
+        card: '0 1px 3px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,43,127,0.06)',
+        'card-hover': '0 8px 32px rgba(0,43,127,0.12), 0 0 0 1px rgba(0,43,127,0.1)',
+        dropdown: '0 8px 32px rgba(0,0,0,0.12)',
+        nav: '0 1px 0 rgba(0,0,0,0.05)',
+        modal: '0 16px 48px rgba(0,0,0,0.15)',
+        glow: '0 0 20px rgba(0, 43, 127, 0.1)',
+        'glow-green': '0 0 12px rgba(22, 163, 74, 0.15)',
+        'glow-red': '0 0 12px rgba(220, 38, 38, 0.15)',
+        'inner-light': 'inset 0 1px 0 rgba(255,255,255,0.8)',
       },
       screens: {
         sm: '640px',
@@ -165,9 +164,9 @@ const config: Config = {
         '2xl': '1440px',
       },
       backgroundImage: {
-        'grid-pattern': 'linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)',
+        'grid-pattern': 'linear-gradient(rgba(0,43,127,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,43,127,0.04) 1px, transparent 1px)',
         'gradient-radial': 'radial-gradient(ellipse at center, var(--tw-gradient-stops))',
-        'gradient-terminal': 'linear-gradient(180deg, #0D1B2A 0%, #0A1628 100%)',
+        'gradient-terminal': 'linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%)',
       },
       backgroundSize: {
         'grid-40': '40px 40px',

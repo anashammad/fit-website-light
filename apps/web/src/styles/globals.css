@@ -3,28 +3,28 @@
 
 @layer base {
   :root {
-    --color-primary: #0A1628;
-    --color-primary-light: #0F1D32;
-    --color-primary-dark: #060E1A;
+    --color-primary: #002B7F;
+    --color-primary-light: #0041A8;
+    --color-primary-dark: #001F5C;
     --color-secondary: #1E40AF;
     --color-secondary-hover: #1E3A8A;
     --color-accent: #D4A843;
     --color-accent-hover: #C4982E;
     --color-accent-light: #E8C96A;
-    --color-terminal-green: #00C853;
-    --color-terminal-red: #FF1744;
-    --color-terminal-border: #1E2D3D;
-    --color-surface: #0F1923;
-    --color-surface-light: #131F2E;
+    --color-terminal-green: #16A34A;
+    --color-terminal-red: #DC2626;
+    --color-terminal-border: #E2E8F0;
+    --color-surface: #FFFFFF;
+    --color-surface-light: #F8FAFC;
   }
 
   html {
     scroll-behavior: smooth;
-    color-scheme: dark;
+    color-scheme: light;
   }
 
   body {
-    @apply bg-primary text-body text-gray-300 antialiased;
+    @apply bg-white text-body text-slate-800 antialiased;
   }
 
   /* Maximum line width for readability */
@@ -35,8 +35,8 @@
 
   /* Selection color */
   ::selection {
-    background-color: rgba(212, 168, 67, 0.3);
-    color: #fff;
+    background-color: rgba(0, 43, 127, 0.2);
+    color: #002B7F;
   }
 }
 
@@ -49,33 +49,33 @@
     @apply mx-auto w-full max-w-content px-6 md:px-8 lg:px-12;
   }
 
-  /* Terminal-style decorative grid background */
+  /* Subtle grid background for light theme */
   .bg-terminal-grid {
     background-image:
-      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      linear-gradient(rgba(0,43,127,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,43,127,0.04) 1px, transparent 1px);
     background-size: 40px 40px;
   }
 
-  /* Glowing border effect for cards */
+  /* Card border effect */
   .border-glow {
-    border: 1px solid rgba(212, 168, 67, 0.1);
+    border: 1px solid #E2E8F0;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
   }
 
   .border-glow:hover {
-    border-color: rgba(212, 168, 67, 0.25);
-    box-shadow: 0 0 20px rgba(212, 168, 67, 0.08);
+    border-color: rgba(0, 43, 127, 0.25);
+    box-shadow: 0 4px 16px rgba(0, 43, 127, 0.08);
   }
 
-  /* Scanline effect for hero sections */
+  /* Subtle overlay for hero sections */
   .scanline-overlay {
     background: repeating-linear-gradient(
       0deg,
       transparent,
       transparent 2px,
-      rgba(0, 0, 0, 0.03) 2px,
-      rgba(0, 0, 0, 0.03) 4px
+      rgba(0, 43, 127, 0.01) 2px,
+      rgba(0, 43, 127, 0.01) 4px
     );
   }
 
@@ -91,7 +91,7 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(212, 168, 67, 0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(0, 43, 127, 0.12), transparent);
   }
 }
 

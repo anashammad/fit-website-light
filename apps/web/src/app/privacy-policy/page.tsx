@@ -29,15 +29,15 @@ export default function PrivacyPolicyPage() {
         ]}
       />
 
-      <section className="section-padding bg-surface">
+      <section className="section-padding bg-white">
         <div className="container-content max-w-3xl">
-          <div className="prose prose-invert max-w-none space-y-8">
+          <div className="prose prose-slate max-w-none space-y-8">
             <div>
               <Heading level={2}>1. Introduction</Heading>
               <Text className="mt-4">
                 FIT (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy. This
                 Privacy Policy explains how we collect, use, disclose, and safeguard your
-                information when you visit our website fitoman.com or use our services.
+                information when you visit our website www.fitoman.com or use our services.
               </Text>
             </div>
 
@@ -139,10 +139,10 @@ export default function PrivacyPolicyPage() {
               <Text className="mt-4">
                 If you have any questions about this Privacy Policy, please contact us at:
               </Text>
-              <div className="mt-4 rounded-lg border border-terminal-border bg-primary p-6">
-                <Text className="font-medium text-white">FIT</Text>
-                <Text className="mt-1 text-gray-400">Muscat, Oman</Text>
-                <Text className="mt-1 text-gray-400">Email: info@fitoman.com</Text>
+              <div className="mt-4 rounded-lg border border-terminal-border bg-gray-50 p-6">
+                <Text className="font-medium text-gray-900">FIT</Text>
+                <Text className="mt-1 text-slate-600">Muscat, Oman</Text>
+                <Text className="mt-1 text-slate-600">Email: info@fitoman.com</Text>
               </div>
             </div>
           </div>

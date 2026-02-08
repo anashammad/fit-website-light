@@ -159,26 +159,26 @@ export default function ContactForm() {
                 { label: 'Home', href: '/' },
                 { label: isDemo ? 'Request Demo' : 'Contact' },
               ]}
-              className="[&_span]:text-gray-500 [&_a]:text-gray-500 [&_a:hover]:text-accent"
+              className="[&_span]:text-gray-300 [&_a]:text-gray-300 [&_a:hover]:text-accent-light"
             />
             <Heading level={1} className="mt-2 text-white">
               Thank you for reaching out
             </Heading>
-            <Text variant="body-lg" className="mt-4 text-gray-400">
+            <Text variant="body-lg" className="mt-4 text-gray-200">
               We have received your {isDemo ? 'demo request' : 'message'} and will respond within
               one business day.
             </Text>
           </div>
         </section>
-        <section className="section-padding bg-surface">
+        <section className="section-padding bg-white">
           <div className="container-content max-w-2xl text-center">
             <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-terminal-green/20 bg-terminal-green/10">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-terminal-green" aria-hidden="true">
                 <polyline points="20 6 9 17 4 12" />
               </svg>
             </div>
-            <Heading level={2} className="text-white">Submission received</Heading>
-            <Text className="mt-4 text-gray-400">
+            <Heading level={2} className="text-gray-900">Submission received</Heading>
+            <Text className="mt-4 text-slate-600">
               Our team will review your {isDemo ? 'request' : 'message'} and get back to you
               shortly. In the meantime, feel free to explore our products.
             </Text>
@@ -205,21 +205,21 @@ export default function ContactForm() {
               { label: 'Home', href: '/' },
               { label: isDemo ? 'Request Demo' : 'Contact' },
             ]}
-            className="[&_span]:text-gray-500 [&_a]:text-gray-500 [&_a:hover]:text-accent"
+            className="[&_span]:text-gray-300 [&_a]:text-gray-300 [&_a:hover]:text-accent-light"
           />
           <Heading level={1} className="mt-2 text-white">
             {isDemo
               ? 'See FIT in action. Request a demo.'
               : "Let's talk about your trading infrastructure"}
           </Heading>
-          <Text variant="body-lg" className="mt-4 max-w-2xl text-gray-400">
+          <Text variant="body-lg" className="mt-4 max-w-2xl text-gray-200">
             Tell us about your organization and what you need. Our team will respond within one
             business day.
           </Text>
         </div>
       </section>
 
-      <section className="section-padding bg-surface">
+      <section className="section-padding bg-white">
         <div className="container-content">
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-3">
             {/* Form */}
@@ -335,14 +335,14 @@ export default function ContactForm() {
             <aside className="space-y-8">
               {/* Direct Contact */}
               <div>
-                <Heading level={3} className="text-white">Contact us directly</Heading>
+                <Heading level={3} className="text-gray-900">Contact us directly</Heading>
                 <div className="mt-4 space-y-3">
                   <div className="flex items-start gap-3">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="mt-0.5 shrink-0 text-accent" aria-hidden="true">
                       <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                     <div>
-                      <Text variant="body-sm" className="font-medium text-gray-300">Email</Text>
+                      <Text variant="body-sm" className="font-medium text-slate-700">Email</Text>
                       <a href="mailto:info@fitmena.com" className="text-body-sm text-accent hover:text-accent-light transition-colors">info@fitmena.com</a>
                     </div>
                   </div>
@@ -351,12 +351,12 @@ export default function ContactForm() {
 
               {/* Office Locations */}
               <div>
-                <Heading level={3} className="text-white">Our offices</Heading>
+                <Heading level={3} className="text-gray-900">Our offices</Heading>
                 <div className="mt-4 space-y-4">
                   {offices.map((office) => (
-                    <div key={office.country} className="rounded-lg border border-terminal-border bg-primary p-4">
-                      <Text variant="body-sm" className="font-semibold text-white">{office.country}</Text>
-                      <Text variant="body-sm" className="mt-1 text-gray-500">{office.address}</Text>
+                    <div key={office.country} className="rounded-lg border border-terminal-border bg-gray-50 p-4">
+                      <Text variant="body-sm" className="font-semibold text-gray-900">{office.country}</Text>
+                      <Text variant="body-sm" className="mt-1 text-slate-500">{office.address}</Text>
                       <a
                         href={`tel:${office.phone.replace(/\s/g, '')}`}
                         className="mt-1 inline-block font-mono text-ticker text-accent hover:text-accent-light transition-colors"
@@ -370,8 +370,8 @@ export default function ContactForm() {
 
               {/* Calendly Embed Section */}
               <div>
-                <Heading level={3} className="text-white">Book a time directly</Heading>
-                <Text variant="body-sm" className="mt-2 text-gray-400">
+                <Heading level={3} className="text-gray-900">Book a time directly</Heading>
+                <Text variant="body-sm" className="mt-2 text-slate-600">
                   Prefer to schedule a specific time? Book a 30-minute call with our team.
                 </Text>
                 {/* TODO: Replace with real Calendly URL from CMS SiteSettings */}

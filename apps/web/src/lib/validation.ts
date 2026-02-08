@@ -3,28 +3,35 @@ import { z } from 'zod';
 export const contactFormSchema = z.object({
   name: z.string().min(1, 'Name is required').max(100),
   email: z.string().email('Invalid email address'),
-  company: z.string().max(100).optional(),
+  company: z.string().min(1, 'Company is required').max(100),
   phone: z.string().max(20).optional(),
   message: z
     .string()
     .min(10, 'Message must be at least 10 characters')
     .max(2000),
-  productInterest: z
+  product: z
     .enum([
-      'FIT Premium',
-      'API Middleware',
-      'Wasata Backoffice',
-      'Order Surveillance',
-      'Mobile & Web Trading',
-      'Other',
+      'fit-premium',
+      'wasata-backoffice',
+      'investor-vision',
+      'mobile-web-trading',
+      'fit-surveillance',
+      'digital-onboarding',
+      'api-middleware',
+      'fund-management',
+      'ipo-manager',
+      'banking-gateway',
+      'full-suite',
+      'other',
     ])
     .optional(),
 });
 
 export const demoRequestSchema = contactFormSchema.extend({
   companySize: z
-    .enum(['1-10', '11-50', '51-200', '201-500', '500+'])
+    .enum(['1-50', '51-200', '201-500', '500+'])
     .optional(),
+  useCase: z.string().max(5000).optional(),
 });
 
 export const applicationSchema = z.object({

@@ -28,10 +28,10 @@ export function BlogCard({
     <Link
       href={href}
       className={cn(
-        'group flex flex-col overflow-hidden rounded-lg border border-terminal-border bg-surface shadow-card',
+        'group flex flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-card',
         'transition-all duration-200 ease-out',
-        'hover:-translate-y-0.5 hover:border-accent/20 hover:shadow-card-hover',
-        'focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-primary',
+        'hover:-translate-y-0.5 hover:border-primary/20 hover:shadow-card-hover',
+        'focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white',
         className
       )}
     >

@@ -28,7 +28,7 @@ const variantStyles: Record<ButtonVariant, string> = {
   secondary:
     'bg-transparent text-accent border border-accent/40 hover:bg-accent/10 hover:border-accent/60 active:bg-accent/15',
   ghost:
-    'bg-transparent text-gray-300 hover:bg-white/5 active:bg-white/10',
+    'bg-transparent text-slate-600 hover:bg-slate-100 active:bg-slate-200',
   danger:
     'bg-error text-white hover:bg-red-600 active:bg-red-700',
 };
@@ -62,7 +62,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={isDisabled}
         className={cn(
           'inline-flex items-center justify-center gap-2 font-semibold transition-all duration-150 ease-out',
-          'focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-primary',
+          'focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white',
           'hover:-translate-y-px',
           'active:translate-y-0',
           variantStyles[variant],
@@ -111,7 +111,7 @@ export function ButtonLink({
       href={href}
       className={cn(
         'inline-flex items-center justify-center gap-2 font-semibold transition-all duration-150 ease-out',
-        'focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-primary',
+        'focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white',
         'hover:-translate-y-px',
         'active:translate-y-0',
         variantStyles[variant],

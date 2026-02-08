@@ -27,7 +27,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
       <div className="flex flex-col gap-1.5">
         <label
           htmlFor={selectId}
-          className="text-body-sm font-medium text-gray-300"
+          className="text-body-sm font-medium text-slate-700"
         >
           {label}
           {required && <span className="ml-0.5 text-error">*</span>}
@@ -41,13 +41,13 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             aria-invalid={error ? true : undefined}
             aria-describedby={errorId ?? hintId}
             className={cn(
-              'h-11 w-full appearance-none rounded border bg-primary px-4 py-3 pr-10 text-body text-gray-200',
+              'h-11 w-full appearance-none rounded border bg-white px-4 py-3 pr-10 text-body text-slate-800',
               'transition-colors duration-150',
               'focus:border-accent focus:outline-none focus:ring-[3px] focus:ring-accent/20',
-              'disabled:cursor-not-allowed disabled:bg-surface disabled:text-gray-600',
+              'disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400',
               error
                 ? 'border-error focus:border-error focus:ring-error/20'
-                : 'border-terminal-border',
+                : 'border-slate-200',
               className
             )}
             {...props}
@@ -61,7 +61,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
               </option>
             ))}
           </select>
-          <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-500">
+          <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-slate-400">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path
                 d="M4 6l4 4 4-4"
@@ -79,7 +79,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
           </p>
         )}
         {hint && !error && (
-          <p id={hintId} className="text-caption text-gray-500">
+          <p id={hintId} className="text-caption text-slate-400">
             {hint}
           </p>
         )}

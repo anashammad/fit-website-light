@@ -108,7 +108,7 @@ export default function ProductsPage() {
         ]}
       />
 
-      <section className="section-padding bg-primary">
+      <section className="section-padding bg-white">
         <div className="container-content">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {products.map((product) => (

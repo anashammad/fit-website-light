@@ -199,10 +199,10 @@ const pages: Record<string, TechnologyPageData> = {
       {
         heading: 'Proven at scale',
         description:
-          'FIT APIs handle institutional transaction volumes in production every day. The middleware processes tens of thousands of messages per second with sub-millisecond latency and 99.9%+ uptime.',
+          'FIT APIs handle institutional transaction volumes in production every day. The middleware processes tens of thousands of messages per second with sub-second latency and 99.9%+ uptime.',
         items: [
           { label: 'Throughput', detail: 'Tens of thousands of messages per second sustained' },
-          { label: 'Latency', detail: 'Sub-millisecond message processing and routing' },
+          { label: 'Latency', detail: 'Sub-second message processing and routing' },
           { label: 'Reliability', detail: '99.9%+ uptime with automatic reconnection and failover' },
         ],
       },
@@ -309,18 +309,18 @@ const pages: Record<string, TechnologyPageData> = {
     overline: 'Technology',
     title: 'Built for Speed. Designed to Scale.',
     subtitle:
-      "FIT's infrastructure handles tens of thousands of orders per second with sub-millisecond latency and scales horizontally to meet growing transaction volumes.",
+      "FIT's infrastructure handles tens of thousands of orders per second with sub-second latency and scales horizontally to meet growing transaction volumes.",
     metaTitle: 'Performance & Scalability',
     metaDescription:
-      'Sub-millisecond order routing, horizontal scaling, and institutional-grade throughput. FIT trading infrastructure grows with your business. See benchmarks.',
+      'Sub-second order routing, horizontal scaling, and institutional-grade throughput. FIT trading infrastructure grows with your business. See benchmarks.',
     featureGridOverline: 'Performance characteristics',
     featureGridHeading: 'Speed and scale without compromise',
     features: [
       {
         icon: 'zap',
-        title: 'Sub-millisecond latency',
+        title: 'Sub-second latency',
         description:
-          'Order routing and execution with sub-millisecond processing times. Optimized message paths minimize every microsecond of overhead.',
+          'Order routing and execution with sub-second processing times. Optimized message paths minimize overhead at every step.',
       },
       {
         icon: 'trending-up',
@@ -359,7 +359,7 @@ const pages: Record<string, TechnologyPageData> = {
         description:
           'In trading, milliseconds matter. FIT optimizes every step of the order lifecycle — from the moment an order enters the system to when the execution confirmation returns. Purpose-built message pipelines, efficient serialization, and optimized network paths keep latency consistently low.',
         items: [
-          { label: 'Order routing', detail: 'Sub-millisecond from entry to exchange submission' },
+          { label: 'Order routing', detail: 'Sub-second from entry to exchange submission' },
           { label: 'Market data', detail: 'Tick-to-trade latency measured in microseconds' },
           { label: 'Consistent performance', detail: 'P99 latency within 2x of median under load' },
         ],
@@ -426,14 +426,14 @@ function ContentSection({ section }: { section: ContentSection }) {
   return (
     <div>
       <Heading level={3}>{section.heading}</Heading>
-      <Text variant="body-lg" className="mt-3 max-w-3xl text-gray-400">
+      <Text variant="body-lg" className="mt-3 max-w-3xl text-slate-600">
         {section.description}
       </Text>
       {section.items && section.items.length > 0 && (
         <div className="mt-6 grid gap-4 sm:grid-cols-3">
           {section.items.map((item) => (
-            <div key={item.label} className="rounded-lg border border-terminal-border bg-primary p-5">
-              <Text variant="body" className="font-semibold text-white">
+            <div key={item.label} className="rounded-lg border border-terminal-border bg-gray-50 p-5">
+              <Text variant="body" className="font-semibold text-gray-900">
                 {item.label}
               </Text>
               <Text variant="body-sm" className="mt-1">
@@ -466,13 +466,13 @@ export default async function TechnologyPage({ params }: PageProps) {
 
   const breadcrumbs: BreadcrumbItem[] = [
     { label: 'Home', href: '/' },
-    { label: 'Technology', href: '/technology/architecture' },
+    { label: 'Technology', href: '/technology' },
     { label: breadcrumbLabels[slug] ?? data.title },
   ];
 
   const breadcrumbSchema = buildBreadcrumbSchema([
     { name: 'Home', url: SITE_URL },
-    { name: 'Technology', url: `${SITE_URL}/technology/architecture` },
+    { name: 'Technology', url: `${SITE_URL}/technology` },
     { name: breadcrumbLabels[slug] ?? data.title },
   ]);
 
@@ -489,7 +489,7 @@ export default async function TechnologyPage({ params }: PageProps) {
       />
 
       {/* Content sections */}
-      <section className="section-padding bg-surface">
+      <section className="section-padding bg-white">
         <div className="container-content space-y-16">
           {data.sections.map((section) => (
             <ContentSection key={section.heading} section={section} />
@@ -502,7 +502,7 @@ export default async function TechnologyPage({ params }: PageProps) {
         overline={data.featureGridOverline}
         heading={data.featureGridHeading}
         features={data.features}
-        className="bg-primary"
+        className="bg-gray-50"
       />
 
       {/* CTA Banner */}

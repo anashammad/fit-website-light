@@ -90,7 +90,7 @@ export function ApplicationFormClient({ jobSlug }: ApplicationFormClientProps) {
         <Text variant="body" className="font-semibold text-accent">
           Application submitted!
         </Text>
-        <Text variant="body-sm" className="mt-2 text-gray-400">
+        <Text variant="body-sm" className="mt-2 text-slate-600">
           Thank you for your interest. We will review your application and get back to you.
         </Text>
       </div>
@@ -123,8 +123,8 @@ export function ApplicationFormClient({ jobSlug }: ApplicationFormClientProps) {
       />
 
       <div>
-        <label htmlFor="resume" className="mb-1.5 block text-body-sm font-medium text-gray-300">
-          Resume <span className="text-red-400">*</span>
+        <label htmlFor="resume" className="mb-1.5 block text-body-sm font-medium text-slate-700">
+          Resume <span className="text-red-500">*</span>
         </label>
         <input
           id="resume"
@@ -132,7 +132,7 @@ export function ApplicationFormClient({ jobSlug }: ApplicationFormClientProps) {
           type="file"
           accept=".pdf,.doc,.docx"
           aria-required="true"
-          className="block w-full text-body-sm text-gray-300 file:mr-3 file:rounded file:border-0 file:bg-white/10 file:px-3 file:py-2 file:text-body-sm file:font-medium file:text-gray-300 hover:file:bg-white/15"
+          className="block w-full text-body-sm text-slate-700 file:mr-3 file:rounded file:border file:border-terminal-border file:bg-white file:px-3 file:py-2 file:text-body-sm file:font-medium file:text-slate-700 hover:file:bg-gray-50"
         />
         {errors.resume && (
           <p className="mt-1 text-caption text-red-400">{errors.resume}</p>
@@ -147,7 +147,7 @@ export function ApplicationFormClient({ jobSlug }: ApplicationFormClientProps) {
       />
 
       <div>
-        <label htmlFor="coverLetter" className="mb-1.5 block text-body-sm font-medium text-gray-300">
+        <label htmlFor="coverLetter" className="mb-1.5 block text-body-sm font-medium text-slate-700">
           Cover Letter
         </label>
         <textarea
@@ -155,7 +155,7 @@ export function ApplicationFormClient({ jobSlug }: ApplicationFormClientProps) {
           name="coverLetter"
           rows={4}
           maxLength={5000}
-          className="w-full rounded-md border border-terminal-border bg-primary px-3 py-2 text-body-sm text-white placeholder:text-gray-500 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent/20"
+          className="w-full rounded-md border border-terminal-border bg-white px-3 py-2 text-body-sm text-slate-800 placeholder:text-slate-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20"
           placeholder="Tell us why you're interested in this role..."
         />
         {errors.coverLetter && (

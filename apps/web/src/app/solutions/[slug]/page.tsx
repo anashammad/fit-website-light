@@ -114,7 +114,7 @@ const solutions: Record<string, SolutionData> = {
       {
         name: 'FIT Premium',
         description:
-          'Multi-market order management with sub-millisecond routing and full execution visibility.',
+          'Multi-market order management with sub-second order routing and full execution visibility.',
         href: '/products/fit-premium',
         icon: 'terminal',
       },
@@ -294,7 +294,7 @@ const solutions: Record<string, SolutionData> = {
       {
         painPoint: 'Legacy systems',
         capability:
-          'Modern OMS with sub-millisecond execution and a modular architecture that replaces aging platforms incrementally.',
+          'Modern OMS with sub-second order routing and a modular architecture that replaces aging platforms incrementally.',
       },
       {
         painPoint: 'Compliance complexity',
@@ -531,7 +531,7 @@ export default async function SolutionPage({
       />
 
       {/* Pain Points */}
-      <section className="section-padding bg-primary">
+      <section className="section-padding bg-white">
         <div className="container-content">
           <Text variant="overline" className="text-accent">
             Challenges
@@ -543,7 +543,7 @@ export default async function SolutionPage({
             {data.painPoints.map((point) => (
               <div
                 key={point.title}
-                className="flex gap-4 rounded-lg border border-terminal-border bg-surface p-6"
+                className="flex gap-4 rounded-lg border border-terminal-border bg-white p-6 shadow-card"
               >
                 <Icon
                   name={point.icon}
@@ -552,7 +552,7 @@ export default async function SolutionPage({
                 />
                 <div>
                   <Heading level={4}>{point.title}</Heading>
-                  <Text variant="body-sm" className="mt-2 text-gray-400">
+                  <Text variant="body-sm" className="mt-2 text-slate-600">
                     {point.description}
                   </Text>
                 </div>
@@ -563,7 +563,7 @@ export default async function SolutionPage({
       </section>
 
       {/* Our Solution */}
-      <section className="section-padding bg-surface">
+      <section className="section-padding bg-gray-50">
         <div className="container-content">
           <Text variant="overline" className="text-accent">
             Our approach
@@ -571,21 +571,21 @@ export default async function SolutionPage({
           <Heading level={2} className="mt-2">
             How FIT addresses each challenge
           </Heading>
-          <Text variant="body-lg" className="mt-4 max-w-3xl text-gray-400">
+          <Text variant="body-lg" className="mt-4 max-w-3xl text-slate-600">
             {data.solutionIntro}
           </Text>
           <div className="mt-12 space-y-6">
             {data.solutionMappings.map((mapping, index) => (
               <div
                 key={mapping.painPoint}
-                className="flex flex-col gap-4 rounded-lg border border-terminal-border bg-primary p-6 md:flex-row md:items-start"
+                className="flex flex-col gap-4 rounded-lg border border-terminal-border bg-white p-6 md:flex-row md:items-start"
               >
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent/10 border border-accent/30 text-body font-semibold text-accent">
                   {index + 1}
                 </div>
                 <div>
                   <Heading level={4}>{mapping.painPoint}</Heading>
-                  <Text variant="body-sm" className="mt-1 text-gray-400">
+                  <Text variant="body-sm" className="mt-1 text-slate-600">
                     {mapping.capability}
                   </Text>
                 </div>
@@ -596,7 +596,7 @@ export default async function SolutionPage({
       </section>
 
       {/* Product Mapping */}
-      <section className="section-padding bg-primary">
+      <section className="section-padding bg-white">
         <div className="container-content">
           <Text variant="overline" className="text-accent">
             Products
@@ -609,7 +609,7 @@ export default async function SolutionPage({
               <Link
                 key={product.name}
                 href={product.href}
-                className="group flex flex-col rounded-lg border border-terminal-border bg-surface p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/20 hover:shadow-[0_4px_20px_rgba(212,168,67,0.1)]"
+                className="group flex flex-col rounded-lg border border-terminal-border bg-white p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/20 shadow-card hover:shadow-card-hover"
               >
                 <Icon
                   name={product.icon}
@@ -619,7 +619,7 @@ export default async function SolutionPage({
                 <Heading level={4} className="mt-4">
                   {product.name}
                 </Heading>
-                <Text variant="body-sm" className="mt-2 text-gray-400">
+                <Text variant="body-sm" className="mt-2 text-slate-600">
                   {product.description}
                 </Text>
                 <span className="mt-auto pt-4 text-body-sm font-semibold text-accent transition-colors group-hover:text-accent-light">
@@ -632,7 +632,7 @@ export default async function SolutionPage({
       </section>
 
       {/* Results / Outcomes */}
-      <section className="section-padding bg-surface">
+      <section className="section-padding bg-gray-50">
         <div className="container-content">
           <Text variant="overline" className="text-accent">
             Outcomes
@@ -646,7 +646,7 @@ export default async function SolutionPage({
                 <Heading level={3} className="text-accent">
                   {result.metric}
                 </Heading>
-                <Text variant="body-sm" className="mt-2 text-gray-400">
+                <Text variant="body-sm" className="mt-2 text-slate-600">
                   {result.description}
                 </Text>
               </div>

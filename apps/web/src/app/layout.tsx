@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google';
 import '@/styles/globals.css';
 import { Header, type NavItem } from '@/components/organisms/Header';
 import { Footer, type FooterColumn } from '@/components/organisms/Footer';
+import { CookieConsent } from '@/components/organisms/CookieConsent';
+import { WhatsAppButton } from '@/components/atoms/WhatsAppButton';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -75,6 +77,7 @@ const navItems: NavItem[] = [
   },
   { label: 'Blog', href: '/blog' },
   { label: 'Careers', href: '/careers' },
+  { label: 'Pricing', href: '/pricing' },
 ];
 
 const footerColumns: FooterColumn[] = [
@@ -119,15 +122,45 @@ const footerColumns: FooterColumn[] = [
       { label: 'Careers', href: '/careers' },
       { label: 'Blog', href: '/blog' },
       { label: 'Contact', href: '/contact' },
+      { label: 'Security & Compliance', href: '/security' },
+      { label: 'Pricing', href: '/pricing' },
     ],
   },
   {
     title: 'Legal',
     links: [
       { label: 'Privacy Policy', href: '/privacy-policy' },
+      { label: 'Terms of Service', href: '/terms-of-service' },
     ],
   },
 ];
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'FIT',
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.fitoman.com',
+  logo: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.fitoman.com'}/images/logo.png`,
+  description:
+    'Institutional-grade trading technology for financial markets. OMS, API middleware, backoffice, surveillance, and trading platforms.',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Muscat',
+    addressRegion: 'Muscat',
+    addressCountry: 'OM',
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+968-24-700-454',
+    email: 'info@fitmena.com',
+    contactType: 'sales',
+  },
+  areaServed: {
+    '@type': 'GeoShape',
+    name: 'MENA Region',
+  },
+  sameAs: ['https://www.linkedin.com/company/fitoman'],
+};
 
 export default function RootLayout({
   children,
@@ -136,7 +169,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="font-sans">
+      <body className="bg-white font-sans text-slate-800">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-secondary focus:px-4 focus:py-2 focus:text-white"
@@ -146,6 +183,8 @@ export default function RootLayout({
         <Header items={navItems} />
         <main id="main-content">{children}</main>
         <Footer columns={footerColumns} />
+        <CookieConsent />
+        <WhatsAppButton />
       </body>
     </html>
   );

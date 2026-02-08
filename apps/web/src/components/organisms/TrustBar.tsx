@@ -26,7 +26,7 @@ export function TrustBar({ stats, logos, className }: TrustBarProps) {
   return (
     <section
       className={cn(
-        'border-y border-terminal-border bg-surface py-12',
+        'border-y border-slate-200 bg-white py-12',
         className
       )}
     >
@@ -43,12 +43,12 @@ export function TrustBar({ stats, logos, className }: TrustBarProps) {
       {logos.length > 0 && (
         <>
           <div className="mt-10 mb-4 text-center">
-            <span className="text-overline tracking-wider text-gray-500">TRUSTED BY</span>
+            <span className="text-label tracking-wider text-gray-500">TRUSTED BY</span>
           </div>
           <div className="relative overflow-hidden">
             {/* Fade edges */}
-            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-surface to-transparent" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-surface to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-white to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-white to-transparent" />
 
             <div className="flex animate-scroll-left">
               {duplicatedLogos.map((logo, i) => {

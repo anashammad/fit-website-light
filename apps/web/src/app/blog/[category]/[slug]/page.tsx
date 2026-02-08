@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getCollection } from '@/lib/payload';
-import { buildMetadata, SITE_URL } from '@/lib/metadata';
+import { buildMetadata, buildBreadcrumbSchema, SITE_URL } from '@/lib/metadata';
 import { Heading, Text, Badge } from '@/components/atoms';
 import { Breadcrumb, BlogCard, ShareButtons } from '@/components/molecules';
 import { CTABanner } from '@/components/organisms';
@@ -99,7 +99,7 @@ export async function generateMetadata({
   if (!post) return {};
 
   return buildMetadata({
-    title: post.seo?.metaTitle || `${post.title} | FIT — Trading Technology`,
+    title: post.seo?.metaTitle || post.title,
     description: post.seo?.metaDescription || post.excerpt,
     path: `/blog/${category}/${slug}`,
     ogImage: post.seo?.ogImage?.url || post.featuredImage?.url,
@@ -174,16 +174,27 @@ export default async function BlogArticlePage({ params }: PageProps) {
     },
   };
 
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Home', url: SITE_URL },
+    { name: 'Blog', url: `${SITE_URL}/blog` },
+    { name: post.category?.name ?? 'Article', url: `${SITE_URL}/blog/${category}` },
+    { name: post.title },
+  ]);
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
 
       <article>
         {/* Header */}
-        <section className="bg-primary">
+        <section className="bg-primary text-white">
           <div className="container-content section-padding">
             <Breadcrumb
               items={[
@@ -198,14 +209,14 @@ export default async function BlogArticlePage({ params }: PageProps) {
               <Heading level={1} className="mt-4">
                 {post.title}
               </Heading>
-              <Text variant="body-lg" className="mt-4 text-gray-400">
+              <Text variant="body-lg" className="mt-4 text-gray-200">
                 {post.excerpt}
               </Text>
               <div className="mt-6 flex items-center gap-4">
                 <Text variant="body-sm" className="text-gray-500">
                   {post.author}
                 </Text>
-                <span className="text-gray-300">&middot;</span>
+                <span className="text-gray-400">&middot;</span>
                 <Text variant="body-sm" className="text-gray-500">
                   {formatDate(post.publishedAt)}
                 </Text>
@@ -232,13 +243,13 @@ export default async function BlogArticlePage({ params }: PageProps) {
 
         {/* Body */}
         <section className="container-content section-padding">
-          <div className="prose prose-lg prose-invert mx-auto max-w-3xl">
+          <div className="prose prose-lg prose-slate mx-auto max-w-3xl">
             {renderRichText(post.body)}
           </div>
 
           {/* Share */}
           <div className="mx-auto mt-12 max-w-3xl border-t border-terminal-border pt-6">
-            <Text variant="body-sm" className="mb-3 font-medium text-gray-300">
+            <Text variant="body-sm" className="mb-3 font-medium text-slate-600">
               Share this article
             </Text>
             <ShareButtons url={articleUrl} title={post.title} />
@@ -248,7 +259,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
 
       {/* Related articles */}
       {relatedPosts.length > 0 && (
-        <section className="bg-surface">
+        <section className="bg-gray-50">
           <div className="container-content section-padding">
             <Heading level={2} className="mb-8">
               Related Articles

@@ -31,13 +31,13 @@ export function Breadcrumb({ items, className }: BreadcrumbProps) {
               itemType="https://schema.org/ListItem"
             >
               {index > 0 && (
-                <span className="mx-2 text-caption text-gray-400" aria-hidden="true">
+                <span className="mx-2 text-caption text-slate-300" aria-hidden="true">
                   /
                 </span>
               )}
               {isLast || !item.href ? (
                 <span
-                  className="text-caption text-gray-300"
+                  className="text-caption text-slate-700"
                   aria-current="page"
                   itemProp="name"
                 >
@@ -46,7 +46,7 @@ export function Breadcrumb({ items, className }: BreadcrumbProps) {
               ) : (
                 <Link
                   href={item.href}
-                  className="text-caption text-gray-500 transition-colors hover:text-accent"
+                  className="text-caption text-slate-400 transition-colors hover:text-primary"
                   itemProp="item"
                 >
                   <span itemProp="name">{item.label}</span>

@@ -14,10 +14,10 @@ export const metadata: Metadata = buildMetadata({
 
 // TODO: Replace with CMS data from SiteSettings global
 const stats = [
-  { value: '25+', label: 'Years in financial markets' },
-  { value: '30+', label: 'Institutions served' },
+  { value: '27+', label: 'Years in financial markets' },
+  { value: '28+', label: 'Institutions served' },
   { value: '10+', label: 'Markets connected' },
-  { value: '5', label: 'Core products' },
+  { value: '10', label: 'Core products' },
 ];
 
 const values = [
@@ -75,7 +75,7 @@ export default function AboutPage() {
       />
 
       {/* Stats */}
-      <section className="section-padding bg-surface">
+      <section className="section-padding bg-white">
         <div className="container-content">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
             {stats.map((stat) => (
@@ -86,7 +86,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission */}
-      <section className="section-padding bg-primary">
+      <section className="section-padding bg-gray-50">
         <div className="container-content max-w-3xl">
           <Text variant="overline" className="text-accent">
             Our mission
@@ -109,7 +109,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="section-padding bg-surface">
+      <section className="section-padding bg-white">
         <div className="container-content">
           <Text variant="overline" className="text-accent">
             What drives us
@@ -119,9 +119,9 @@ export default function AboutPage() {
           </Heading>
           <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2">
             {values.map((value) => (
-              <div key={value.title} className="rounded-lg border border-terminal-border bg-primary p-6">
+              <div key={value.title} className="rounded-lg border border-terminal-border bg-gray-50 p-6">
                 <Heading level={3}>{value.title}</Heading>
-                <Text className="mt-3 text-gray-400">{value.description}</Text>
+                <Text className="mt-3 text-slate-600">{value.description}</Text>
               </div>
             ))}
           </div>
@@ -129,7 +129,7 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline */}
-      <section className="section-padding bg-primary">
+      <section className="section-padding bg-gray-50">
         <div className="container-content max-w-3xl">
           <Text variant="overline" className="text-accent">
             Our journey
@@ -161,7 +161,7 @@ export default function AboutPage() {
       </section>
 
       {/* Regional Presence */}
-      <section className="section-padding bg-surface">
+      <section className="section-padding bg-white">
         <div className="container-content max-w-3xl">
           <Text variant="overline" className="text-accent">
             Where we operate
@@ -174,14 +174,52 @@ export default function AboutPage() {
             region. Our team combines deep local market knowledge with technology built to
             international standards.
           </Text>
-          <div className="mt-8 rounded-lg border border-terminal-border bg-primary p-8">
-            <Heading level={3}>Muscat, Oman</Heading>
-            <Text className="mt-2 text-gray-400">
-              FIT Headquarters
-            </Text>
-            <Text variant="body-sm" className="mt-1 text-gray-500">
-              Serving brokerage houses, exchanges, banks, and regulators across MENA markets.
-            </Text>
+          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+            <div className="rounded-lg border border-terminal-border bg-gray-50 p-8">
+              <Heading level={3}>Muscat, Oman</Heading>
+              <Text className="mt-2 text-slate-600">
+                FIT Headquarters
+              </Text>
+              <Text variant="body-sm" className="mt-1 text-slate-500">
+                P.O. Box 629, PC 112 Ruwi, Muscat
+              </Text>
+              <a
+                href="tel:+96824700454"
+                className="mt-1 inline-block font-mono text-ticker text-accent hover:text-accent-light transition-colors"
+              >
+                +968 24 700 454
+              </a>
+            </div>
+            <div className="rounded-lg border border-terminal-border bg-gray-50 p-8">
+              <Heading level={3}>Dubai, UAE</Heading>
+              <Text className="mt-2 text-slate-600">
+                Regional Office
+              </Text>
+              <Text variant="body-sm" className="mt-1 text-slate-500">
+                P.O. Box 120804, Dubai
+              </Text>
+              <a
+                href="tel:+97143055390"
+                className="mt-1 inline-block font-mono text-ticker text-accent hover:text-accent-light transition-colors"
+              >
+                +971 43 055 390
+              </a>
+            </div>
+            <div className="rounded-lg border border-terminal-border bg-gray-50 p-8">
+              <Heading level={3}>Amman, Jordan</Heading>
+              <Text className="mt-2 text-slate-600">
+                Regional Office
+              </Text>
+              <Text variant="body-sm" className="mt-1 text-slate-500">
+                P.O. Box 930333, PC 11193 Amman
+              </Text>
+              <a
+                href="tel:+96262005544"
+                className="mt-1 inline-block font-mono text-ticker text-accent hover:text-accent-light transition-colors"
+              >
+                +962 62 005 544
+              </a>
+            </div>
           </div>
         </div>
       </section>

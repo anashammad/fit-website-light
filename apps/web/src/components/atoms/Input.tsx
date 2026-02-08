@@ -17,7 +17,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       <div className="flex flex-col gap-1.5">
         <label
           htmlFor={inputId}
-          className="text-body-sm font-medium text-gray-300"
+          className="text-body-sm font-medium text-slate-700"
         >
           {label}
           {required && <span className="ml-0.5 text-error">*</span>}
@@ -30,13 +30,13 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           aria-invalid={error ? true : undefined}
           aria-describedby={errorId ?? hintId}
           className={cn(
-            'h-11 rounded border bg-primary px-4 py-3 text-body text-gray-200 placeholder:text-gray-600',
+            'h-11 rounded border bg-white px-4 py-3 text-body text-slate-800 placeholder:text-slate-400',
             'transition-colors duration-150',
             'focus:border-accent focus:outline-none focus:ring-[3px] focus:ring-accent/20',
-            'disabled:cursor-not-allowed disabled:bg-surface disabled:text-gray-600',
+            'disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400',
             error
               ? 'border-error focus:border-error focus:ring-error/20'
-              : 'border-terminal-border',
+              : 'border-slate-200',
             className
           )}
           {...props}
@@ -47,7 +47,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           </p>
         )}
         {hint && !error && (
-          <p id={hintId} className="text-caption text-gray-500">
+          <p id={hintId} className="text-caption text-slate-400">
             {hint}
           </p>
         )}

@@ -11,15 +11,15 @@ export function PlatformPreview({ productName, screenshots, demoHref = '/contact
   const hasScreenshots = screenshots && screenshots.length > 0;
 
   return (
-    <section className="section-padding bg-surface">
+    <section className="section-padding bg-white">
       <div className="container-content">
         <Text variant="overline" className="text-accent">
           Platform Preview
         </Text>
-        <Heading level={2} className="mt-2 text-white">
+        <Heading level={2} className="mt-2 text-slate-900">
           See {productName} in Action
         </Heading>
-        <Text variant="body-lg" className="mt-4 max-w-2xl text-gray-400">
+        <Text variant="body-lg" className="mt-4 max-w-2xl text-slate-600">
           Get a feel for the interface your traders will use every day.
         </Text>
 
@@ -28,16 +28,16 @@ export function PlatformPreview({ productName, screenshots, demoHref = '/contact
             {screenshots.map((shot, i) => (
               <div
                 key={i}
-                className="group relative overflow-hidden rounded-lg border border-terminal-border bg-primary"
+                className="group relative overflow-hidden rounded-lg border border-slate-200 bg-white shadow-card"
               >
                 {/* Title bar */}
-                <div className="flex items-center gap-2 border-b border-terminal-border bg-primary px-4 py-2">
+                <div className="flex items-center gap-2 border-b border-slate-200 bg-slate-50 px-4 py-2">
                   <div className="flex gap-1.5">
                     <div className="h-2.5 w-2.5 rounded-full bg-terminal-red/60" />
                     <div className="h-2.5 w-2.5 rounded-full bg-accent/60" />
                     <div className="h-2.5 w-2.5 rounded-full bg-terminal-green/60" />
                   </div>
-                  <span className="ml-2 font-mono text-caption text-gray-500">{shot.alt}</span>
+                  <span className="ml-2 font-mono text-caption text-slate-500">{shot.alt}</span>
                 </div>
 
                 {/* Screenshot */}
@@ -50,33 +50,33 @@ export function PlatformPreview({ productName, screenshots, demoHref = '/contact
                     className="h-auto w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                   />
                   {/* Subtle overlay on hover */}
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 </div>
               </div>
             ))}
           </div>
         ) : (
           /* Fallback: mock terminal when no screenshots */
-          <div className="mt-10 overflow-hidden rounded-lg border border-terminal-border bg-primary">
-            <div className="flex items-center gap-2 border-b border-terminal-border px-4 py-2.5">
+          <div className="mt-10 overflow-hidden rounded-lg border border-slate-200 bg-white shadow-card">
+            <div className="flex items-center gap-2 border-b border-slate-200 bg-slate-50 px-4 py-2.5">
               <div className="flex gap-1.5">
                 <div className="h-3 w-3 rounded-full bg-terminal-red/60" />
                 <div className="h-3 w-3 rounded-full bg-accent/60" />
                 <div className="h-3 w-3 rounded-full bg-terminal-green/60" />
               </div>
-              <span className="ml-3 font-mono text-caption text-gray-500">{productName}</span>
+              <span className="ml-3 font-mono text-caption text-slate-500">{productName}</span>
             </div>
             <div className="relative flex min-h-[300px] items-center justify-center bg-terminal-grid">
               <div className="text-center">
-                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full border border-accent/30 bg-accent/10">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-accent">
+                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full border border-primary/20 bg-primary/5">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-primary">
                     <polygon points="5,3 19,12 5,21" fill="currentColor" />
                   </svg>
                 </div>
-                <Text variant="body-lg" className="font-semibold text-white">
+                <Text variant="body-lg" className="font-semibold text-slate-900">
                   Live platform demo available on request
                 </Text>
-                <Text variant="body-sm" className="mt-1 text-gray-400">
+                <Text variant="body-sm" className="mt-1 text-slate-500">
                   See the full {productName} interface with your data
                 </Text>
               </div>

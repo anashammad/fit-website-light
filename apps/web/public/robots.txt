@@ -3,4 +3,4 @@ Allow: /
 Disallow: /api/
 Disallow: /admin/
 
-Sitemap: https://fitoman.com/sitemap.xml
+Sitemap: https://www.fitoman.com/sitemap.xml

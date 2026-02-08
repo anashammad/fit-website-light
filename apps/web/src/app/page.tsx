@@ -126,8 +126,8 @@ const solutions = [
 
 // TODO: Replace with CMS data from SiteSettings global
 const trustStats = [
-  { value: '25+', label: 'Years in Market' },
-  { value: '29+', label: 'Institutions Served' },
+  { value: '27+', label: 'Years in Market' },
+  { value: '28+', label: 'Institutions Served' },
   { value: '1M+', label: 'Daily Transactions' },
   { value: '99.9%', label: 'Uptime' },
 ];
@@ -143,54 +143,21 @@ const trustLogos = [
 
 // -- Page component --
 
-const organizationSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: 'FIT',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.fitoman.com',
-  logo: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.fitoman.com'}/images/logo.png`,
-  description:
-    'Institutional-grade trading technology for financial markets. OMS, API middleware, backoffice, surveillance, and trading platforms.',
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Muscat',
-    addressRegion: 'Muscat',
-    addressCountry: 'OM',
-  },
-  contactPoint: {
-    '@type': 'ContactPoint',
-    telephone: '+968-24-700-454',
-    email: 'info@fitmena.com',
-    contactType: 'sales',
-  },
-  areaServed: {
-    '@type': 'GeoShape',
-    name: 'MENA Region',
-  },
-  sameAs: ['https://www.linkedin.com/company/fitoman'],
-};
-
 export default function HomePage() {
   return (
     <>
-      {/* Organization Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-      />
-
       {/* Hero */}
       <HeroSection
         variant="primary"
         overline="TRADING TECHNOLOGY"
         title="Institutional-Grade Trading Technology for Financial Markets"
-        subtitle="Powering the future of capital markets across the Middle East and North Africa with battle-tested trading infrastructure trusted by 30+ institutions since 1999."
+        subtitle="Powering the future of capital markets across the Middle East and North Africa with battle-tested trading infrastructure trusted by 28+ institutions since 1999."
         ctas={[
           { label: 'Request a Demo', href: '/contact', variant: 'primary' },
           { label: 'Explore Products', href: '#products', variant: 'secondary' },
         ]}
-        image="/images/products/fit-premium-dark.png"
-        imageAlt="FIT Premium trading platform — dark theme multi-market OMS"
+        image="/images/products/fit-premium-light.png"
+        imageAlt="FIT Premium trading platform — multi-market OMS"
       />
 
       {/* Trust Bar */}
@@ -200,7 +167,7 @@ export default function HomePage() {
       <section className="section-padding bg-primary">
         <div className="container-content">
           <AnimateIn>
-          <Text variant="overline" className="text-accent">
+          <Text variant="overline" className="text-accent-light">
             WHY FIT
           </Text>
           <Heading level={2} className="mt-2 text-white">
@@ -210,7 +177,7 @@ export default function HomePage() {
           <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                title: '25+ Years of MENA Expertise',
+                title: '27+ Years of MENA Expertise',
                 description:
                   'Deep understanding of regional exchanges, regulations, and market structure built over two decades of serving GCC capital markets.',
               },
@@ -232,12 +199,12 @@ export default function HomePage() {
             ].map((item) => (
               <div
                 key={item.title}
-                className="rounded-lg border border-terminal-border bg-surface p-6 transition-all duration-300 hover:border-accent/15"
+                className="rounded-lg border border-white/20 bg-white/10 p-6 transition-all duration-300 hover:border-white/30"
               >
                 <Heading level={4} className="text-base text-white">
                   {item.title}
                 </Heading>
-                <Text variant="body-sm" className="mt-3 text-gray-400">
+                <Text variant="body-sm" className="mt-3 text-gray-200">
                   {item.description}
                 </Text>
               </div>
@@ -247,13 +214,13 @@ export default function HomePage() {
       </section>
 
       {/* Products */}
-      <section id="products" className="section-padding bg-surface">
+      <section id="products" className="section-padding bg-white">
         <div className="container-content">
           <AnimateIn>
           <Text variant="overline" className="text-accent">
             OUR PRODUCTS
           </Text>
-          <Heading level={2} className="mt-2 text-white">
+          <Heading level={2} className="mt-2 text-gray-900">
             Full-Stack Trading Technology Suite
           </Heading>
           </AnimateIn>
@@ -266,13 +233,13 @@ export default function HomePage() {
       </section>
 
       {/* Solutions */}
-      <section className="section-padding bg-primary">
+      <section className="section-padding bg-gray-50">
         <div className="container-content">
           <AnimateIn>
           <Text variant="overline" className="text-accent">
             SOLUTIONS
           </Text>
-          <Heading level={2} className="mt-2 text-white">
+          <Heading level={2} className="mt-2 text-gray-900">
             Tailored for Your Industry
           </Heading>
           </AnimateIn>
@@ -285,7 +252,7 @@ export default function HomePage() {
       </section>
 
       {/* Technology Highlight */}
-      <section className="section-padding bg-surface">
+      <section className="section-padding bg-white">
         <div className="container-content">
           <div className="flex flex-col items-center gap-12 lg:flex-row">
             {/* Text */}
@@ -293,10 +260,10 @@ export default function HomePage() {
               <Text variant="overline" className="text-accent">
                 TECHNOLOGY
               </Text>
-              <Heading level={2} className="mt-2 text-white">
+              <Heading level={2} className="mt-2 text-gray-900">
                 Built for Scale, Speed, and Security
               </Heading>
-              <Text variant="body-lg" className="mt-4 text-gray-400">
+              <Text variant="body-lg" className="mt-4 text-slate-600">
                 FIT&apos;s modular architecture supports on-premise, cloud, and
                 hybrid deployments. Every component is designed for
                 high-availability and low-latency execution.
@@ -324,7 +291,7 @@ export default function HomePage() {
                         strokeLinejoin="round"
                       />
                     </svg>
-                    <Text variant="body" as="span" className="text-gray-300">
+                    <Text variant="body" as="span" className="text-slate-700">
                       {item}
                     </Text>
                   </li>
@@ -347,6 +314,77 @@ export default function HomePage() {
                 className="h-auto w-full rounded-lg border border-terminal-border"
               />
             </AnimateIn>
+          </div>
+        </div>
+      </section>
+
+      {/* TODO: Testimonials below are placeholder quotes pending real client approval */}
+      {/* Testimonials */}
+      <section className="section-padding bg-gray-50">
+        <div className="container-content">
+          <AnimateIn>
+            <Text variant="overline" className="text-accent">
+              CLIENT TESTIMONIALS
+            </Text>
+            <Heading level={2} className="mt-2 text-gray-900">
+              Trusted by Leading Institutions
+            </Heading>
+          </AnimateIn>
+          <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
+            {[
+              {
+                quote:
+                  'FIT Premium has been the backbone of our trading operations for over a decade. The system handles our multi-market order routing with the reliability we need.',
+                role: 'Head of Technology',
+                org: 'Qatar-based brokerage',
+              },
+              {
+                quote:
+                  'The Wasata back-office system simplified our settlement and compliance workflows significantly. FIT\u2019s understanding of MENA regulations is unmatched.',
+                role: 'COO',
+                org: 'Omani brokerage house',
+              },
+              {
+                quote:
+                  'Switching to FIT\u2019s integrated platform eliminated our multi-vendor complexity. One team, one platform, full coverage.',
+                role: 'CTO',
+                org: 'UAE-based financial institution',
+              },
+            ].map((testimonial) => (
+              <div
+                key={testimonial.role}
+                className="flex flex-col rounded-lg border border-terminal-border bg-white p-6 shadow-card"
+              >
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  className="mb-4 shrink-0 text-accent/30"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"
+                    fill="currentColor"
+                  />
+                </svg>
+                <Text className="flex-1 text-slate-700 italic">
+                  &ldquo;{testimonial.quote}&rdquo;
+                </Text>
+                <div className="mt-6 border-t border-terminal-border pt-4">
+                  <Text variant="body-sm" className="font-semibold text-gray-900">
+                    {testimonial.role}
+                  </Text>
+                  <Text variant="body-sm" className="text-slate-500">
+                    {testimonial.org}
+                  </Text>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -9,3 +9,4 @@ export { FormField, type FormFieldProps, type FormFieldType } from './FormField'
 export { Breadcrumb, type BreadcrumbProps, type BreadcrumbItem } from './Breadcrumb';
 export { ShareButtons, type ShareButtonsProps } from './ShareButtons';
 export { CategoryFilter, type CategoryFilterProps } from './CategoryFilter';
+export { NewsletterSignup, type NewsletterSignupProps } from './NewsletterSignup';

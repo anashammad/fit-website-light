@@ -9,3 +9,4 @@ export { Badge, type BadgeProps, type BadgeVariant } from './Badge';
 export { Icon, type IconProps, type IconSize } from './Icon';
 export { Logo, type LogoProps } from './Logo';
 export { AnimateIn, type AnimateInProps } from './AnimateIn';
+export { WhatsAppButton } from './WhatsAppButton';

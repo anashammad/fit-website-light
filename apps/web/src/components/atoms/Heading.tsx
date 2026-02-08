@@ -23,7 +23,7 @@ export function Heading({ level, as, children, className }: HeadingProps) {
   const Tag = as ?? (`h${level}` as HeadingTag);
 
   return (
-    <Tag className={cn('text-white', levelStyles[level], className)}>
+    <Tag className={cn('text-slate-900', levelStyles[level], className)}>
       {children}
     </Tag>
   );

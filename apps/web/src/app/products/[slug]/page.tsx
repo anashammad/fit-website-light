@@ -31,6 +31,7 @@ interface ProductData {
   primaryCta: { label: string; href: string };
   secondaryCta: { label: string; href: string };
   relatedSlugs: string[];
+  usedBy?: string[];
 }
 
 const products: Record<string, ProductData> = {
@@ -60,7 +61,7 @@ const products: Record<string, ProductData> = {
         icon: 'activity',
         title: 'Real-Time Market Data & Charting',
         description:
-          'Live price feeds with depth of market, trade blotter, watchlists, and technical analysis charting — all with sub-second latency.',
+          'Real-time market data with sub-second latency, depth of market, trade blotter, watchlists, and technical analysis charting.',
       },
       {
         icon: 'link',
@@ -117,10 +118,11 @@ const products: Record<string, ProductData> = {
       { src: '/images/products/fit-premium-screenshot.png', alt: 'FIT Premium — Multi-market OMS trading terminal' },
       { src: '/images/products/market-making-screenshot.png', alt: 'Market Making module — QGTS automated quoting' },
     ],
-    integrations: ['FIX 4.2/4.4', 'Nasdaq X-Stream', 'Horizon', 'REST API', 'WebSocket'],
+    integrations: ['FIX 4.2/4.4', '(DMA) Direct Market Access', 'Care Orders', 'REST API', 'WebSocket','Bloombarger', 'Reuters', 'GCC Exchange Feeds','Fadeesa'],
     primaryCta: { label: 'Schedule a Demo', href: '/contact?product=fit-premium' },
     secondaryCta: { label: 'Request Datasheet', href: '/contact?type=datasheet&product=fit-premium' },
     relatedSlugs: ['wasata-backoffice', 'fit-surveillance', 'mobile-web-trading'],
+    usedBy: ['QNB', 'ADCB', 'NBO', 'Ubhar Capital', 'Bank Dhofar', 'SICO', 'CBQ', 'United Securities'],
   },
   'api-middleware': {
     slug: 'api-middleware',
@@ -193,6 +195,7 @@ const products: Record<string, ProductData> = {
     primaryCta: { label: 'Request Integration Consultation', href: '/contact?product=api-middleware' },
     secondaryCta: { label: 'View API Documentation', href: '/contact?type=datasheet&product=api-middleware' },
     relatedSlugs: ['fit-premium', 'mobile-web-trading', 'fit-surveillance'],
+    usedBy: ['QNB', 'ADCB', 'NBO', 'Al Ramz', 'CBD'],
   },
   'wasata-backoffice': {
     slug: 'wasata-backoffice',
@@ -268,6 +271,7 @@ const products: Record<string, ProductData> = {
     primaryCta: { label: 'Book a Walkthrough', href: '/contact?product=wasata-backoffice' },
     secondaryCta: { label: 'Request Datasheet', href: '/contact?type=datasheet&product=wasata-backoffice' },
     relatedSlugs: ['fit-premium', 'investor-vision', 'digital-onboarding'],
+    usedBy: ['NBO', 'Bank Dhofar', 'Ubhar Capital', 'United Securities', 'Ahli Bank', 'Global Securities'],
   },
   'fit-surveillance': {
     slug: 'fit-surveillance',
@@ -340,6 +344,7 @@ const products: Record<string, ProductData> = {
     primaryCta: { label: 'Request a Surveillance Demo', href: '/contact?product=fit-surveillance' },
     secondaryCta: { label: 'Request Datasheet', href: '/contact?type=datasheet&product=fit-surveillance' },
     relatedSlugs: ['fit-premium', 'wasata-backoffice', 'api-middleware'],
+    usedBy: ['QSC', 'Dalala', 'ADCB'],
   },
   'mobile-web-trading': {
     slug: 'mobile-web-trading',
@@ -416,6 +421,7 @@ const products: Record<string, ProductData> = {
     primaryCta: { label: 'See the Trading App Demo', href: '/contact?product=mobile-web-trading' },
     secondaryCta: { label: 'Request Datasheet', href: '/contact?type=datasheet&product=mobile-web-trading' },
     relatedSlugs: ['fit-premium', 'api-middleware', 'digital-onboarding'],
+    usedBy: ['QNB', 'NBO', 'Ubhar Capital', 'CBQ', 'WFS'],
   },
   'investor-vision': {
     slug: 'investor-vision',
@@ -488,6 +494,7 @@ const products: Record<string, ProductData> = {
     primaryCta: { label: 'Schedule a Demo', href: '/contact?product=investor-vision' },
     secondaryCta: { label: 'Request Datasheet', href: '/contact?type=datasheet&product=investor-vision' },
     relatedSlugs: ['fit-premium', 'wasata-backoffice', 'api-middleware'],
+    usedBy: ['Ubhar Capital', 'SICO', 'Ahli Bank'],
   },
   'digital-onboarding': {
     slug: 'digital-onboarding',
@@ -560,6 +567,7 @@ const products: Record<string, ProductData> = {
     primaryCta: { label: 'Schedule a Demo', href: '/contact?product=digital-onboarding' },
     secondaryCta: { label: 'Request Datasheet', href: '/contact?type=datasheet&product=digital-onboarding' },
     relatedSlugs: ['fit-premium', 'wasata-backoffice', 'mobile-web-trading'],
+    usedBy: ['NBO', 'Ubhar Capital', 'Bank Dhofar'],
   },
   'fund-management': {
     slug: 'fund-management',
@@ -632,6 +640,7 @@ const products: Record<string, ProductData> = {
     primaryCta: { label: 'Schedule a Demo', href: '/contact?product=fund-management' },
     secondaryCta: { label: 'Request Datasheet', href: '/contact?type=datasheet&product=fund-management' },
     relatedSlugs: ['investor-vision', 'wasata-backoffice', 'fit-premium'],
+    usedBy: ['Ubhar Capital', 'SICO'],
   },
   'ipo-manager': {
     slug: 'ipo-manager',
@@ -704,6 +713,7 @@ const products: Record<string, ProductData> = {
     primaryCta: { label: 'Schedule a Demo', href: '/contact?product=ipo-manager' },
     secondaryCta: { label: 'Request Datasheet', href: '/contact?type=datasheet&product=ipo-manager' },
     relatedSlugs: ['fit-premium', 'wasata-backoffice', 'digital-onboarding'],
+    usedBy: ['QSC', 'NBO'],
   },
   'banking-gateway': {
     slug: 'banking-gateway',
@@ -776,6 +786,7 @@ const products: Record<string, ProductData> = {
     primaryCta: { label: 'Schedule a Demo', href: '/contact?product=banking-gateway' },
     secondaryCta: { label: 'Request Datasheet', href: '/contact?type=datasheet&product=banking-gateway' },
     relatedSlugs: ['fit-premium', 'wasata-backoffice', 'api-middleware'],
+    usedBy: ['NBO', 'Bank Dhofar', 'Ahli Bank', 'CBD'],
   },
 };
 
@@ -839,6 +850,19 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
     { name: product.name },
   ]);
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: product.howItWorks.map((step) => ({
+      '@type': 'Question',
+      name: `How does ${step.title} work?`,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: step.description,
+      },
+    })),
+  };
+
   return (
     <>
       {/* Product Schema */}
@@ -850,6 +874,11 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      {/* FAQ Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       {/* Hero */}
@@ -863,6 +892,27 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           { label: product.secondaryCta.label, href: product.secondaryCta.href, variant: 'secondary' },
         ]}
       />
+
+      {/* Used By */}
+      {product.usedBy && product.usedBy.length > 0 && (
+        <section className="border-b border-terminal-border bg-gray-50 py-6">
+          <div className="container-content flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+            <Text variant="body-sm" className="shrink-0 font-medium text-slate-500">
+              Deployed at:
+            </Text>
+            <div className="flex flex-wrap justify-center gap-3">
+              {product.usedBy.map((client) => (
+                <span
+                  key={client}
+                  className="rounded-full border border-terminal-border bg-white px-4 py-1.5 text-body-sm font-medium text-primary"
+                >
+                  {client}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Platform Preview */}
       <PlatformPreview
@@ -880,27 +930,27 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
       {/* Add-On Modules (FIT Premium only) */}
       {product.modules && product.modules.length > 0 && (
-        <section className="section-padding bg-surface">
+        <section className="section-padding bg-white">
           <div className="container-content">
             <Text variant="overline" className="text-accent">
               Add-On Modules
             </Text>
-            <Heading level={2} className="mt-2 text-white">
+            <Heading level={2} className="mt-2 text-gray-900">
               Extend {product.name} With Specialized Modules
             </Heading>
-            <Text variant="body-lg" className="mx-auto mt-4 max-w-2xl text-gray-400">
+            <Text variant="body-lg" className="mx-auto mt-4 max-w-2xl text-slate-600">
               Each module plugs directly into {product.name} and can be deployed independently based on your needs.
             </Text>
             <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
               {product.modules.map((mod) => (
                 <div
                   key={mod.name}
-                  className="rounded-lg border border-terminal-border bg-primary p-5 transition-all duration-300 hover:border-accent/15"
+                  className="rounded-lg border border-terminal-border bg-gray-50 p-5 transition-all duration-300 hover:border-accent/15"
                 >
-                  <Heading level={4} className="text-base text-white">
+                  <Heading level={4} className="text-base text-gray-900">
                     {mod.name}
                   </Heading>
-                  <Text variant="body-sm" className="mt-2 text-gray-400">
+                  <Text variant="body-sm" className="mt-2 text-slate-600">
                     {mod.description}
                   </Text>
                 </div>
@@ -911,12 +961,12 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       )}
 
       {/* How It Works */}
-      <section className="section-padding bg-primary">
+      <section className="section-padding bg-gray-50">
         <div className="container-content">
           <Text variant="overline" className="text-accent">
             How It Works
           </Text>
-          <Heading level={2} className="mt-2 text-white">
+          <Heading level={2} className="mt-2 text-gray-900">
             Three Steps to Get Started
           </Heading>
           <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
@@ -925,10 +975,10 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                 <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-accent/30 bg-accent/10 text-accent text-h4 font-bold">
                   {step.step}
                 </div>
-                <Heading level={4} className="mt-4 text-white">
+                <Heading level={4} className="mt-4 text-gray-900">
                   {step.title}
                 </Heading>
-                <Text variant="body-sm" className="mt-2 text-gray-400">
+                <Text variant="body-sm" className="mt-2 text-slate-600">
                   {step.description}
                 </Text>
               </div>
@@ -938,22 +988,22 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       </section>
 
       {/* Integrations */}
-      <section className="section-padding bg-surface">
+      <section className="section-padding bg-white">
         <div className="container-content text-center">
           <Text variant="overline" className="text-accent">
             Integrations
           </Text>
-          <Heading level={2} className="mt-2 text-white">
+          <Heading level={2} className="mt-2 text-gray-900">
             Built to Connect
           </Heading>
-          <Text variant="body-lg" className="mx-auto mt-4 max-w-2xl text-gray-400">
+          <Text variant="body-lg" className="mx-auto mt-4 max-w-2xl text-slate-600">
             {product.name} works with your existing infrastructure through standard protocols and APIs.
           </Text>
           <div className="mx-auto mt-10 flex max-w-2xl flex-wrap justify-center gap-4">
             {product.integrations.map((integration) => (
               <span
                 key={integration}
-                className="rounded-full border border-terminal-border bg-primary px-5 py-2 text-body-sm font-medium font-mono text-accent"
+                className="rounded-full border border-terminal-border bg-gray-50 px-5 py-2 text-body-sm font-medium font-mono text-primary"
               >
                 {integration}
               </span>
@@ -963,12 +1013,12 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       </section>
 
       {/* Related Products */}
-      <section className="section-padding bg-primary">
+      <section className="section-padding bg-gray-50">
         <div className="container-content">
           <Text variant="overline" className="text-accent">
             Related Products
           </Text>
-          <Heading level={2} className="mt-2 text-white">
+          <Heading level={2} className="mt-2 text-gray-900">
             Explore the FIT Suite
           </Heading>
           <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">

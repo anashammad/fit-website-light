@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { getCollection } from '@/lib/payload';
 import { SITE_URL, buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata';
 import { Heading, Text } from '@/components/atoms';
-import { Breadcrumb } from '@/components/molecules';
+import { Breadcrumb, NewsletterSignup } from '@/components/molecules';
 import { CTABanner } from '@/components/organisms';
 import { BlogListClient } from './BlogListClient';
 
@@ -29,7 +29,7 @@ interface BlogPost {
 }
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Blog | FIT — Trading Technology',
+  title: 'Blog',
   description:
     'Insights on trading technology, OMS systems, compliance, and capital markets from the FIT team.',
   path: '/blog',
@@ -64,7 +64,7 @@ export default async function BlogIndex() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <section className="bg-primary">
+      <section className="bg-primary text-white">
         <div className="container-content section-padding">
           <Breadcrumb
             items={[
@@ -75,7 +75,7 @@ export default async function BlogIndex() {
           <Heading level={1} className="mt-4">
             Blog
           </Heading>
-          <Text variant="body-lg" className="mt-4 max-w-2xl text-gray-400">
+          <Text variant="body-lg" className="mt-4 max-w-2xl text-gray-200">
             Insights on trading technology, market infrastructure, compliance,
             and capital markets innovation.
           </Text>
@@ -97,6 +97,18 @@ export default async function BlogIndex() {
         categories={categories.map((c) => c.name)}
         totalPages={postsRes.totalPages}
       />
+
+      <section className="bg-slate-50 py-12">
+        <div className="container-content max-w-xl text-center">
+          <Heading level={3} className="text-slate-900">
+            Stay up to date
+          </Heading>
+          <Text className="mt-2 text-slate-500">
+            Get the latest insights on trading technology and capital markets delivered to your inbox.
+          </Text>
+          <NewsletterSignup className="mt-6" />
+        </div>
+      </section>
 
       <CTABanner
         heading="Ready to modernize your trading infrastructure?"
