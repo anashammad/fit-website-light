@@ -12,24 +12,20 @@
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.18",
     "clsx": "^2.1",
-    "next": "14.2.35",
-    "react": "^18.3",
-    "react-dom": "^18.3",
+    "next": "^16.1",
+    "react": "^19.0",
+    "react-dom": "^19.0",
     "tailwind-merge": "^2.3",
     "tailwindcss": "^4.0",
     "zod": "^3.23"
   },
-  "overrides": {
-    "react": "$react",
-    "react-dom": "$react-dom"
-  },
   "devDependencies": {
-    "@next/bundle-analyzer": "^14.2",
+    "@next/bundle-analyzer": "^16.1",
     "@types/node": "^20",
-    "@types/react": "^18.3",
-    "@types/react-dom": "^18.3",
-    "eslint": "^8.57",
-    "eslint-config-next": "^14.2",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9.0",
+    "eslint-config-next": "^16.1",
     "prettier": "^3.2",
     "prettier-plugin-tailwindcss": "^0.6",
     "typescript": "^5.4"

@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
 
   // Revalidate collection tag (invalidates list pages)
   if (collection) {
-    revalidateTag(collection);
+    revalidateTag(collection, 'default');
     revalidated.push(`tag:${collection}`);
   }
 
