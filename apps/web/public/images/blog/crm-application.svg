@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <defs>
+    <linearGradient id="bgCRM" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#002B7F"/><stop offset="1" stop-color="#001F5C"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bgCRM)"/>
+
+  <!-- Central CRM Hub -->
+  <g transform="translate(400, 210)">
+    <circle r="50" fill="rgba(59,130,246,0.06)" stroke="rgba(59,130,246,0.2)" stroke-width="1.5"/>
+    <circle r="30" fill="rgba(59,130,246,0.1)"/>
+    <!-- People icon -->
+    <circle cx="-8" cy="-8" r="6" fill="rgba(255,255,255,0.2)"/>
+    <path d="M-18,6 C-18,0 -14,-4 -8,-4 C-2,-4 2,0 2,6" fill="rgba(255,255,255,0.15)"/>
+    <circle cx="8" cy="-5" r="5" fill="rgba(255,255,255,0.15)"/>
+    <path d="M0,8 C0,3 4,0 8,0 C12,0 16,3 16,8" fill="rgba(255,255,255,0.1)"/>
+    <text y="28" text-anchor="middle" fill="rgba(59,130,246,0.7)" font-size="9" font-family="monospace" font-weight="600">CRM</text>
+  </g>
+
+  <!-- Connection lines to modules -->
+  <g stroke="rgba(59,130,246,0.12)" stroke-width="1.5">
+    <line x1="360" y1="175" x2="200" y2="90"/>
+    <line x1="440" y1="175" x2="600" y2="90"/>
+    <line x1="350" y1="210" x2="130" y2="230"/>
+    <line x1="450" y1="210" x2="670" y2="230"/>
+    <line x1="370" y1="250" x2="220" y2="360"/>
+    <line x1="430" y1="250" x2="580" y2="360"/>
+  </g>
+
+  <!-- Module: Client Profiles (top-left) -->
+  <g transform="translate(80, 45)">
+    <rect width="170" height="85" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(59,130,246,0.2)" stroke-width="1"/>
+    <text x="12" y="18" fill="rgba(59,130,246,0.6)" font-size="7" font-family="monospace" letter-spacing="1">CLIENT PROFILES</text>
+
+    <!-- Client rows -->
+    <g transform="translate(12, 30)">
+      <circle cx="8" cy="6" r="8" fill="rgba(59,130,246,0.12)"/>
+      <circle cx="8" cy="3" r="3" fill="rgba(255,255,255,0.15)"/>
+      <path d="M2,10 C2,7 5,5 8,5 C11,5 14,7 14,10" fill="rgba(255,255,255,0.1)"/>
+      <rect x="22" y="1" width="60" height="4" rx="1" fill="rgba(255,255,255,0.15)"/>
+      <rect x="22" y="8" width="40" height="3" rx="1" fill="rgba(255,255,255,0.07)"/>
+      <rect x="110" y="2" width="35" height="10" rx="3" fill="rgba(22,163,74,0.12)"/>
+      <text x="127" y="10" text-anchor="middle" fill="rgba(22,163,74,0.7)" font-size="6" font-family="monospace">ACTIVE</text>
+    </g>
+    <g transform="translate(12, 52)">
+      <circle cx="8" cy="6" r="8" fill="rgba(217,119,6,0.12)"/>
+      <circle cx="8" cy="3" r="3" fill="rgba(255,255,255,0.15)"/>
+      <path d="M2,10 C2,7 5,5 8,5 C11,5 14,7 14,10" fill="rgba(255,255,255,0.1)"/>
+      <rect x="22" y="1" width="55" height="4" rx="1" fill="rgba(255,255,255,0.15)"/>
+      <rect x="22" y="8" width="45" height="3" rx="1" fill="rgba(255,255,255,0.07)"/>
+      <rect x="110" y="2" width="35" height="10" rx="3" fill="rgba(217,119,6,0.12)"/>
+      <text x="127" y="10" text-anchor="middle" fill="rgba(217,119,6,0.7)" font-size="6" font-family="monospace">LEAD</text>
+    </g>
+  </g>
+
+  <!-- Module: Pipeline (top-right) -->
+  <g transform="translate(550, 45)">
+    <rect width="170" height="85" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(22,163,74,0.2)" stroke-width="1"/>
+    <text x="12" y="18" fill="rgba(22,163,74,0.6)" font-size="7" font-family="monospace" letter-spacing="1">SALES PIPELINE</text>
+
+    <!-- Funnel visualization -->
+    <g transform="translate(20, 28)">
+      <rect x="0" y="0" width="130" height="10" rx="2" fill="rgba(59,130,246,0.2)"/>
+      <text x="65" y="8" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="6" font-family="monospace">Prospects: 245</text>
+      <rect x="15" y="14" width="100" height="10" rx="2" fill="rgba(8,145,178,0.2)"/>
+      <text x="65" y="22" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="6" font-family="monospace">Qualified: 89</text>
+      <rect x="30" y="28" width="70" height="10" rx="2" fill="rgba(22,163,74,0.2)"/>
+      <text x="65" y="36" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="6" font-family="monospace">Proposals: 34</text>
+      <rect x="45" y="42" width="40" height="10" rx="2" fill="rgba(22,163,74,0.35)"/>
+      <text x="65" y="50" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="6" font-family="monospace">Won: 12</text>
+    </g>
+  </g>
+
+  <!-- Module: Communications (left) -->
+  <g transform="translate(50, 195)">
+    <rect width="140" height="70" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(8,145,178,0.2)" stroke-width="1"/>
+    <text x="12" y="18" fill="rgba(8,145,178,0.6)" font-size="7" font-family="monospace" letter-spacing="1">COMMS LOG</text>
+
+    <g transform="translate(12, 30)" opacity="0.5">
+      <!-- Email icon -->
+      <rect x="0" y="0" width="12" height="8" rx="1" fill="none" stroke="rgba(8,145,178,0.6)" stroke-width="1"/>
+      <polyline points="0,0 6,5 12,0" fill="none" stroke="rgba(8,145,178,0.6)" stroke-width="0.8"/>
+      <text x="18" y="7" fill="white" font-size="6" font-family="monospace">48 emails this week</text>
+
+      <!-- Phone icon -->
+      <rect x="0" y="16" width="8" height="12" rx="2" fill="none" stroke="rgba(8,145,178,0.6)" stroke-width="1"/>
+      <line x1="2" y1="25" x2="6" y2="25" stroke="rgba(8,145,178,0.6)" stroke-width="0.8"/>
+      <text x="18" y="24" fill="white" font-size="6" font-family="monospace">12 calls logged</text>
+    </g>
+  </g>
+
+  <!-- Module: Tasks (right) -->
+  <g transform="translate(610, 195)">
+    <rect width="140" height="70" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(217,119,6,0.2)" stroke-width="1"/>
+    <text x="12" y="18" fill="rgba(217,119,6,0.6)" font-size="7" font-family="monospace" letter-spacing="1">TASKS</text>
+
+    <g transform="translate(12, 30)" opacity="0.5">
+      <rect x="0" y="0" width="10" height="10" rx="2" fill="rgba(22,163,74,0.3)" stroke="rgba(22,163,74,0.5)" stroke-width="0.8"/>
+      <polyline points="2,5 4,7 8,3" fill="none" stroke="rgba(22,163,74,0.8)" stroke-width="1.2"/>
+      <text x="16" y="8" fill="white" font-size="6" font-family="monospace">Follow up KYC review</text>
+
+      <rect x="0" y="16" width="10" height="10" rx="2" fill="none" stroke="rgba(217,119,6,0.5)" stroke-width="0.8"/>
+      <text x="16" y="24" fill="white" font-size="6" font-family="monospace">Schedule demo call</text>
+
+      <rect x="0" y="32" width="10" height="10" rx="2" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="0.8"/>
+      <text x="16" y="40" fill="white" font-size="6" font-family="monospace">Send proposal</text>
+    </g>
+  </g>
+
+  <!-- Module: Analytics (bottom-left) -->
+  <g transform="translate(120, 330)">
+    <rect width="150" height="75" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(59,130,246,0.2)" stroke-width="1"/>
+    <text x="12" y="18" fill="rgba(59,130,246,0.6)" font-size="7" font-family="monospace" letter-spacing="1">ANALYTICS</text>
+
+    <!-- Mini bar chart -->
+    <g transform="translate(12, 28)">
+      <rect x="0" y="22" width="15" height="18" rx="1" fill="rgba(59,130,246,0.3)"/>
+      <rect x="20" y="15" width="15" height="25" rx="1" fill="rgba(59,130,246,0.35)"/>
+      <rect x="40" y="8" width="15" height="32" rx="1" fill="rgba(59,130,246,0.4)"/>
+      <rect x="60" y="12" width="15" height="28" rx="1" fill="rgba(59,130,246,0.35)"/>
+      <rect x="80" y="5" width="15" height="35" rx="1" fill="rgba(22,163,74,0.4)"/>
+      <rect x="100" y="0" width="15" height="40" rx="1" fill="rgba(22,163,74,0.5)"/>
+    </g>
+  </g>
+
+  <!-- Module: Reporting (bottom-right) -->
+  <g transform="translate(530, 330)">
+    <rect width="150" height="75" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(22,163,74,0.2)" stroke-width="1"/>
+    <text x="12" y="18" fill="rgba(22,163,74,0.6)" font-size="7" font-family="monospace" letter-spacing="1">REPORTS</text>
+
+    <!-- Donut chart mini -->
+    <g transform="translate(40, 50)">
+      <circle r="18" fill="none" stroke="rgba(22,163,74,0.3)" stroke-width="6" stroke-dasharray="70 113" stroke-dashoffset="-28"/>
+      <circle r="18" fill="none" stroke="rgba(59,130,246,0.3)" stroke-width="6" stroke-dasharray="28 113"/>
+      <circle r="18" fill="none" stroke="rgba(217,119,6,0.3)" stroke-width="6" stroke-dasharray="15 113" stroke-dashoffset="-98"/>
+      <text y="3" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8" font-family="monospace">87%</text>
+    </g>
+
+    <g transform="translate(75, 35)" opacity="0.4">
+      <text x="0" y="0" fill="white" font-size="6" font-family="monospace">Retention: 87%</text>
+      <text x="0" y="12" fill="white" font-size="6" font-family="monospace">NPS Score: 72</text>
+      <text x="0" y="24" fill="white" font-size="6" font-family="monospace">Avg. AUM: $1.2M</text>
+    </g>
+  </g>
+</svg>

@@ -5,6 +5,7 @@ import { Heading, Text } from '@/components/atoms';
 import { Breadcrumb, NewsletterSignup } from '@/components/molecules';
 import { CTABanner } from '@/components/organisms';
 import { BlogListClient } from './BlogListClient';
+import { STATIC_BLOG_POSTS, type StaticBlogPost } from '@/data/blog-posts';
 
 interface Category {
   id: string;
@@ -29,9 +30,9 @@ interface BlogPost {
 }
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Blog',
+  title: 'Trading Technology & Capital Markets Blog',
   description:
-    'Insights on trading technology, OMS systems, compliance, and capital markets from the FIT team.',
+    'Expert insights on trading technology, order management systems, market surveillance, digital onboarding, and capital markets innovation for MENA brokerages and exchanges.',
   path: '/blog',
 });
 
@@ -53,8 +54,43 @@ export default async function BlogIndex() {
     }),
   ]);
 
-  const categories = categoriesRes.docs;
-  const posts = postsRes.docs;
+  const cmsPosts = postsRes.docs;
+  const useStaticFallback = cmsPosts.length === 0;
+
+  // Map CMS posts to the shape expected by BlogListClient
+  const mappedCmsPosts = cmsPosts.map((post) => ({
+    id: post.id,
+    title: post.title,
+    slug: post.slug,
+    excerpt: post.excerpt,
+    author: post.author,
+    publishedAt: post.publishedAt,
+    categoryName: post.category?.name ?? 'Uncategorized',
+    categorySlug: post.category?.slug ?? 'uncategorized',
+    featuredImage: post.featuredImage?.url ?? '',
+    readTime: '',
+  }));
+
+  // Map static posts to the same shape
+  const mappedStaticPosts = STATIC_BLOG_POSTS.map((post: StaticBlogPost) => ({
+    id: post.id,
+    title: post.title,
+    slug: post.slug,
+    excerpt: post.excerpt,
+    author: post.author,
+    publishedAt: post.publishedAt,
+    categoryName: post.categoryName,
+    categorySlug: post.categorySlug,
+    featuredImage: post.featuredImage ?? '',
+    readTime: post.readTime,
+  }));
+
+  const posts = useStaticFallback ? mappedStaticPosts : mappedCmsPosts;
+
+  // Build categories list: from CMS if available, otherwise extract from static posts
+  const categories: { name: string; slug: string }[] = useStaticFallback
+    ? [...new Map(STATIC_BLOG_POSTS.map((p: StaticBlogPost) => [p.categorySlug, { name: p.categoryName, slug: p.categorySlug }])).values()]
+    : categoriesRes.docs.map((c) => ({ name: c.name, slug: c.slug }));
 
   const breadcrumbSchema = buildBreadcrumbSchema([
     { name: 'Home', url: SITE_URL },
@@ -64,18 +100,20 @@ export default async function BlogIndex() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <section className="bg-primary text-white">
-        <div className="container-content section-padding">
+      <section className="relative overflow-hidden bg-slate-50">
+        <div className="pointer-events-none absolute inset-0 bg-terminal-grid opacity-100" aria-hidden="true" />
+        <div className="container-content relative z-10 px-6 py-10 md:px-8 md:py-14 lg:py-16">
           <Breadcrumb
             items={[
               { label: 'Home', href: '/' },
               { label: 'Blog' },
             ]}
+            className="[&_span]:text-slate-500 [&_a]:text-slate-400 [&_a:hover]:text-primary"
           />
-          <Heading level={1} className="mt-4">
+          <Heading level={1} className="mt-4 text-slate-900">
             Blog
           </Heading>
-          <Text variant="body-lg" className="mt-4 max-w-2xl text-gray-200">
+          <Text variant="body-lg" className="mt-4 max-w-2xl text-slate-600">
             Insights on trading technology, market infrastructure, compliance,
             and capital markets innovation.
           </Text>
@@ -83,19 +121,8 @@ export default async function BlogIndex() {
       </section>
 
       <BlogListClient
-        initialPosts={posts.map((post) => ({
-          id: post.id,
-          title: post.title,
-          slug: post.slug,
-          excerpt: post.excerpt,
-          author: post.author,
-          publishedAt: post.publishedAt,
-          categoryName: post.category?.name ?? 'Uncategorized',
-          categorySlug: post.category?.slug ?? 'uncategorized',
-          featuredImage: post.featuredImage?.url ?? '',
-        }))}
-        categories={categories.map((c) => c.name)}
-        totalPages={postsRes.totalPages}
+        initialPosts={posts}
+        categories={categories}
       />
 
       <section className="bg-slate-50 py-12">

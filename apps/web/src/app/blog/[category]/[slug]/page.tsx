@@ -1,11 +1,14 @@
+import React from 'react';
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import { getCollection } from '@/lib/payload';
 import { buildMetadata, buildBreadcrumbSchema, SITE_URL } from '@/lib/metadata';
+import { formatDate } from '@/lib/utils';
 import { Heading, Text, Badge } from '@/components/atoms';
 import { Breadcrumb, BlogCard, ShareButtons } from '@/components/molecules';
 import { CTABanner } from '@/components/organisms';
+import { STATIC_BLOG_POSTS, type StaticBlogPost } from '@/data/blog-posts';
 
 interface Category {
   id: string;
@@ -32,13 +35,44 @@ interface BlogPost {
   body: unknown;
   author: string;
   publishedAt: string;
+  updatedAt?: string;
   category: Category;
   featuredImage: MediaDoc;
   seo?: SeoFields;
+  readTime?: string;
+  wordCount?: number;
+  keywords?: string[];
+  metaTitle?: string;
+  metaDescription?: string;
 }
 
 interface PageProps {
   params: Promise<{ category: string; slug: string }>;
+}
+
+/** Convert a static blog post to the CMS BlogPost shape */
+function staticToBlogPost(post: StaticBlogPost): BlogPost {
+  return {
+    id: post.id,
+    title: post.title,
+    slug: post.slug,
+    excerpt: post.excerpt,
+    body: post.body,
+    author: post.author,
+    publishedAt: post.publishedAt,
+    updatedAt: post.updatedAt,
+    category: {
+      id: post.categorySlug,
+      name: post.categoryName,
+      slug: post.categorySlug,
+    },
+    featuredImage: { url: post.featuredImage ?? '', alt: post.title },
+    readTime: post.readTime,
+    wordCount: post.wordCount,
+    keywords: post.keywords,
+    metaTitle: post.metaTitle,
+    metaDescription: post.metaDescription,
+  };
 }
 
 async function getPost(slug: string): Promise<BlogPost | null> {
@@ -51,11 +85,17 @@ async function getPost(slug: string): Promise<BlogPost | null> {
     },
     { tags: ['blog-posts'] }
   );
-  return res.docs[0] ?? null;
+  const cmsPost = res.docs[0] ?? null;
+  if (cmsPost) return cmsPost;
+
+  // Fall back to static posts
+  const staticPost = STATIC_BLOG_POSTS.find((p) => p.slug === slug);
+  return staticPost ? staticToBlogPost(staticPost) : null;
 }
 
 async function getRelatedPosts(
   categoryId: string,
+  categorySlug: string,
   excludeId: string
 ): Promise<BlogPost[]> {
   const res = await getCollection<BlogPost>(
@@ -71,7 +111,14 @@ async function getRelatedPosts(
     },
     { revalidate: 60, tags: ['blog-posts'] }
   );
-  return res.docs.filter((p) => p.id !== excludeId).slice(0, 3);
+  const cmsPosts = res.docs.filter((p) => String(p.id) !== String(excludeId)).slice(0, 3);
+  if (cmsPosts.length > 0) return cmsPosts;
+
+  // Fall back to static posts filtered by category slug
+  return STATIC_BLOG_POSTS
+    .filter((p) => p.categorySlug === categorySlug && p.id !== excludeId)
+    .slice(0, 3)
+    .map(staticToBlogPost);
 }
 
 export async function generateStaticParams() {
@@ -85,8 +132,16 @@ export async function generateStaticParams() {
     { tags: ['blog-posts'] }
   );
 
-  return res.docs.map((post) => ({
-    category: post.category?.slug ?? 'uncategorized',
+  if (res.docs.length > 0) {
+    return res.docs.map((post) => ({
+      category: post.category?.slug ?? 'uncategorized',
+      slug: post.slug,
+    }));
+  }
+
+  // Fall back to static posts
+  return STATIC_BLOG_POSTS.map((post) => ({
+    category: post.categorySlug,
     slug: post.slug,
   }));
 }
@@ -99,19 +154,85 @@ export async function generateMetadata({
   if (!post) return {};
 
   return buildMetadata({
-    title: post.seo?.metaTitle || post.title,
-    description: post.seo?.metaDescription || post.excerpt,
+    title: post.seo?.metaTitle || post.metaTitle || post.title,
+    description: post.seo?.metaDescription || post.metaDescription || post.excerpt,
     path: `/blog/${category}/${slug}`,
     ogImage: post.seo?.ogImage?.url || post.featuredImage?.url,
   });
 }
 
-function formatDate(iso: string): string {
-  return new Date(iso).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
+function estimateWordCount(body: unknown): number {
+  if (typeof body === 'string') {
+    return body.replace(/<[^>]*>/g, '').split(/\s+/).filter(Boolean).length;
+  }
+  return 0;
+}
+
+interface LexicalNode {
+  type?: string;
+  tag?: string;
+  text?: string;
+  format?: number | string;
+  url?: string;
+  children?: LexicalNode[];
+  listType?: string;
+  value?: number;
+}
+
+function renderLexicalNode(node: LexicalNode, index: number): React.ReactNode {
+  // Text node
+  if (node.type === 'text' && typeof node.text === 'string') {
+    let content: React.ReactNode = node.text;
+    const fmt = typeof node.format === 'number' ? node.format : 0;
+    if (fmt & 1) content = <strong key={index}>{content}</strong>;
+    if (fmt & 2) content = <em key={index}>{content}</em>;
+    return content;
+  }
+
+  // Line break
+  if (node.type === 'linebreak') {
+    return <br key={index} />;
+  }
+
+  // Link
+  if (node.type === 'link' || node.type === 'autolink') {
+    return (
+      <a key={index} href={node.url ?? '#'} className="text-primary underline hover:text-primary/80">
+        {node.children?.map((child, ci) => renderLexicalNode(child, ci))}
+      </a>
+    );
+  }
+
+  const children = node.children?.map((child, ci) => renderLexicalNode(child, ci));
+
+  // Heading
+  if (node.type === 'heading') {
+    const Tag = (node.tag as 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6') || 'h2';
+    return <Tag key={index}>{children}</Tag>;
+  }
+
+  // Paragraph
+  if (node.type === 'paragraph') {
+    return <p key={index}>{children}</p>;
+  }
+
+  // List
+  if (node.type === 'list') {
+    const Tag = node.listType === 'number' ? 'ol' : 'ul';
+    return <Tag key={index}>{children}</Tag>;
+  }
+
+  // List item
+  if (node.type === 'listitem') {
+    return <li key={index}>{children}</li>;
+  }
+
+  // Root or unknown wrapper — render children
+  if (children && children.length > 0) {
+    return <React.Fragment key={index}>{children}</React.Fragment>;
+  }
+
+  return null;
 }
 
 function renderRichText(body: unknown): React.ReactNode {
@@ -119,20 +240,11 @@ function renderRichText(body: unknown): React.ReactNode {
     return <div dangerouslySetInnerHTML={{ __html: body }} />;
   }
   // Payload Lexical rich text is a JSON structure.
-  // A full serializer would be needed; for now render root text content.
   if (body && typeof body === 'object' && 'root' in body) {
-    const root = (body as { root: { children: Array<{ text?: string; children?: Array<{ text?: string }> }> } }).root;
+    const root = (body as { root: LexicalNode }).root;
     return (
       <div className="space-y-4">
-        {root.children?.map((node, i) => {
-          const text =
-            node.text ??
-            node.children?.map((c) => c.text).join('') ??
-            '';
-          return (
-            <p key={i}>{text}</p>
-          );
-        })}
+        {root.children?.map((node, i) => renderLexicalNode(node, i))}
       </div>
     );
   }
@@ -145,10 +257,19 @@ export default async function BlogArticlePage({ params }: PageProps) {
 
   if (!post) notFound();
 
-  const relatedPosts = await getRelatedPosts(
-    post.category?.id,
-    post.id
-  );
+  // Validate category matches the post's actual category (prevent duplicate content)
+  const actualCategorySlug = post.category?.slug ?? 'uncategorized';
+  if (category !== actualCategorySlug) {
+    redirect(`/blog/${actualCategorySlug}/${slug}`);
+  }
+
+  const relatedPosts = post.category?.id
+    ? await getRelatedPosts(
+        post.category.id,
+        post.category.slug ?? 'uncategorized',
+        post.id
+      )
+    : [];
 
   const articleUrl = `${SITE_URL}/blog/${category}/${slug}`;
 
@@ -156,13 +277,17 @@ export default async function BlogArticlePage({ params }: PageProps) {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: post.title,
-    description: post.excerpt,
+    description: post.metaDescription || post.excerpt,
     author: { '@type': 'Person', name: post.author },
     datePublished: post.publishedAt,
-    dateModified: post.publishedAt,
-    image: post.featuredImage?.url,
+    dateModified: post.updatedAt || post.publishedAt,
+    ...(post.featuredImage?.url ? { image: post.featuredImage.url } : {}),
     url: articleUrl,
     mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
+    wordCount: post.wordCount || estimateWordCount(post.body),
+    articleSection: post.category?.name,
+    inLanguage: 'en',
+    ...(post.keywords?.length ? { keywords: post.keywords.join(', ') } : {}),
     publisher: {
       '@type': 'Organization',
       name: 'FIT',
@@ -194,32 +319,39 @@ export default async function BlogArticlePage({ params }: PageProps) {
 
       <article>
         {/* Header */}
-        <section className="bg-primary text-white">
-          <div className="container-content section-padding">
+        <section className="relative overflow-hidden bg-slate-50">
+          <div className="pointer-events-none absolute inset-0 bg-terminal-grid opacity-100" aria-hidden="true" />
+          <div className="container-content relative z-10 section-padding">
             <Breadcrumb
               items={[
                 { label: 'Home', href: '/' },
                 { label: 'Blog', href: '/blog' },
-                { label: post.category?.name ?? 'Article' },
+                { label: post.category?.name ?? 'Article', href: `/blog/${post.category?.slug}` },
+                { label: post.title },
               ]}
+              className="[&_span]:text-slate-500 [&_a]:text-slate-400 [&_a:hover]:text-primary"
             />
 
-            <div className="mx-auto mt-6 max-w-3xl">
+            <div className="mx-auto mt-4 max-w-3xl md:mt-6">
               <Badge variant="secondary">{post.category?.name}</Badge>
-              <Heading level={1} className="mt-4">
+              <Heading level={1} className="mt-4 text-slate-900">
                 {post.title}
               </Heading>
-              <Text variant="body-lg" className="mt-4 text-gray-200">
+              <Text variant="body-lg" className="mt-4 text-slate-600">
                 {post.excerpt}
               </Text>
               <div className="mt-6 flex items-center gap-4">
-                <Text variant="body-sm" className="text-gray-500">
-                  {post.author}
-                </Text>
-                <span className="text-gray-400">&middot;</span>
-                <Text variant="body-sm" className="text-gray-500">
+                <Text variant="body-sm" className="text-slate-500">
                   {formatDate(post.publishedAt)}
                 </Text>
+                {post.readTime && (
+                  <>
+                    <span className="text-slate-400">&middot;</span>
+                    <Text variant="body-sm" className="text-slate-500">
+                      {post.readTime}
+                    </Text>
+                  </>
+                )}
               </div>
             </div>
           </div>
@@ -227,7 +359,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
 
         {/* Featured image */}
         {post.featuredImage?.url && (
-          <div className="container-content mt-8">
+          <div className="container-content mt-4 md:mt-8">
             <div className="relative mx-auto aspect-video max-w-4xl overflow-hidden rounded-lg">
               <Image
                 src={post.featuredImage.url}
@@ -259,8 +391,11 @@ export default async function BlogArticlePage({ params }: PageProps) {
 
       {/* Related articles */}
       {relatedPosts.length > 0 && (
-        <section className="bg-gray-50">
+        <section className="bg-slate-50">
           <div className="container-content section-padding">
+            <Text variant="overline" className="mb-2 text-primary">
+              Keep Reading
+            </Text>
             <Heading level={2} className="mb-8">
               Related Articles
             </Heading>

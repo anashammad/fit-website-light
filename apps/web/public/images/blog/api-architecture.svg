@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <defs>
+    <linearGradient id="bg6" x1="800" y1="0" x2="0" y2="450" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#001F5C"/>
+      <stop offset="1" stop-color="#002B7F"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg6)"/>
+
+  <!-- Background dots -->
+  <g opacity="0.08">
+    <circle cx="50" cy="50" r="1.5" fill="white"/><circle cx="100" cy="50" r="1.5" fill="white"/><circle cx="150" cy="50" r="1.5" fill="white"/>
+    <circle cx="650" cy="400" r="1.5" fill="white"/><circle cx="700" cy="400" r="1.5" fill="white"/><circle cx="750" cy="400" r="1.5" fill="white"/>
+  </g>
+
+  <!-- Central API Hub -->
+  <g transform="translate(400, 225)">
+    <circle r="55" fill="rgba(59,130,246,0.08)" stroke="rgba(59,130,246,0.25)" stroke-width="2"/>
+    <circle r="35" fill="rgba(59,130,246,0.12)" stroke="rgba(59,130,246,0.3)" stroke-width="1.5"/>
+    <!-- API text -->
+    <text y="2" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="16" font-family="monospace" font-weight="bold" letter-spacing="2">API</text>
+    <text y="18" text-anchor="middle" fill="rgba(59,130,246,0.6)" font-size="8" font-family="monospace">GATEWAY</text>
+  </g>
+
+  <!-- Connection lines from hub to services -->
+  <g stroke="rgba(59,130,246,0.2)" stroke-width="1.5">
+    <!-- Top-left: OMS -->
+    <line x1="355" y1="185" x2="200" y2="95"/>
+    <!-- Top-right: Market Data -->
+    <line x1="445" y1="185" x2="600" y2="95"/>
+    <!-- Left: Auth -->
+    <line x1="345" y1="225" x2="140" y2="225"/>
+    <!-- Right: Exchange -->
+    <line x1="455" y1="225" x2="660" y2="225"/>
+    <!-- Bottom-left: Risk -->
+    <line x1="355" y1="265" x2="200" y2="355"/>
+    <!-- Bottom-right: Settlement -->
+    <line x1="445" y1="265" x2="600" y2="355"/>
+  </g>
+
+  <!-- Data flow dots along connections -->
+  <g fill="rgba(59,130,246,0.6)">
+    <circle cx="280" cy="140" r="2.5"/><circle cx="240" cy="118" r="2"/>
+    <circle cx="520" cy="140" r="2.5"/><circle cx="560" cy="118" r="2"/>
+    <circle cx="240" cy="225" r="2.5"/><circle cx="190" cy="225" r="2"/>
+    <circle cx="560" cy="225" r="2.5"/><circle cx="610" cy="225" r="2"/>
+    <circle cx="280" cy="310" r="2.5"/><circle cx="240" cy="332" r="2"/>
+    <circle cx="520" cy="310" r="2.5"/><circle cx="560" cy="332" r="2"/>
+  </g>
+
+  <!-- Service: OMS (top-left) -->
+  <g transform="translate(120, 55)">
+    <rect width="120" height="70" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(22,163,74,0.3)" stroke-width="1.5"/>
+    <rect x="12" y="12" width="30" height="4" rx="1" fill="rgba(22,163,74,0.5)"/>
+    <rect x="12" y="22" width="95" height="5" rx="2" fill="rgba(255,255,255,0.12)"/>
+    <rect x="12" y="33" width="70" height="3" rx="1" fill="rgba(255,255,255,0.06)"/>
+    <rect x="12" y="48" width="50" height="12" rx="4" fill="rgba(22,163,74,0.15)" stroke="rgba(22,163,74,0.3)" stroke-width="0.5"/>
+    <text x="37" y="57" text-anchor="middle" fill="rgba(22,163,74,0.8)" font-size="7" font-family="monospace">200 OK</text>
+  </g>
+
+  <!-- Service: Market Data (top-right) -->
+  <g transform="translate(560, 55)">
+    <rect width="120" height="70" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(8,145,178,0.3)" stroke-width="1.5"/>
+    <rect x="12" y="12" width="35" height="4" rx="1" fill="rgba(8,145,178,0.5)"/>
+    <rect x="12" y="22" width="95" height="5" rx="2" fill="rgba(255,255,255,0.12)"/>
+    <rect x="12" y="33" width="75" height="3" rx="1" fill="rgba(255,255,255,0.06)"/>
+    <!-- Mini realtime indicator -->
+    <circle cx="100" cy="14" r="3" fill="rgba(22,163,74,0.6)"/>
+    <rect x="12" y="48" width="45" height="12" rx="4" fill="rgba(8,145,178,0.15)" stroke="rgba(8,145,178,0.3)" stroke-width="0.5"/>
+    <text x="35" y="57" text-anchor="middle" fill="rgba(8,145,178,0.8)" font-size="7" font-family="monospace">WSS</text>
+  </g>
+
+  <!-- Service: Auth (left) -->
+  <g transform="translate(60, 195)">
+    <rect width="120" height="60" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(217,119,6,0.3)" stroke-width="1.5"/>
+    <rect x="12" y="12" width="25" height="4" rx="1" fill="rgba(217,119,6,0.5)"/>
+    <rect x="12" y="22" width="95" height="5" rx="2" fill="rgba(255,255,255,0.12)"/>
+    <rect x="12" y="33" width="80" height="3" rx="1" fill="rgba(255,255,255,0.06)"/>
+    <!-- Lock icon -->
+    <g transform="translate(96, 12)">
+      <rect x="-5" y="0" width="10" height="8" rx="2" fill="rgba(217,119,6,0.4)"/>
+      <path d="M-3,-2 C-3,-5 0,-7 0,-7 C0,-7 3,-5 3,-2" fill="none" stroke="rgba(217,119,6,0.6)" stroke-width="1.5"/>
+    </g>
+  </g>
+
+  <!-- Service: Exchange (right) -->
+  <g transform="translate(620, 195)">
+    <rect width="120" height="60" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(59,130,246,0.3)" stroke-width="1.5"/>
+    <rect x="12" y="12" width="40" height="4" rx="1" fill="rgba(59,130,246,0.5)"/>
+    <rect x="12" y="22" width="95" height="5" rx="2" fill="rgba(255,255,255,0.12)"/>
+    <rect x="12" y="33" width="65" height="3" rx="1" fill="rgba(255,255,255,0.06)"/>
+    <rect x="12" y="42" width="45" height="10" rx="3" fill="rgba(59,130,246,0.12)" stroke="rgba(59,130,246,0.25)" stroke-width="0.5"/>
+    <text x="35" y="50" text-anchor="middle" fill="rgba(59,130,246,0.7)" font-size="6" font-family="monospace">FIX 4.4</text>
+  </g>
+
+  <!-- Service: Risk (bottom-left) -->
+  <g transform="translate(120, 325)">
+    <rect width="120" height="60" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(220,38,38,0.3)" stroke-width="1.5"/>
+    <rect x="12" y="12" width="25" height="4" rx="1" fill="rgba(220,38,38,0.5)"/>
+    <rect x="12" y="22" width="95" height="5" rx="2" fill="rgba(255,255,255,0.12)"/>
+    <rect x="12" y="33" width="70" height="3" rx="1" fill="rgba(255,255,255,0.06)"/>
+    <!-- Warning triangle -->
+    <g transform="translate(100, 14)" opacity="0.6">
+      <path d="M0,-6 L6,4 L-6,4 Z" fill="none" stroke="#DC2626" stroke-width="1.5"/>
+      <line x1="0" y1="-3" x2="0" y2="0" stroke="#DC2626" stroke-width="1.5"/>
+      <circle cx="0" cy="2" r="0.8" fill="#DC2626"/>
+    </g>
+  </g>
+
+  <!-- Service: Settlement (bottom-right) -->
+  <g transform="translate(560, 325)">
+    <rect width="120" height="60" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(22,163,74,0.3)" stroke-width="1.5"/>
+    <rect x="12" y="12" width="40" height="4" rx="1" fill="rgba(22,163,74,0.5)"/>
+    <rect x="12" y="22" width="95" height="5" rx="2" fill="rgba(255,255,255,0.12)"/>
+    <rect x="12" y="33" width="55" height="3" rx="1" fill="rgba(255,255,255,0.06)"/>
+    <rect x="12" y="42" width="50" height="10" rx="3" fill="rgba(22,163,74,0.12)" stroke="rgba(22,163,74,0.25)" stroke-width="0.5"/>
+    <text x="37" y="50" text-anchor="middle" fill="rgba(22,163,74,0.7)" font-size="6" font-family="monospace">T+2</text>
+  </g>
+
+  <!-- Curly braces decorative -->
+  <g opacity="0.1">
+    <text x="50" y="430" fill="white" font-size="30" font-family="monospace">{"</text>
+    <text x="710" y="430" fill="white" font-size="30" font-family="monospace">"}</text>
+  </g>
+</svg>

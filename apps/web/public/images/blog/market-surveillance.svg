@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#001F5C"/>
+      <stop offset="1" stop-color="#002B7F"/>
+    </linearGradient>
+    <radialGradient id="radarGlow" cx="400" cy="225" r="200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#16A34A" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#16A34A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sweepTrail" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#16A34A" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#16A34A" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg3)"/>
+
+  <!-- Radar glow -->
+  <circle cx="400" cy="225" r="200" fill="url(#radarGlow)"/>
+
+  <!-- Concentric rings -->
+  <g stroke="rgba(22,163,74,0.12)" stroke-width="1" fill="none">
+    <circle cx="400" cy="225" r="50"/>
+    <circle cx="400" cy="225" r="95"/>
+    <circle cx="400" cy="225" r="140"/>
+    <circle cx="400" cy="225" r="185"/>
+  </g>
+
+  <!-- Cross hairs -->
+  <line x1="200" y1="225" x2="600" y2="225" stroke="rgba(22,163,74,0.08)" stroke-width="1"/>
+  <line x1="400" y1="30" x2="400" y2="420" stroke="rgba(22,163,74,0.08)" stroke-width="1"/>
+  <line x1="267" y1="92" x2="533" y2="358" stroke="rgba(22,163,74,0.05)" stroke-width="1"/>
+  <line x1="533" y1="92" x2="267" y2="358" stroke="rgba(22,163,74,0.05)" stroke-width="1"/>
+
+  <!-- Sweep trail (static representation of sweep at ~45 degrees) -->
+  <g transform="translate(400,225)">
+    <path d="M0,0 L185,0 A185,185 0 0,0 131,-131 Z" fill="url(#sweepTrail)" transform="rotate(-30)"/>
+    <line x1="0" y1="0" x2="185" y2="0" stroke="rgba(22,163,74,0.6)" stroke-width="2" transform="rotate(-30)"/>
+  </g>
+
+  <!-- Detection blips -->
+  <circle cx="340" cy="160" r="4" fill="#16A34A" opacity="0.8"/>
+  <circle cx="340" cy="160" r="8" fill="none" stroke="#16A34A" stroke-width="1" opacity="0.4"/>
+
+  <circle cx="470" cy="180" r="3" fill="#16A34A" opacity="0.5"/>
+  <circle cx="470" cy="180" r="7" fill="none" stroke="#16A34A" stroke-width="1" opacity="0.25"/>
+
+  <circle cx="430" cy="280" r="4" fill="#D97706" opacity="0.7"/>
+  <circle cx="430" cy="280" r="8" fill="none" stroke="#D97706" stroke-width="1" opacity="0.35"/>
+
+  <circle cx="320" cy="260" r="3" fill="#16A34A" opacity="0.4"/>
+
+  <circle cx="490" cy="140" r="3.5" fill="#DC2626" opacity="0.7"/>
+  <circle cx="490" cy="140" r="8" fill="none" stroke="#DC2626" stroke-width="1" opacity="0.35"/>
+
+  <!-- Left panel - alert list -->
+  <g transform="translate(50, 80)">
+    <rect width="130" height="200" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    <rect y="0" width="130" height="28" rx="8" fill="rgba(255,255,255,0.04)"/>
+    <rect y="22" width="130" height="6" fill="rgba(0,31,92,1)"/>
+    <rect x="12" y="8" width="50" height="5" rx="2" fill="rgba(255,255,255,0.2)"/>
+
+    <!-- Alert items -->
+    <g transform="translate(12, 40)">
+      <circle cx="5" cy="5" r="3" fill="#DC2626" opacity="0.7"/>
+      <rect x="16" y="2" width="60" height="4" rx="1" fill="rgba(255,255,255,0.15)"/>
+      <rect x="16" y="10" width="40" height="3" rx="1" fill="rgba(255,255,255,0.07)"/>
+    </g>
+    <g transform="translate(12, 65)">
+      <circle cx="5" cy="5" r="3" fill="#D97706" opacity="0.7"/>
+      <rect x="16" y="2" width="70" height="4" rx="1" fill="rgba(255,255,255,0.15)"/>
+      <rect x="16" y="10" width="45" height="3" rx="1" fill="rgba(255,255,255,0.07)"/>
+    </g>
+    <g transform="translate(12, 90)">
+      <circle cx="5" cy="5" r="3" fill="#16A34A" opacity="0.7"/>
+      <rect x="16" y="2" width="55" height="4" rx="1" fill="rgba(255,255,255,0.15)"/>
+      <rect x="16" y="10" width="50" height="3" rx="1" fill="rgba(255,255,255,0.07)"/>
+    </g>
+    <g transform="translate(12, 115)">
+      <circle cx="5" cy="5" r="3" fill="#16A34A" opacity="0.7"/>
+      <rect x="16" y="2" width="65" height="4" rx="1" fill="rgba(255,255,255,0.15)"/>
+      <rect x="16" y="10" width="38" height="3" rx="1" fill="rgba(255,255,255,0.07)"/>
+    </g>
+    <g transform="translate(12, 140)">
+      <circle cx="5" cy="5" r="3" fill="#D97706" opacity="0.7"/>
+      <rect x="16" y="2" width="58" height="4" rx="1" fill="rgba(255,255,255,0.15)"/>
+      <rect x="16" y="10" width="42" height="3" rx="1" fill="rgba(255,255,255,0.07)"/>
+    </g>
+    <g transform="translate(12, 165)">
+      <circle cx="5" cy="5" r="3" fill="#DC2626" opacity="0.7"/>
+      <rect x="16" y="2" width="62" height="4" rx="1" fill="rgba(255,255,255,0.15)"/>
+      <rect x="16" y="10" width="35" height="3" rx="1" fill="rgba(255,255,255,0.07)"/>
+    </g>
+  </g>
+
+  <!-- Right panel - metrics -->
+  <g transform="translate(620, 80)">
+    <rect width="130" height="120" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    <rect x="15" y="15" width="45" height="5" rx="2" fill="rgba(255,255,255,0.2)"/>
+    <text x="15" y="45" fill="rgba(22,163,74,0.8)" font-size="24" font-family="monospace" font-weight="bold">99.7%</text>
+    <rect x="15" y="55" width="60" height="4" rx="1" fill="rgba(255,255,255,0.08)"/>
+    <!-- Mini bar chart -->
+    <g transform="translate(15, 70)">
+      <rect x="0" y="20" width="12" height="22" rx="1" fill="rgba(22,163,74,0.3)"/>
+      <rect x="18" y="12" width="12" height="30" rx="1" fill="rgba(22,163,74,0.4)"/>
+      <rect x="36" y="8" width="12" height="34" rx="1" fill="rgba(22,163,74,0.5)"/>
+      <rect x="54" y="15" width="12" height="27" rx="1" fill="rgba(22,163,74,0.35)"/>
+      <rect x="72" y="5" width="12" height="37" rx="1" fill="rgba(22,163,74,0.5)"/>
+    </g>
+  </g>
+
+  <!-- Bottom status bar -->
+  <g transform="translate(620, 230)">
+    <rect width="130" height="50" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    <circle cx="25" cy="25" r="8" fill="rgba(22,163,74,0.2)" stroke="rgba(22,163,74,0.5)" stroke-width="1.5"/>
+    <circle cx="25" cy="25" r="3" fill="#16A34A"/>
+    <rect x="45" y="18" width="60" height="5" rx="2" fill="rgba(255,255,255,0.15)"/>
+    <rect x="45" y="28" width="40" height="4" rx="1" fill="rgba(255,255,255,0.08)"/>
+  </g>
+
+  <!-- Bottom decorative line -->
+  <line x1="50" y1="420" x2="750" y2="420" stroke="rgba(22,163,74,0.1)" stroke-width="1"/>
+</svg>

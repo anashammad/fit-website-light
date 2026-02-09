@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <defs>
+    <linearGradient id="bgAMS" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#001F5C"/><stop offset="1" stop-color="#002B7F"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bgAMS)"/>
+
+  <!-- Portfolio Pie Chart -->
+  <g transform="translate(220, 200)">
+    <circle r="90" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+    <!-- Pie segments (using stroke-dasharray on circles) -->
+    <circle r="70" fill="none" stroke="rgba(59,130,246,0.5)" stroke-width="30" stroke-dasharray="132 308" stroke-dashoffset="0" transform="rotate(-90)"/>
+    <circle r="70" fill="none" stroke="rgba(22,163,74,0.5)" stroke-width="30" stroke-dasharray="110 330" stroke-dashoffset="-132" transform="rotate(-90)"/>
+    <circle r="70" fill="none" stroke="rgba(217,119,6,0.5)" stroke-width="30" stroke-dasharray="88 352" stroke-dashoffset="-242" transform="rotate(-90)"/>
+    <circle r="70" fill="none" stroke="rgba(8,145,178,0.5)" stroke-width="30" stroke-dasharray="55 385" stroke-dashoffset="-330" transform="rotate(-90)"/>
+    <circle r="70" fill="none" stroke="rgba(220,38,38,0.4)" stroke-width="30" stroke-dasharray="55 385" stroke-dashoffset="-385" transform="rotate(-90)"/>
+    <!-- Center -->
+    <circle r="45" fill="#001F5C"/>
+    <text y="-5" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="12" font-family="monospace" font-weight="bold">$24.5M</text>
+    <text y="10" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-size="7" font-family="monospace">AUM</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(100, 320)" opacity="0.6">
+    <circle cx="8" cy="0" r="4" fill="rgba(59,130,246,0.7)"/>
+    <text x="18" y="3" fill="rgba(255,255,255,0.4)" font-size="8" font-family="sans-serif">Equities 30%</text>
+    <circle cx="108" cy="0" r="4" fill="rgba(22,163,74,0.7)"/>
+    <text x="118" y="3" fill="rgba(255,255,255,0.4)" font-size="8" font-family="sans-serif">Bonds 25%</text>
+    <circle cx="198" cy="0" r="4" fill="rgba(217,119,6,0.7)"/>
+    <text x="208" y="3" fill="rgba(255,255,255,0.4)" font-size="8" font-family="sans-serif">Sukuk 20%</text>
+  </g>
+
+  <!-- Strategy panel (right side) -->
+  <g transform="translate(420, 50)">
+    <rect width="320" height="170" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    <rect y="0" width="320" height="30" rx="10" fill="rgba(255,255,255,0.03)"/>
+    <rect y="24" width="320" height="6" fill="rgba(0,31,92,1)"/>
+    <text x="15" y="18" fill="rgba(255,255,255,0.4)" font-size="9" font-family="monospace" font-weight="600" letter-spacing="1">STRATEGY BUILDER</text>
+
+    <!-- Strategy rules -->
+    <g transform="translate(15, 45)">
+      <!-- Rule 1 -->
+      <rect width="290" height="28" rx="4" fill="rgba(59,130,246,0.06)" stroke="rgba(59,130,246,0.15)" stroke-width="0.5"/>
+      <text x="8" y="11" fill="rgba(59,130,246,0.6)" font-size="7" font-family="monospace">IF</text>
+      <rect x="22" y="4" width="80" height="12" rx="3" fill="rgba(59,130,246,0.1)"/>
+      <text x="62" y="13" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="7" font-family="monospace">equity_weight</text>
+      <text x="108" y="11" fill="rgba(217,119,6,0.7)" font-size="7" font-family="monospace">&gt; 35%</text>
+      <text x="8" y="23" fill="rgba(22,163,74,0.6)" font-size="7" font-family="monospace">THEN</text>
+      <text x="38" y="23" fill="rgba(255,255,255,0.35)" font-size="7" font-family="monospace">rebalance → target allocation</text>
+
+      <!-- Rule 2 -->
+      <g transform="translate(0, 35)">
+        <rect width="290" height="28" rx="4" fill="rgba(22,163,74,0.06)" stroke="rgba(22,163,74,0.15)" stroke-width="0.5"/>
+        <text x="8" y="11" fill="rgba(59,130,246,0.6)" font-size="7" font-family="monospace">IF</text>
+        <rect x="22" y="4" width="65" height="12" rx="3" fill="rgba(22,163,74,0.1)"/>
+        <text x="55" y="13" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="7" font-family="monospace">drawdown</text>
+        <text x="93" y="11" fill="rgba(220,38,38,0.7)" font-size="7" font-family="monospace">&gt; -10%</text>
+        <text x="8" y="23" fill="rgba(22,163,74,0.6)" font-size="7" font-family="monospace">THEN</text>
+        <text x="38" y="23" fill="rgba(255,255,255,0.35)" font-size="7" font-family="monospace">reduce risk → defensive mode</text>
+      </g>
+
+      <!-- Rule 3 -->
+      <g transform="translate(0, 70)">
+        <rect width="290" height="28" rx="4" fill="rgba(217,119,6,0.06)" stroke="rgba(217,119,6,0.15)" stroke-width="0.5"/>
+        <text x="8" y="11" fill="rgba(59,130,246,0.6)" font-size="7" font-family="monospace">IF</text>
+        <rect x="22" y="4" width="55" height="12" rx="3" fill="rgba(217,119,6,0.1)"/>
+        <text x="50" y="13" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="7" font-family="monospace">quarter</text>
+        <text x="83" y="11" fill="rgba(217,119,6,0.7)" font-size="7" font-family="monospace">== Q1</text>
+        <text x="8" y="23" fill="rgba(22,163,74,0.6)" font-size="7" font-family="monospace">THEN</text>
+        <text x="38" y="23" fill="rgba(255,255,255,0.35)" font-size="7" font-family="monospace">what-if analysis → tax harvest</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- What-If Scenario panel -->
+  <g transform="translate(420, 250)">
+    <rect width="320" height="140" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(217,119,6,0.15)" stroke-width="1"/>
+    <text x="15" y="22" fill="rgba(217,119,6,0.6)" font-size="9" font-family="monospace" font-weight="600" letter-spacing="1">WHAT-IF SCENARIO</text>
+
+    <!-- Scenario bars -->
+    <g transform="translate(15, 40)">
+      <text x="0" y="8" fill="rgba(255,255,255,0.3)" font-size="7" font-family="monospace">Current</text>
+      <rect x="60" y="0" width="180" height="12" rx="2" fill="rgba(59,130,246,0.08)"/>
+      <rect x="60" y="0" width="140" height="12" rx="2" fill="rgba(59,130,246,0.25)"/>
+
+      <text x="0" y="30" fill="rgba(255,255,255,0.3)" font-size="7" font-family="monospace">Scenario A</text>
+      <rect x="60" y="22" width="180" height="12" rx="2" fill="rgba(22,163,74,0.08)"/>
+      <rect x="60" y="22" width="160" height="12" rx="2" fill="rgba(22,163,74,0.25)"/>
+
+      <text x="0" y="52" fill="rgba(255,255,255,0.3)" font-size="7" font-family="monospace">Scenario B</text>
+      <rect x="60" y="44" width="180" height="12" rx="2" fill="rgba(217,119,6,0.08)"/>
+      <rect x="60" y="44" width="120" height="12" rx="2" fill="rgba(217,119,6,0.25)"/>
+    </g>
+
+    <!-- Impact summary -->
+    <g transform="translate(15, 105)">
+      <rect width="130" height="22" rx="4" fill="rgba(22,163,74,0.08)"/>
+      <text x="65" y="15" text-anchor="middle" fill="rgba(22,163,74,0.7)" font-size="8" font-family="monospace">+2.3% projected</text>
+    </g>
+  </g>
+
+  <!-- Rebalance arrow -->
+  <g transform="translate(350, 185)" opacity="0.5">
+    <path d="M0,0 C20,-15 30,-15 50,0" fill="none" stroke="#D97706" stroke-width="1.5"/>
+    <polyline points="45,-5 50,0 44,4" fill="none" stroke="#D97706" stroke-width="1.5" stroke-linecap="round"/>
+    <text x="25" y="-20" text-anchor="middle" fill="rgba(217,119,6,0.6)" font-size="7" font-family="monospace">REBALANCE</text>
+  </g>
+</svg>

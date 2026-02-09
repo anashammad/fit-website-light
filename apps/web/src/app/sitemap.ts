@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { getCollection } from '@/lib/payload';
+import { STATIC_BLOG_POSTS } from '@/data/blog-posts';
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || 'https://www.fitoman.com';
@@ -63,20 +64,31 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: page.priority,
   }));
 
-  // -- Dynamic blog posts from CMS --
-  // TODO: Uncomment when Payload CMS is connected
-  // const blogRes = await getCollection<{ slug: string; category: { slug: string }; publishedAt: string }>(
-  //   'blog-posts',
-  //   { where: { status: 'published' } as Record<string, unknown>, limit: 500, depth: 1 },
-  //   { tags: ['blog-posts'] },
-  // );
-  // const blogEntries = blogRes.docs.map((post) => ({
-  //   url: `${SITE_URL}/blog/${post.category?.slug ?? 'uncategorized'}/${post.slug}`,
-  //   lastModified: new Date(post.publishedAt),
-  //   changeFrequency: 'weekly' as const,
-  //   priority: 0.8,
-  // }));
-  const blogEntries: MetadataRoute.Sitemap = [];
+  // -- Dynamic blog posts (CMS with static fallback) --
+  const blogRes = await getCollection<{ slug: string; category: { slug: string }; publishedAt: string }>(
+    'blog-posts',
+    { where: { status: 'published' } as Record<string, unknown>, limit: 500, depth: 1 },
+    { tags: ['blog-posts'] },
+  );
+  const blogPosts = blogRes.docs.length > 0
+    ? blogRes.docs.map((p) => ({ slug: p.slug, categorySlug: p.category?.slug ?? 'uncategorized', publishedAt: p.publishedAt }))
+    : STATIC_BLOG_POSTS.map((p) => ({ slug: p.slug, categorySlug: p.categorySlug, publishedAt: p.publishedAt }));
+
+  const blogEntries: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+    url: `${SITE_URL}/blog/${post.categorySlug}/${post.slug}`,
+    lastModified: new Date(post.publishedAt),
+    changeFrequency: 'monthly',
+    priority: 0.8,
+  }));
+
+  // -- Blog category pages --
+  const categorySlugs = [...new Set(blogPosts.map((p) => p.categorySlug))];
+  const categoryEntries: MetadataRoute.Sitemap = categorySlugs.map((slug) => ({
+    url: `${SITE_URL}/blog/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly',
+    priority: 0.7,
+  }));
 
   // -- Dynamic career listings from CMS --
   // TODO: Uncomment when Payload CMS is connected
@@ -93,5 +105,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // }));
   const careerEntries: MetadataRoute.Sitemap = [];
 
-  return [...staticEntries, ...blogEntries, ...careerEntries];
+  return [...staticEntries, ...blogEntries, ...categoryEntries, ...careerEntries];
 }

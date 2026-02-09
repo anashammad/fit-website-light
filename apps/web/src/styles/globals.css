@@ -79,6 +79,10 @@
     );
   }
 
+  /* Hide scrollbar utility */
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
   /* Data grid line effect */
   .data-line {
     position: relative;
@@ -93,6 +97,7 @@
     height: 1px;
     background: linear-gradient(90deg, transparent, rgba(0, 43, 127, 0.12), transparent);
   }
+
 }
 
 /* Respect reduced motion preferences */

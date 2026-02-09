@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <defs>
+    <linearGradient id="bg4" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#002B7F"/>
+      <stop offset="1" stop-color="#001F5C"/>
+    </linearGradient>
+    <linearGradient id="phoneScreen" x1="320" y1="50" x2="480" y2="430" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A1628"/>
+      <stop offset="1" stop-color="#0F1D35"/>
+    </linearGradient>
+    <linearGradient id="chartArea" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#3B82F6" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#3B82F6" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg4)"/>
+
+  <!-- Decorative blobs -->
+  <circle cx="180" cy="150" r="100" fill="rgba(59,130,246,0.05)"/>
+  <circle cx="620" cy="320" r="120" fill="rgba(59,130,246,0.04)"/>
+
+  <!-- Phone frame -->
+  <rect x="305" y="25" width="190" height="400" rx="24" fill="url(#phoneScreen)" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+
+  <!-- Phone notch -->
+  <rect x="370" y="35" width="60" height="6" rx="3" fill="rgba(255,255,255,0.15)"/>
+
+  <!-- Status bar -->
+  <g transform="translate(320, 55)" opacity="0.5">
+    <rect x="0" y="0" width="25" height="4" rx="1" fill="rgba(255,255,255,0.3)"/>
+    <rect x="130" y="0" width="20" height="4" rx="1" fill="rgba(255,255,255,0.3)"/>
+  </g>
+
+  <!-- Stock ticker header -->
+  <g transform="translate(320, 75)">
+    <rect x="0" y="0" width="55" height="6" rx="2" fill="rgba(255,255,255,0.25)"/>
+    <text x="0" y="22" fill="rgba(59,130,246,0.9)" font-size="20" font-family="monospace" font-weight="bold">2,847</text>
+    <text x="70" y="22" fill="rgba(22,163,74,0.8)" font-size="11" font-family="monospace">+2.4%</text>
+  </g>
+
+  <!-- Mini chart in phone -->
+  <g transform="translate(320, 115)">
+    <polygon points="0,75 15,70 30,68 45,72 60,55 75,45 90,50 105,35 120,30 135,38 150,25 150,85 0,85" fill="url(#chartArea)"/>
+    <polyline points="0,75 15,70 30,68 45,72 60,55 75,45 90,50 105,35 120,30 135,38 150,25" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linejoin="round"/>
+    <circle cx="150" cy="25" r="3" fill="#3B82F6"/>
+  </g>
+
+  <!-- Time tabs -->
+  <g transform="translate(320, 210)" opacity="0.5">
+    <rect x="0" y="0" width="24" height="14" rx="4" fill="rgba(255,255,255,0.08)"/>
+    <text x="12" y="10" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="7" font-family="sans-serif">1D</text>
+    <rect x="30" y="0" width="24" height="14" rx="4" fill="rgba(59,130,246,0.25)"/>
+    <text x="42" y="10" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="7" font-family="sans-serif">1W</text>
+    <rect x="60" y="0" width="24" height="14" rx="4" fill="rgba(255,255,255,0.08)"/>
+    <text x="72" y="10" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="7" font-family="sans-serif">1M</text>
+    <rect x="90" y="0" width="24" height="14" rx="4" fill="rgba(255,255,255,0.08)"/>
+    <text x="102" y="10" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="7" font-family="sans-serif">1Y</text>
+  </g>
+
+  <!-- Watchlist items -->
+  <g transform="translate(320, 240)">
+    <line x1="0" y1="0" x2="160" y2="0" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+    <!-- Item 1 -->
+    <rect x="0" y="8" width="35" height="5" rx="1" fill="rgba(255,255,255,0.2)"/>
+    <rect x="0" y="17" width="25" height="4" rx="1" fill="rgba(255,255,255,0.08)"/>
+    <rect x="110" y="8" width="40" height="5" rx="1" fill="rgba(22,163,74,0.4)"/>
+    <rect x="120" y="17" width="30" height="4" rx="1" fill="rgba(22,163,74,0.25)"/>
+    <!-- Item 2 -->
+    <line x1="0" y1="30" x2="160" y2="30" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+    <rect x="0" y="38" width="30" height="5" rx="1" fill="rgba(255,255,255,0.2)"/>
+    <rect x="0" y="47" width="28" height="4" rx="1" fill="rgba(255,255,255,0.08)"/>
+    <rect x="110" y="38" width="40" height="5" rx="1" fill="rgba(220,38,38,0.4)"/>
+    <rect x="125" y="47" width="25" height="4" rx="1" fill="rgba(220,38,38,0.25)"/>
+    <!-- Item 3 -->
+    <line x1="0" y1="60" x2="160" y2="60" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+    <rect x="0" y="68" width="40" height="5" rx="1" fill="rgba(255,255,255,0.2)"/>
+    <rect x="0" y="77" width="22" height="4" rx="1" fill="rgba(255,255,255,0.08)"/>
+    <rect x="110" y="68" width="40" height="5" rx="1" fill="rgba(22,163,74,0.4)"/>
+    <rect x="118" y="77" width="32" height="4" rx="1" fill="rgba(22,163,74,0.25)"/>
+  </g>
+
+  <!-- Buy/Sell buttons -->
+  <g transform="translate(320, 360)">
+    <rect x="0" y="0" width="72" height="30" rx="8" fill="rgba(22,163,74,0.5)" stroke="rgba(22,163,74,0.7)" stroke-width="1"/>
+    <text x="36" y="19" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="600" opacity="0.9">BUY</text>
+    <rect x="82" y="0" width="72" height="30" rx="8" fill="rgba(220,38,38,0.4)" stroke="rgba(220,38,38,0.6)" stroke-width="1"/>
+    <text x="118" y="19" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="600" opacity="0.9">SELL</text>
+  </g>
+
+  <!-- Phone bottom bar -->
+  <rect x="375" y="405" width="50" height="4" rx="2" fill="rgba(255,255,255,0.2)"/>
+
+  <!-- Left floating card - portfolio -->
+  <g transform="translate(80, 120)">
+    <rect width="160" height="100" rx="12" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    <rect x="15" y="15" width="50" height="5" rx="2" fill="rgba(255,255,255,0.15)"/>
+    <rect x="15" y="30" width="80" height="8" rx="2" fill="rgba(255,255,255,0.2)"/>
+    <rect x="15" y="48" width="40" height="5" rx="2" fill="rgba(22,163,74,0.4)"/>
+    <!-- Mini sparkline -->
+    <polyline points="15,75 35,72 55,68 75,70 95,60 115,55 135,58" fill="none" stroke="rgba(22,163,74,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Right floating card - notifications -->
+  <g transform="translate(560, 200)">
+    <rect width="160" height="80" rx="12" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    <circle cx="28" cy="25" r="12" fill="rgba(59,130,246,0.2)"/>
+    <path d="M24,22 L28,18 L32,22 L32,28 L24,28 Z" fill="none" stroke="rgba(59,130,246,0.7)" stroke-width="1.5"/>
+    <rect x="48" y="18" width="70" height="5" rx="2" fill="rgba(255,255,255,0.15)"/>
+    <rect x="48" y="28" width="50" height="4" rx="1" fill="rgba(255,255,255,0.08)"/>
+    <rect x="15" y="50" width="130" height="5" rx="2" fill="rgba(255,255,255,0.06)"/>
+    <rect x="15" y="60" width="90" height="4" rx="1" fill="rgba(255,255,255,0.04)"/>
+  </g>
+
+  <!-- Connection lines from floating cards to phone -->
+  <g stroke="rgba(59,130,246,0.1)" stroke-width="1" stroke-dasharray="4 3">
+    <line x1="240" y1="170" x2="305" y2="170"/>
+    <line x1="560" y1="240" x2="495" y2="240"/>
+  </g>
+</svg>

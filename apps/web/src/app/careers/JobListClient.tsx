@@ -22,7 +22,10 @@ interface JobListClientProps {
 export function JobListClient({ jobs, departments }: JobListClientProps) {
   const [activeDept, setActiveDept] = useState('All');
 
-  const allDepartments = ['All', ...departments];
+  const categoryOptions = [
+    { label: 'All', value: 'All' },
+    ...departments.map((d) => ({ label: d, value: d })),
+  ];
 
   const filtered =
     activeDept === 'All'
@@ -32,7 +35,7 @@ export function JobListClient({ jobs, departments }: JobListClientProps) {
   return (
     <section className="container-content section-padding">
       <CategoryFilter
-        categories={allDepartments}
+        categories={categoryOptions}
         active={activeDept}
         onChange={setActiveDept}
         className="mb-10"

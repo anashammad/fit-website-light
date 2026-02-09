@@ -56,7 +56,7 @@ export function NewsletterSignup({ className }: NewsletterSignupProps) {
       <p className="mb-2 text-body-sm text-slate-400">
         Newsletter coming soon. Leave your email to be notified.
       </p>
-      <div className="flex gap-3">
+      <div className="flex flex-col gap-3 sm:flex-row">
         <input
           type="email"
           required

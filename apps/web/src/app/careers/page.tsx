@@ -46,18 +46,20 @@ export default async function CareersPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <section className="bg-primary text-white">
-        <div className="container-content section-padding">
+      <section className="relative overflow-hidden bg-slate-50">
+        <div className="pointer-events-none absolute inset-0 bg-terminal-grid opacity-100" aria-hidden="true" />
+        <div className="container-content relative z-10 section-padding">
           <Breadcrumb
             items={[
               { label: 'Home', href: '/' },
               { label: 'Careers' },
             ]}
+            className="[&_span]:text-slate-500 [&_a]:text-slate-400 [&_a:hover]:text-primary"
           />
-          <Heading level={1} className="mt-4">
+          <Heading level={1} className="mt-4 text-slate-900">
             Careers at FIT
           </Heading>
-          <Text variant="body-lg" className="mt-4 max-w-2xl text-gray-200">
+          <Text variant="body-lg" className="mt-4 max-w-2xl text-slate-600">
             Help us build the trading technology that powers financial markets.
             We are always looking for talented people to join our team.
           </Text>

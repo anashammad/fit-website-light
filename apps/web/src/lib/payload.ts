@@ -59,26 +59,32 @@ export async function getCollection<T>(
     return EMPTY_COLLECTION as CollectionResponse<T>;
   }
 
-  const res = await fetch(
-    `${PAYLOAD_URL}/api/${collection}${buildQueryString(params)}`,
-    {
-      headers: {
-        ...(PAYLOAD_API_KEY
-          ? { Authorization: `Bearer ${PAYLOAD_API_KEY}` }
-          : {}),
-      },
-      next: {
-        revalidate: options?.revalidate ?? false,
-        tags: options?.tags,
-      },
+  try {
+    const res = await fetch(
+      `${PAYLOAD_URL}/api/${collection}${buildQueryString(params)}`,
+      {
+        headers: {
+          ...(PAYLOAD_API_KEY
+            ? { Authorization: `Bearer ${PAYLOAD_API_KEY}` }
+            : {}),
+        },
+        next: {
+          revalidate: options?.revalidate ?? false,
+          tags: options?.tags,
+        },
+      }
+    );
+
+    if (!res.ok) {
+      console.error(`CMS returned ${res.status} for collection: ${collection}`);
+      return EMPTY_COLLECTION as CollectionResponse<T>;
     }
-  );
 
-  if (!res.ok) {
-    throw new Error(`Failed to fetch collection: ${collection}`);
+    return res.json();
+  } catch (error) {
+    console.error(`Failed to fetch collection "${collection}":`, error);
+    return EMPTY_COLLECTION as CollectionResponse<T>;
   }
-
-  return res.json();
 }
 
 export async function getGlobal<T>(
@@ -89,21 +95,27 @@ export async function getGlobal<T>(
     return {} as T;
   }
 
-  const res = await fetch(`${PAYLOAD_URL}/api/globals/${slug}`, {
-    headers: {
-      ...(PAYLOAD_API_KEY
-        ? { Authorization: `Bearer ${PAYLOAD_API_KEY}` }
-        : {}),
-    },
-    next: {
-      revalidate: options?.revalidate ?? false,
-      tags: options?.tags,
-    },
-  });
+  try {
+    const res = await fetch(`${PAYLOAD_URL}/api/globals/${slug}`, {
+      headers: {
+        ...(PAYLOAD_API_KEY
+          ? { Authorization: `Bearer ${PAYLOAD_API_KEY}` }
+          : {}),
+      },
+      next: {
+        revalidate: options?.revalidate ?? false,
+        tags: options?.tags,
+      },
+    });
 
-  if (!res.ok) {
-    throw new Error(`Failed to fetch global: ${slug}`);
+    if (!res.ok) {
+      console.error(`CMS returned ${res.status} for global: ${slug}`);
+      return {} as T;
+    }
+
+    return res.json();
+  } catch (error) {
+    console.error(`Failed to fetch global "${slug}":`, error);
+    return {} as T;
   }
-
-  return res.json();
 }

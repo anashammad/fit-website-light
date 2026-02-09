@@ -122,7 +122,7 @@ const products: Record<string, ProductData> = {
     primaryCta: { label: 'Schedule a Demo', href: '/contact?product=fit-premium' },
     secondaryCta: { label: 'Request Datasheet', href: '/contact?type=datasheet&product=fit-premium' },
     relatedSlugs: ['wasata-backoffice', 'fit-surveillance', 'mobile-web-trading'],
-    usedBy: ['QNB', 'ADCB', 'NBO', 'Ubhar Capital', 'Bank Dhofar', 'SICO', 'CBQ', 'United Securities'],
+    usedBy: ['AL Ramz', 'international securities', 'WFS', 'Ubhar Capital','SIB' ,'Bank Dhofar', 'Jabal', 'CBQ', 'United','Ahli Bank', 'Global'],
   },
   'api-middleware': {
     slug: 'api-middleware',

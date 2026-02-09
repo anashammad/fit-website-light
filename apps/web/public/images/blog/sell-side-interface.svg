@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <defs>
+    <linearGradient id="bgSS" x1="800" y1="0" x2="0" y2="450" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#002B7F"/><stop offset="1" stop-color="#001F5C"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bgSS)"/>
+
+  <!-- Main dashboard frame -->
+  <rect x="60" y="40" width="680" height="370" rx="10" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
+
+  <!-- Top bar -->
+  <rect x="60" y="40" width="680" height="35" rx="10" fill="rgba(255,255,255,0.03)"/>
+  <rect x="60" y="65" width="680" height="10" fill="rgba(0,31,92,1)"/>
+  <circle cx="85" cy="57" r="5" fill="#DC2626" opacity="0.5"/>
+  <circle cx="105" cy="57" r="5" fill="#D97706" opacity="0.5"/>
+  <circle cx="125" cy="57" r="5" fill="#16A34A" opacity="0.5"/>
+  <rect x="300" y="50" width="200" height="14" rx="4" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
+  <text x="400" y="60" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-size="8" font-family="monospace">Sell-Side Trading Interface v3.2</text>
+
+  <!-- Left sidebar - instrument list -->
+  <rect x="60" y="75" width="150" height="335" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <text x="80" y="95" fill="rgba(255,255,255,0.3)" font-size="8" font-family="monospace" letter-spacing="1">INSTRUMENTS</text>
+
+  <!-- Instrument rows -->
+  <g transform="translate(70, 110)">
+    <rect x="0" y="0" width="130" height="25" rx="3" fill="rgba(59,130,246,0.1)" stroke="rgba(59,130,246,0.25)" stroke-width="0.5"/>
+    <text x="8" y="15" fill="rgba(255,255,255,0.5)" font-size="8" font-family="monospace">MSM30</text>
+    <text x="95" y="15" fill="rgba(22,163,74,0.7)" font-size="8" font-family="monospace">+1.2%</text>
+  </g>
+  <g transform="translate(70, 142)">
+    <rect x="0" y="0" width="130" height="25" rx="3" fill="rgba(255,255,255,0.02)"/>
+    <text x="8" y="15" fill="rgba(255,255,255,0.35)" font-size="8" font-family="monospace">OMSB</text>
+    <text x="95" y="15" fill="rgba(22,163,74,0.6)" font-size="8" font-family="monospace">+0.8%</text>
+  </g>
+  <g transform="translate(70, 174)">
+    <rect x="0" y="0" width="130" height="25" rx="3" fill="rgba(255,255,255,0.02)"/>
+    <text x="8" y="15" fill="rgba(255,255,255,0.35)" font-size="8" font-family="monospace">BKOB</text>
+    <text x="95" y="15" fill="rgba(220,38,38,0.6)" font-size="8" font-family="monospace">-0.3%</text>
+  </g>
+  <g transform="translate(70, 206)">
+    <rect x="0" y="0" width="130" height="25" rx="3" fill="rgba(255,255,255,0.02)"/>
+    <text x="8" y="15" fill="rgba(255,255,255,0.35)" font-size="8" font-family="monospace">OOMQ</text>
+    <text x="95" y="15" fill="rgba(22,163,74,0.6)" font-size="8" font-family="monospace">+2.1%</text>
+  </g>
+  <g transform="translate(70, 238)">
+    <rect x="0" y="0" width="130" height="25" rx="3" fill="rgba(255,255,255,0.02)"/>
+    <text x="8" y="15" fill="rgba(255,255,255,0.35)" font-size="8" font-family="monospace">ORCI</text>
+    <text x="95" y="15" fill="rgba(220,38,38,0.6)" font-size="8" font-family="monospace">-1.5%</text>
+  </g>
+
+  <!-- Main chart area -->
+  <g transform="translate(220, 85)">
+    <!-- Chart background -->
+    <rect width="350" height="180" rx="0" fill="rgba(255,255,255,0.01)"/>
+    <text x="5" y="12" fill="rgba(255,255,255,0.3)" font-size="9" font-family="monospace" font-weight="600">MSM30 Index</text>
+    <text x="5" y="24" fill="rgba(22,163,74,0.7)" font-size="14" font-family="monospace" font-weight="bold">4,847.32</text>
+    <text x="110" y="24" fill="rgba(22,163,74,0.6)" font-size="9" font-family="monospace">+58.21 (+1.22%)</text>
+
+    <!-- Grid -->
+    <g stroke="rgba(255,255,255,0.03)" stroke-width="0.5">
+      <line x1="0" y1="50" x2="350" y2="50"/>
+      <line x1="0" y1="90" x2="350" y2="90"/>
+      <line x1="0" y1="130" x2="350" y2="130"/>
+      <line x1="0" y1="170" x2="350" y2="170"/>
+    </g>
+
+    <!-- OHLC chart line -->
+    <polyline points="5,140 30,135 55,130 80,138 105,120 130,105 155,110 180,95 205,85 230,90 255,80 280,70 305,75 330,65 345,60" fill="none" stroke="rgba(22,163,74,0.6)" stroke-width="2" stroke-linejoin="round"/>
+    <!-- Volume mini bars -->
+    <g opacity="0.3">
+      <rect x="5" y="155" width="18" height="15" rx="1" fill="rgba(22,163,74,0.4)"/>
+      <rect x="30" y="158" width="18" height="12" rx="1" fill="rgba(22,163,74,0.3)"/>
+      <rect x="55" y="160" width="18" height="10" rx="1" fill="rgba(220,38,38,0.3)"/>
+      <rect x="80" y="152" width="18" height="18" rx="1" fill="rgba(22,163,74,0.4)"/>
+      <rect x="105" y="148" width="18" height="22" rx="1" fill="rgba(22,163,74,0.5)"/>
+      <rect x="130" y="155" width="18" height="15" rx="1" fill="rgba(220,38,38,0.3)"/>
+      <rect x="155" y="145" width="18" height="25" rx="1" fill="rgba(22,163,74,0.4)"/>
+      <rect x="180" y="150" width="18" height="20" rx="1" fill="rgba(22,163,74,0.5)"/>
+      <rect x="205" y="157" width="18" height="13" rx="1" fill="rgba(220,38,38,0.3)"/>
+      <rect x="230" y="142" width="18" height="28" rx="1" fill="rgba(22,163,74,0.5)"/>
+      <rect x="255" y="148" width="18" height="22" rx="1" fill="rgba(22,163,74,0.4)"/>
+      <rect x="280" y="140" width="18" height="30" rx="1" fill="rgba(22,163,74,0.5)"/>
+    </g>
+  </g>
+
+  <!-- Order entry panel (right) -->
+  <g transform="translate(585, 85)">
+    <rect width="145" height="180" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    <text x="12" y="18" fill="rgba(255,255,255,0.3)" font-size="8" font-family="monospace" letter-spacing="1">ORDER ENTRY</text>
+
+    <!-- Fields -->
+    <rect x="10" y="30" width="125" height="18" rx="3" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
+    <text x="16" y="42" fill="rgba(255,255,255,0.2)" font-size="7" font-family="monospace">Qty: 10,000</text>
+
+    <rect x="10" y="55" width="125" height="18" rx="3" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
+    <text x="16" y="67" fill="rgba(255,255,255,0.2)" font-size="7" font-family="monospace">Price: 0.485</text>
+
+    <rect x="10" y="80" width="125" height="18" rx="3" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
+    <text x="16" y="92" fill="rgba(255,255,255,0.2)" font-size="7" font-family="monospace">Type: LIMIT</text>
+
+    <!-- Buy/Sell buttons -->
+    <rect x="10" y="110" width="58" height="24" rx="5" fill="rgba(22,163,74,0.3)" stroke="rgba(22,163,74,0.5)" stroke-width="1"/>
+    <text x="39" y="126" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="9" font-family="sans-serif" font-weight="600">BUY</text>
+    <rect x="77" y="110" width="58" height="24" rx="5" fill="rgba(220,38,38,0.3)" stroke="rgba(220,38,38,0.5)" stroke-width="1"/>
+    <text x="106" y="126" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="9" font-family="sans-serif" font-weight="600">SELL</text>
+
+    <!-- Allocation preview -->
+    <text x="12" y="155" fill="rgba(255,255,255,0.2)" font-size="7" font-family="monospace">Est. Value: 4,850 OMR</text>
+    <text x="12" y="170" fill="rgba(59,130,246,0.5)" font-size="7" font-family="monospace">Margin: 2,425 OMR</text>
+  </g>
+
+  <!-- Bottom - Order blotter -->
+  <g transform="translate(220, 280)">
+    <rect width="510" height="120" rx="6" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+    <text x="12" y="18" fill="rgba(255,255,255,0.3)" font-size="8" font-family="monospace" letter-spacing="1">ORDERS</text>
+
+    <!-- Header row -->
+    <g transform="translate(12, 30)" opacity="0.4">
+      <text x="0" y="0" fill="white" font-size="6" font-family="monospace">TIME</text>
+      <text x="60" y="0" fill="white" font-size="6" font-family="monospace">SYMBOL</text>
+      <text x="130" y="0" fill="white" font-size="6" font-family="monospace">SIDE</text>
+      <text x="180" y="0" fill="white" font-size="6" font-family="monospace">QTY</text>
+      <text x="240" y="0" fill="white" font-size="6" font-family="monospace">PRICE</text>
+      <text x="310" y="0" fill="white" font-size="6" font-family="monospace">STATUS</text>
+    </g>
+    <line x1="12" y1="35" x2="498" y2="35" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+
+    <!-- Order rows -->
+    <g transform="translate(12, 48)" opacity="0.5">
+      <text x="0" y="0" fill="rgba(255,255,255,0.3)" font-size="7" font-family="monospace">09:31:02</text>
+      <text x="60" y="0" fill="rgba(255,255,255,0.4)" font-size="7" font-family="monospace">MSM30</text>
+      <text x="130" y="0" fill="rgba(22,163,74,0.7)" font-size="7" font-family="monospace">BUY</text>
+      <text x="180" y="0" fill="rgba(255,255,255,0.3)" font-size="7" font-family="monospace">5,000</text>
+      <text x="240" y="0" fill="rgba(255,255,255,0.3)" font-size="7" font-family="monospace">0.485</text>
+      <rect x="305" y="-8" width="40" height="12" rx="3" fill="rgba(22,163,74,0.15)"/>
+      <text x="325" y="0" text-anchor="middle" fill="rgba(22,163,74,0.8)" font-size="6" font-family="monospace">FILLED</text>
+    </g>
+    <g transform="translate(12, 64)" opacity="0.5">
+      <text x="0" y="0" fill="rgba(255,255,255,0.3)" font-size="7" font-family="monospace">09:32:15</text>
+      <text x="60" y="0" fill="rgba(255,255,255,0.4)" font-size="7" font-family="monospace">OMSB</text>
+      <text x="130" y="0" fill="rgba(220,38,38,0.7)" font-size="7" font-family="monospace">SELL</text>
+      <text x="180" y="0" fill="rgba(255,255,255,0.3)" font-size="7" font-family="monospace">2,000</text>
+      <text x="240" y="0" fill="rgba(255,255,255,0.3)" font-size="7" font-family="monospace">1.240</text>
+      <rect x="305" y="-8" width="40" height="12" rx="3" fill="rgba(217,119,6,0.15)"/>
+      <text x="325" y="0" text-anchor="middle" fill="rgba(217,119,6,0.8)" font-size="6" font-family="monospace">PARTIAL</text>
+    </g>
+    <g transform="translate(12, 80)" opacity="0.5">
+      <text x="0" y="0" fill="rgba(255,255,255,0.3)" font-size="7" font-family="monospace">09:33:48</text>
+      <text x="60" y="0" fill="rgba(255,255,255,0.4)" font-size="7" font-family="monospace">BKOB</text>
+      <text x="130" y="0" fill="rgba(22,163,74,0.7)" font-size="7" font-family="monospace">BUY</text>
+      <text x="180" y="0" fill="rgba(255,255,255,0.3)" font-size="7" font-family="monospace">10,000</text>
+      <text x="240" y="0" fill="rgba(255,255,255,0.3)" font-size="7" font-family="monospace">0.152</text>
+      <rect x="305" y="-8" width="40" height="12" rx="3" fill="rgba(59,130,246,0.15)"/>
+      <text x="325" y="0" text-anchor="middle" fill="rgba(59,130,246,0.8)" font-size="6" font-family="monospace">ACTIVE</text>
+    </g>
+  </g>
+</svg>

@@ -14,10 +14,14 @@ export function ShareButtons({ url, title, className }: ShareButtonsProps) {
   const encodedTitle = encodeURIComponent(title);
   const [copied, setCopied] = useState(false);
 
-  function handleCopyLink() {
-    navigator.clipboard.writeText(url);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  async function handleCopyLink() {
+    try {
+      await navigator.clipboard.writeText(url);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // Clipboard API unavailable (HTTP or permission denied)
+    }
   }
 
   return (
