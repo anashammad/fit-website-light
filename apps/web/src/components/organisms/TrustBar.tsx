@@ -26,23 +26,14 @@ export function TrustBar({ stats, logos, className }: TrustBarProps) {
   return (
     <section
       className={cn(
-        'border-y border-slate-200 bg-white py-12',
+        'border-y border-slate-200 bg-white pt-4 pb-12',
         className
       )}
     >
-      <div className="container-content">
-        {/* Stats */}
-        <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
-          {stats.map((stat) => (
-            <StatItem key={stat.label} value={stat.value} label={stat.label} />
-          ))}
-        </div>
-      </div>
-
       {/* Client logos — infinite scrolling ticker */}
       {logos.length > 0 && (
         <>
-          <div className="mt-10 mb-4 text-center">
+          <div className="mb-4 text-center">
             <span className="text-label tracking-wider text-gray-500">TRUSTED BY</span>
           </div>
           <div className="relative overflow-hidden">
@@ -58,7 +49,7 @@ export function TrustBar({ stats, logos, className }: TrustBarProps) {
                     alt={logo.name}
                     width={120}
                     height={40}
-                    className="h-10 w-auto shrink-0 object-contain opacity-60 transition-all hover:opacity-100"
+                    className="h-10 w-auto shrink-0 object-contain"
                   />
                 );
 
@@ -87,6 +78,15 @@ export function TrustBar({ stats, logos, className }: TrustBarProps) {
           </div>
         </>
       )}
+
+      {/* Stats */}
+      <div className="container-content mt-10">
+        <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
+          {stats.map((stat) => (
+            <StatItem key={stat.label} value={stat.value} label={stat.label} />
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

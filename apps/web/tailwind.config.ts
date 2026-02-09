@@ -16,10 +16,10 @@ const config: Config = {
           light: '#3B82F6',
         },
         accent: {
-          DEFAULT: '#D4A843',
-          hover: '#C4982E',
-          light: '#E8C96A',
-          muted: 'rgba(212, 168, 67, 0.15)',
+          DEFAULT: '#002B7F',
+          hover: '#001F5C',
+          light: '#3366B8',
+          muted: 'rgba(0, 43, 127, 0.15)',
         },
         terminal: {
           green: '#16A34A',

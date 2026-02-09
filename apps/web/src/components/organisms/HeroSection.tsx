@@ -2,6 +2,8 @@ import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { Heading, Text, ButtonLink } from '@/components/atoms';
 import { Breadcrumb, type BreadcrumbItem } from '@/components/molecules/Breadcrumb';
+import { TradingViewTicker } from '@/components/molecules/TradingViewTicker';
+import { MENATickerTape } from '@/components/molecules/MENATickerTape';
 
 export type HeroVariant = 'primary' | 'page' | 'light';
 
@@ -38,7 +40,7 @@ export function HeroSection({
     <section
       className={cn(
         'relative overflow-hidden',
-        variant === 'primary' && 'bg-slate-50 pb-28 pt-36',
+        variant === 'primary' && 'bg-slate-50 pb-0 pt-0',
         variant === 'page' && 'bg-slate-50 pb-20 pt-24',
         variant === 'light' && 'bg-white py-16',
         className
@@ -60,7 +62,7 @@ export function HeroSection({
 
       {/* Decorative candlestick chart SVG */}
       {variant === 'primary' && (
-        <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-32 opacity-[0.06]" aria-hidden="true">
+        <div className="pointer-events-none absolute top-0 left-0 right-0 h-32 opacity-[0.06]" aria-hidden="true">
           <svg width="100%" height="100%" viewBox="0 0 1200 128" preserveAspectRatio="none" fill="none">
             <line x1="50" y1="20" x2="50" y2="110" stroke="#002B7F" strokeWidth="1" />
             <rect x="44" y="40" width="12" height="40" fill="#16A34A" />
@@ -97,6 +99,14 @@ export function HeroSection({
             <line x1="1170" y1="10" x2="1170" y2="120" stroke="#002B7F" strokeWidth="1" />
             <rect x="1164" y="20" width="12" height="55" fill="#16A34A" />
           </svg>
+        </div>
+      )}
+
+      {/* Live market tickers — top of hero */}
+      {variant === 'primary' && (
+        <div className="relative z-10 mb-8">
+          <TradingViewTicker />
+          <MENATickerTape />
         </div>
       )}
 
@@ -178,35 +188,6 @@ export function HeroSection({
         </div>
       </div>
 
-      {/* Decorative market ticker tape */}
-      {variant === 'primary' && (
-        <div className="relative z-10 mt-8 overflow-hidden border-t border-slate-200 bg-white/80 py-2" aria-hidden="true">
-          <div className="flex animate-market-ticker whitespace-nowrap font-mono text-ticker">
-            {[0, 1].map((dup) => (
-              <div key={dup} className="flex shrink-0 items-center gap-6 px-4">
-                <span className="text-terminal-green">MSM 30 ▲ 1.2%</span>
-                <span className="text-slate-300">|</span>
-                <span className="text-terminal-green">ADX ▲ 0.8%</span>
-                <span className="text-slate-300">|</span>
-                <span className="text-terminal-red">DFM ▼ 0.3%</span>
-                <span className="text-slate-300">|</span>
-                <span className="text-terminal-green">QSE ▲ 0.5%</span>
-                <span className="text-slate-300">|</span>
-                <span className="text-terminal-green">TASI ▲ 1.1%</span>
-                <span className="text-slate-300">|</span>
-                <span className="text-terminal-red">BSE ▼ 0.2%</span>
-                <span className="text-slate-300">|</span>
-                <span className="text-terminal-green">KSE ▲ 0.6%</span>
-                <span className="text-slate-300">|</span>
-                <span className="text-terminal-green">NASDAQ ▲ 0.9%</span>
-                <span className="text-slate-300">|</span>
-                <span className="text-terminal-red">FTSE ▼ 0.1%</span>
-                <span className="text-slate-300">|</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
     </section>
   );
 }

@@ -24,7 +24,7 @@ export interface ButtonLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement>
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    'bg-accent text-primary font-semibold hover:bg-accent-hover active:bg-accent-hover shadow-[0_1px_2px_rgba(0,0,0,0.3)]',
+    'bg-accent text-white font-semibold hover:bg-accent-hover active:bg-accent-hover shadow-[0_1px_2px_rgba(0,0,0,0.3)]',
   secondary:
     'bg-transparent text-accent border border-accent/40 hover:bg-accent/10 hover:border-accent/60 active:bg-accent/15',
   ghost:
@@ -34,9 +34,9 @@ const variantStyles: Record<ButtonVariant, string> = {
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
-  sm: 'h-9 px-4 text-body-sm rounded-sm',
-  md: 'h-11 px-6 text-body rounded',
-  lg: 'h-[52px] px-8 text-body rounded',
+  sm: 'h-9 px-4 text-sm rounded-sm',
+  md: 'h-11 px-6 text-base rounded',
+  lg: 'h-[52px] px-8 text-base rounded',
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
