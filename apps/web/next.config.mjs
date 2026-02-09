@@ -1,10 +1,14 @@
+import { resolve, dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 const isDev = process.env.NODE_ENV === 'development';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'standalone',
   turbopack: {
-    root: '../..',
+    root: resolve(__dirname, '../..'),
   },
   images: {
     remotePatterns: [

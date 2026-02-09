@@ -24,7 +24,6 @@ COPY apps/web ./apps/web
 COPY packages/shared ./packages/shared
 
 ENV NEXT_TELEMETRY_DISABLED=1
-ENV NODE_ENV=production
 
 RUN npx turbo build --filter=@fit/web
 
