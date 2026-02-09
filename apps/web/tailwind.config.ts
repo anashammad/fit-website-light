@@ -177,8 +177,8 @@ const config: Config = {
         'fade-in': 'fadeIn 0.5s ease-out forwards',
         'slide-up': 'slideUp 0.5s ease-out forwards',
         'glow-pulse': 'glowPulse 2s ease-in-out infinite',
-        'scroll-left': 'scrollLeft 25s linear infinite',
-        'market-ticker': 'scrollLeft 20s linear infinite',
+        'scroll-left': 'scrollLeft 50s linear infinite',
+        'market-ticker': 'scrollLeft 40s linear infinite',
       },
       keyframes: {
         'ticker-scroll': {

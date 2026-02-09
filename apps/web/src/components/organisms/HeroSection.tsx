@@ -2,7 +2,6 @@ import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { Heading, Text, ButtonLink } from '@/components/atoms';
 import { Breadcrumb, type BreadcrumbItem } from '@/components/molecules/Breadcrumb';
-import { TradingViewTicker } from '@/components/molecules/TradingViewTicker';
 import { MENATickerTape } from '@/components/molecules/MENATickerTape';
 
 export type HeroVariant = 'primary' | 'page' | 'light';
@@ -105,7 +104,6 @@ export function HeroSection({
       {/* Live market tickers — top of hero */}
       {variant === 'primary' && (
         <div className="relative z-10 mb-8">
-          <TradingViewTicker />
           <MENATickerTape />
         </div>
       )}

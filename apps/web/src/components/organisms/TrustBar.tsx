@@ -20,8 +20,7 @@ export interface TrustBarProps {
 }
 
 export function TrustBar({ stats, logos, className }: TrustBarProps) {
-  // Duplicate logos for seamless infinite scroll
-  const duplicatedLogos = [...logos, ...logos];
+  // Two copies rendered side-by-side for seamless infinite scroll
 
   return (
     <section
@@ -41,39 +40,44 @@ export function TrustBar({ stats, logos, className }: TrustBarProps) {
             <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-white to-transparent" />
             <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-white to-transparent" />
 
-            <div className="flex animate-scroll-left">
-              {duplicatedLogos.map((logo, i) => {
-                const img = (
-                  <Image
-                    src={logo.src}
-                    alt={logo.name}
-                    width={120}
-                    height={40}
-                    className="h-10 w-auto shrink-0 object-contain"
-                  />
-                );
+            <div className="inline-flex w-max animate-scroll-left">
+              {[0, 1].map((dup) => (
+                <div key={dup} className="flex shrink-0 items-center">
+                  {logos.map((logo, i) => {
+                    const img = (
+                      <Image
+                        src={logo.src}
+                        alt={logo.name}
+                        width={120}
+                        height={40}
+                        className="h-10 w-auto shrink-0 object-contain"
+                        unoptimized
+                      />
+                    );
 
-                if (logo.href) {
-                  return (
-                    <a
-                      key={`${logo.name}-${i}`}
-                      href={logo.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={logo.name}
-                      className="mx-10 flex shrink-0 items-center"
-                    >
-                      {img}
-                    </a>
-                  );
-                }
+                    if (logo.href) {
+                      return (
+                        <a
+                          key={`${logo.name}-${dup}-${i}`}
+                          href={logo.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={logo.name}
+                          className="mx-8 flex shrink-0 items-center"
+                        >
+                          {img}
+                        </a>
+                      );
+                    }
 
-                return (
-                  <div key={`${logo.name}-${i}`} className="mx-10 flex shrink-0 items-center">
-                    {img}
-                  </div>
-                );
-              })}
+                    return (
+                      <div key={`${logo.name}-${dup}-${i}`} className="mx-8 flex shrink-0 items-center">
+                        {img}
+                      </div>
+                    );
+                  })}
+                </div>
+              ))}
             </div>
           </div>
         </>

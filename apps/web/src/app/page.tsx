@@ -134,11 +134,24 @@ const trustStats = [
 
 const trustLogos = [
   { name: 'QNB', src: '/images/logos/qnb.svg' },
+  { name: 'CBQ', src: '/images/logos/cbq.svg' },
+  { name: 'WFS', src: '/images/logos/wfs.svg' },
+  { name: 'QSC', src: '/images/logos/qsc.svg' },
+  { name: 'CIBC', src: '/images/logos/cibc.svg' },
+  { name: 'Pioneers', src: '/images/logos/pioneers.svg' },
   { name: 'ADCB', src: '/images/logos/adcb.svg' },
-  { name: 'NBO', src: '/images/logos/nbo.svg' },
-  { name: 'Ubhar Capital', src: '/images/logos/ubhar.svg' },
-  { name: 'Bank Dhofar', src: '/images/logos/bankdhofar.svg' },
+  { name: 'Al Ramz', src: '/images/logos/alramz.svg' },
+  { name: 'International Securities', src: '/images/logos/international-securities.svg' },
+  { name: 'SIB', src: '/images/logos/sib.svg' },
+  { name: 'CBD', src: '/images/logos/cbd.svg' },
   { name: 'SICO', src: '/images/logos/sico.svg' },
+  { name: 'Ahli Bank', src: '/images/logos/ahlibank.svg' },
+  { name: 'Jabal', src: '/images/logos/jabal.svg' },
+  { name: 'Ubhar Capital', src: '/images/logos/ubhar.svg' },
+  { name: 'NBO', src: '/images/logos/nbo.svg' },
+  { name: 'Global Securities', src: '/images/logos/global-securities.svg' },
+  { name: 'United Securities', src: '/images/logos/united-securities.svg' },
+  { name: 'Bank Dhofar', src: '/images/logos/bankdhofar.svg' },
 ];
 
 // -- Page component --

@@ -15,7 +15,12 @@ export interface FooterProps {
 
 const offices = [
   {
-    country: 'Oman (HQ)',
+    country: 'Jordan (HQ)',
+    phone: '+962 62 005 544',
+    address: 'P.O. Box 930333, PC 11193 Amman',
+  },
+  {
+    country: 'Oman',
     phone: '+968 24 700 454',
     address: 'P.O. Box 629, PC 112 Ruwi, Muscat',
   },
@@ -23,11 +28,6 @@ const offices = [
     country: 'UAE',
     phone: '+971 43 055 390',
     address: 'P.O. Box 120804, Dubai',
-  },
-  {
-    country: 'Jordan',
-    phone: '+962 62 005 544',
-    address: 'P.O. Box 930333, PC 11193 Amman',
   },
 ];
 
