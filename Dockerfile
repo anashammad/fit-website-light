@@ -1,25 +1,16 @@
-FROM node:20-alpine AS base
+FROM node:20-alpine AS builder
 
-# ---- Install dependencies ----
-FROM base AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
-# Copy root package files and workspace package files
-COPY package.json package-lock.json* ./
+# Copy package files for install
+COPY package.json package-lock.json turbo.json ./
 COPY apps/web/package.json ./apps/web/package.json
 COPY packages/shared/package.json ./packages/shared/package.json
 
 RUN npm ci
 
-# ---- Build ----
-FROM base AS builder
-WORKDIR /app
-
-COPY --from=deps /app/node_modules ./node_modules
-
 # Copy source code
-COPY package.json turbo.json ./
 COPY apps/web ./apps/web
 COPY packages/shared ./packages/shared
 
@@ -28,7 +19,7 @@ ENV NEXT_TELEMETRY_DISABLED=1
 RUN npx turbo build --filter=@fit/web
 
 # ---- Production runner ----
-FROM base AS runner
+FROM node:20-alpine AS runner
 WORKDIR /app
 
 ENV NEXT_TELEMETRY_DISABLED=1
